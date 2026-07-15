@@ -18,9 +18,9 @@ import Team from "@/components/sections/Team";
 import Results from "@/components/sections/Results";
 import PulsePanel from "@/components/maia/PulsePanel";
 import GlassChapter from "@/components/maia/GlassChapter";
+import ArchitectureDiagram from "@/components/maia/ArchitectureDiagram";
 import { BentoGrid, BentoItem } from "@/components/maia/BentoGrid";
 import GlassPanel from "@/components/ui/GlassPanel";
-import TerminalPanel from "@/components/ui/TerminalPanel";
 import { SceneLabel, SceneTitle, HeroTitle } from "@/components/ui/Typography";
 
 const BENTO_ACCENTS = [
@@ -37,16 +37,18 @@ export default function MaiaChapters() {
 
   return (
     <>
-      <section id="intro" className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center">
-        <div className="max-w-4xl mx-auto w-full py-16 sm:py-24 relative z-10">
+      <section id="intro" className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center justify-center">
+        <div className="max-w-4xl mx-auto w-full py-16 sm:py-24 relative z-10 flex justify-center">
           <Reveal>
-            <TerminalPanel title="/maia" className="max-w-3xl mx-auto">
+            <div className="glass-card-maia">
               <SceneLabel>{t(maiaIntro.eyebrow, lang)}</SceneLabel>
               <HeroTitle>{t(maiaIntro.title, lang)}</HeroTitle>
-              <p className="text-base sm:text-lg text-[var(--cyber-text-muted)] max-w-2xl mt-6 mb-4">{t(maiaIntro.subtitle, lang)}</p>
-              <p className="text-sm text-[var(--cyber-cyan-bright)] max-w-2xl mb-6">{t(maiaIntro.tagline, lang)}</p>
-              <p className="maia-editorial-badge inline-block">{t(maiaDisclaimer, lang)}</p>
-            </TerminalPanel>
+              <p className="text-base sm:text-lg text-[var(--cyber-text-muted)] max-w-2xl mt-4 mb-3 mx-auto">
+                {t(maiaIntro.subtitle, lang)}
+              </p>
+              <p className="text-sm text-[var(--cyber-cyan-bright)] max-w-2xl mb-4 mx-auto">{t(maiaIntro.tagline, lang)}</p>
+              <p className="maia-editorial-badge inline-block text-xs">{t(maiaDisclaimer, lang)}</p>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -72,7 +74,8 @@ export default function MaiaChapters() {
         <GlassPanel className="p-6 sm:p-10 mb-8">
           <SceneLabel>{t(maiaInvisible.eyebrow, lang)}</SceneLabel>
           <SceneTitle>{t(maiaInvisible.title, lang)}</SceneTitle>
-          <p className="text-[var(--theme-text-muted)] max-w-2xl mt-4">{t(maiaInvisible.intro, lang)}</p>
+          <p className="text-[var(--theme-text-muted)] max-w-2xl mt-4 mb-8">{t(maiaInvisible.intro, lang)}</p>
+          <ArchitectureDiagram />
         </GlassPanel>
         <PipelineStoryExplorer />
       </section>

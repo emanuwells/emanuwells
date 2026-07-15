@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="theme-shell min-h-screen relative" data-phase="terminal">
+    <div className="theme-shell portfolio-shell min-h-screen relative" data-phase="terminal">
       <CircuitBackground />
       <div className="relative z-[1]">{children}</div>
     </div>

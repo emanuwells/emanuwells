@@ -36,5 +36,7 @@ O estado interativo fica em componentes cliente pequenos. Conteúdo e composiç�
 
 ## Design system
 
-O contrato visual (paleta terminal, componentes cyberpunk-lite, responsividade e acessibilidade) está documentado em [`docs/design/DESIGN.md`](../design/DESIGN.md), com mockups de referência em `docs/design/assets/`.
+O contrato visual v1.0.0 (paleta terminal cyan+lime na Home, sub-marca Maia magenta+sans-serif em `/maia`) está documentado em [`docs/design/DESIGN.md`](../design/DESIGN.md), com mockups de referência em `docs/design/assets/`.
+
+Implementação: tokens em `site/styles/tokens.css` e `site/styles/cyber.css`; componentes base em `site/components/ui/` (`Button`, `Badge`, `StatCard`, `ProgressBar`, `TerminalPanel`, `NeonCard`).
 

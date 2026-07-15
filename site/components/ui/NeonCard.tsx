@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type Variant = "cyan" | "lime" | "gradient";
+type Variant = "cyan" | "lime" | "magenta" | "gradient";
 
 export default function NeonCard({
   children,

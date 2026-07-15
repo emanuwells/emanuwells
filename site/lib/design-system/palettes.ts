@@ -23,32 +23,47 @@ export type Palette = {
 };
 
 export const TERMINAL_PALETTE: Palette = {
-  bg: "#050a0f",
+  bg: "#0a0e17",
   bgGradient:
-    "radial-gradient(ellipse 120% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent 55%), linear-gradient(180deg, #050a0f 0%, #07111f 100%)",
-  glass: "rgba(7, 17, 31, 0.88)",
-  glassBorder: "rgba(34, 211, 238, 0.35)",
-  glassHighlight: "rgba(103, 232, 249, 0.08)",
-  text: "#f8fafc",
-  textMuted: "#94a3b8",
-  accent: "#22d3ee",
-  accentLight: "#67e8f9",
-  accentGlow: "rgba(34, 211, 238, 0.4)",
-  secondary: "#84cc16",
-  card: "rgba(7, 17, 31, 0.75)",
-  cardHover: "rgba(12, 28, 48, 0.9)",
+    "radial-gradient(ellipse 120% 80% at 50% -30%, rgba(77, 216, 232, 0.08), transparent 55%), linear-gradient(180deg, #0a0e17 0%, #0d1220 100%)",
+  glass: "rgba(16, 21, 31, 0.88)",
+  glassBorder: "rgba(77, 216, 232, 0.35)",
+  glassHighlight: "rgba(126, 232, 244, 0.08)",
+  text: "#e8ecf1",
+  textMuted: "#8b95a5",
+  accent: "#4dd8e8",
+  accentLight: "#7ee8f4",
+  accentGlow: "rgba(77, 216, 232, 0.45)",
+  secondary: "#c8f04a",
+  card: "rgba(16, 21, 31, 0.75)",
+  cardHover: "rgba(20, 28, 42, 0.9)",
   shadow: "rgba(0, 0, 0, 0.5)",
-  bentoMeteo: "#22d3ee",
-  bentoCuriosities: "#a3e635",
+  bentoMeteo: "#4dd8e8",
+  bentoCuriosities: "#c8f04a",
   bentoPublic: "#818cf8",
   bentoTurism: "#4ade80",
-  bentoEvents: "#f472b6",
+  bentoEvents: "#d946ef",
   bentoTransport: "#fb923c",
-  bentoMotivation: "#a855f7",
+  bentoMotivation: "#d946ef",
 };
 
-export type ResolvedPhase = "terminal";
+export const MAIA_PALETTE: Palette = {
+  ...TERMINAL_PALETTE,
+  bg: "#140a1f",
+  bgGradient:
+    "radial-gradient(ellipse 100% 70% at 50% 0%, rgba(217, 70, 239, 0.12), transparent 55%), linear-gradient(180deg, #140a1f 0%, #1a0e2e 100%)",
+  glass: "rgba(26, 14, 46, 0.75)",
+  glassBorder: "rgba(217, 70, 239, 0.35)",
+  secondary: "#d946ef",
+  card: "rgba(26, 14, 46, 0.75)",
+  cardHover: "rgba(36, 20, 58, 0.9)",
+  bentoEvents: "#d946ef",
+  bentoMotivation: "#d946ef",
+};
+
+export type ResolvedPhase = "terminal" | "maia";
 
 export const RESOLVED_PALETTES: Record<ResolvedPhase, Palette> = {
   terminal: TERMINAL_PALETTE,
+  maia: MAIA_PALETTE,
 };

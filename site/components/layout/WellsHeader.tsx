@@ -8,6 +8,7 @@ import { useLang, t } from "@/lib/i18n";
 import { HeaderClock } from "@/components/layout/FloatingCategories";
 import PersonalMark from "@/components/brand/PersonalMark";
 import WellsSearchBar from "@/components/search/WellsSearchBar";
+import ProgressBar from "@/components/ui/ProgressBar";
 
 export type HeaderVariant = "portfolio" | "maia";
 
@@ -73,7 +74,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const headerClass = `fixed top-0 inset-x-0 z-50 transition-all ${scrolled || variant !== "portfolio" ? "glass-header shadow-sm" : ""}`;
+  const headerClass = `fixed top-0 inset-x-0 z-50 transition-all border-b border-[var(--border-subtle)] ${scrolled || variant !== "portfolio" ? "glass-header shadow-sm" : ""}`;
 
   return (
     <header className={headerClass}>
@@ -87,13 +88,13 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3 min-w-0">
           {variant === "maia" ? (
-            <Link href="/" className="text-sm text-[var(--theme-accent)] shrink-0">
+            <Link href="/" className="text-sm text-[var(--theme-accent)] shrink-0 border-b-2 border-transparent hover:border-[var(--theme-accent)] pb-0.5">
               ← {t(maiaBackLabel, lang)}
             </Link>
           ) : (
             <PersonalMark variant="header" href="/" />
           )}
-          <HeaderClock />
+          {variant === "portfolio" && <HeaderClock />}
         </div>
 
         {variant === "portfolio" && (
@@ -103,13 +104,21 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                 key={item.id}
                 type="button"
                 onClick={() => scrollTo(item.id)}
-                className={`px-2.5 py-1.5 text-sm rounded-md ${active === item.id ? "text-[var(--theme-accent)] bg-[var(--theme-card)]" : "text-[var(--theme-text-muted)]"}`}
+                className={`px-2.5 py-1.5 text-sm rounded-md border-b-2 ${
+                  active === item.id
+                    ? "text-[var(--theme-accent)] border-[var(--theme-accent)]"
+                    : "text-[var(--theme-text-muted)] border-transparent hover:text-[var(--theme-accent)]"
+                }`}
               >
                 {t(item.label, lang)}
               </button>
             ))}
             {EXTRA_NAV.map((item) => (
-              <Link key={item.id} href={item.href} className="px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-text)]">
+              <Link
+                key={item.id}
+                href={item.href}
+                className="px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)] border-b-2 border-transparent"
+              >
                 {t(item.label, lang)}
               </Link>
             ))}
@@ -122,7 +131,11 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
               <a
                 key={ch.id}
                 href={`#${ch.id}`}
-                className={`px-2 py-1 text-xs rounded whitespace-nowrap ${active === ch.id ? "text-[var(--theme-accent)]" : "text-[var(--theme-text-muted)]"}`}
+                className={`px-2 py-1 text-xs rounded whitespace-nowrap border-b-2 ${
+                  active === ch.id
+                    ? "text-[var(--theme-accent)] border-[var(--theme-accent)]"
+                    : "text-[var(--theme-text-muted)] border-transparent"
+                }`}
               >
                 {t(ch.label, lang)}
               </a>
@@ -130,7 +143,15 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
           </nav>
         )}
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
+          {variant === "portfolio" && (
+            <div className="hidden sm:flex flex-col items-end gap-1 min-w-[120px]">
+              <span className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest text-[var(--cyber-text-muted)]">
+                System Pulse
+              </span>
+              <ProgressBar value={progress} color="lime" className="w-full" label="Scroll progress" />
+            </div>
+          )}
           <button type="button" onClick={toggle} className="lang-pill" aria-label="Language">
             <span className={lang === "pt" ? "text-[var(--cyber-lime-bright)]" : "text-[var(--cyber-text-muted)]"}>PT</span>
             <span className="text-[var(--cyber-text-muted)]">/</span>

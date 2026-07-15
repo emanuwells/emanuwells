@@ -8,7 +8,7 @@ import WellsSearchBar from "@/components/search/WellsSearchBar";
 import Button from "@/components/ui/Button";
 import TypingText from "@/components/ui/TypingText";
 import TerminalPanel from "@/components/ui/TerminalPanel";
-import NeonCard from "@/components/ui/NeonCard";
+import StatCard from "@/components/ui/StatCard";
 import MaiaCtaLink from "./MaiaCtaLink";
 
 const item = {
@@ -37,31 +37,28 @@ function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () =
         </p>
       </TerminalPanel>
       <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 mb-10">
-        <Button type="button" onClick={onProjects}>
+        <Button type="button" variant="primary" onClick={onProjects}>
           {t(hero.ctaProjects, lang)}
         </Button>
         <MaiaCtaLink />
-        <a
-          href="https://wells-os.vercel.app"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-[rgba(148,163,184,0.35)] px-5 py-2.5 text-sm text-[var(--cyber-text-muted)] hover:text-[var(--cyber-text)] self-center"
-        >
-          {lang === "pt" ? "Conhecer o WELLS_OS" : "Explore WELLS_OS"} ↗
+        <a href="https://wells-os.vercel.app" target="_blank" rel="noreferrer">
+          <Button type="button" variant="tertiary" className="!inline-flex">
+            {lang === "pt" ? "Conhecer o WELLS_OS" : "Explore WELLS_OS"} ↗
+          </Button>
         </a>
       </div>
       <div>
-        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[var(--cyber-cyan)] mb-4">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.05em] text-[var(--cyber-cyan)] mb-4">
           {t(evidence.eyebrow, lang)}
         </p>
         <dl className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {evidence.items.map((ev, i) => (
-            <NeonCard key={ev.value} variant={i % 2 === 0 ? "cyan" : "lime"} bracket>
-              <dd className="kpi-value">{ev.value}</dd>
-              <dd className="text-xs text-[var(--cyber-text-muted)] mt-2 font-[family-name:var(--font-mono)]">
-                {t(ev.label, lang)}
-              </dd>
-            </NeonCard>
+            <StatCard
+              key={ev.value}
+              value={ev.value}
+              label={t(ev.label, lang)}
+              glow={i % 2 === 0 ? "cyan" : "lime"}
+            />
           ))}
         </dl>
       </div>

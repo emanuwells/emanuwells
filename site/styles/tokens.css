@@ -1,40 +1,62 @@
-/* Wells Terminal — tokens fixos (ver docs/design/DESIGN.md) */
+/* Grinnu Nells v1.0.0 — tokens (ver docs/design/DESIGN.md) */
 :root {
-  --cyber-bg: #050a0f;
-  --cyber-bg-elevated: #07111f;
-  --cyber-cyan: #22d3ee;
-  --cyber-cyan-bright: #67e8f9;
-  --cyber-lime: #84cc16;
-  --cyber-lime-bright: #a3e635;
-  --cyber-purple: #a855f7;
-  --cyber-text: #f8fafc;
-  --cyber-text-muted: #94a3b8;
-  --cyber-border: rgba(34, 211, 238, 0.35);
-  --cyber-glow-cyan: 0 0 20px rgba(34, 211, 238, 0.35);
-  --cyber-glow-lime: 0 0 20px rgba(132, 204, 22, 0.35);
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0d1220;
+  --bg-card: rgba(16, 21, 31, 0.75);
+  --bg-card-solid: #10151f;
+  --border-subtle: rgba(77, 216, 232, 0.15);
+  --border-default: rgba(77, 216, 232, 0.35);
+
+  --text-primary: #e8ecf1;
+  --text-secondary: #8b95a5;
+  --text-muted: #5a6478;
+
+  --cyber-bg: var(--bg-primary);
+  --cyber-bg-elevated: var(--bg-secondary);
+  --cyber-cyan: #4dd8e8;
+  --cyber-cyan-bright: #7ee8f4;
+  --cyber-cyan-glow: rgba(77, 216, 232, 0.45);
+  --cyber-lime: #c8f04a;
+  --cyber-lime-bright: #d4f56a;
+  --cyber-lime-glow: rgba(200, 240, 74, 0.45);
+  --cyber-mint: #5eebb0;
+  --cyber-purple: #d946ef;
+  --cyber-magenta: #d946ef;
+  --cyber-magenta-glow: rgba(217, 70, 239, 0.45);
+  --heat-red: #ef4444;
+  --heat-yellow: #fbbf24;
+  --heat-blue: #3b82f6;
+  --positive-green: #4ade80;
+
+  --cyber-text: var(--text-primary);
+  --cyber-text-muted: var(--text-secondary);
+  --cyber-border: var(--border-default);
+  --cyber-glow-cyan: 0 0 8px rgba(77, 216, 232, 0.33), 0 0 24px rgba(77, 216, 232, 0.13);
+  --cyber-glow-lime: 0 0 8px rgba(200, 240, 74, 0.33), 0 0 24px rgba(200, 240, 74, 0.13);
+  --cyber-glow-magenta: 0 0 8px rgba(217, 70, 239, 0.33), 0 0 24px rgba(217, 70, 239, 0.13);
 
   --theme-bg: var(--cyber-bg);
-  --theme-bg-gradient: radial-gradient(ellipse 120% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent 55%),
-    linear-gradient(180deg, #050a0f 0%, #07111f 100%);
-  --theme-glass: rgba(7, 17, 31, 0.88);
+  --theme-bg-gradient: radial-gradient(ellipse 120% 80% at 50% -30%, rgba(77, 216, 232, 0.08), transparent 55%),
+    linear-gradient(180deg, #0a0e17 0%, #0d1220 100%);
+  --theme-glass: rgba(16, 21, 31, 0.88);
   --theme-glass-border: var(--cyber-border);
-  --theme-glass-highlight: rgba(103, 232, 249, 0.08);
+  --theme-glass-highlight: rgba(126, 232, 244, 0.08);
   --theme-text: var(--cyber-text);
   --theme-text-muted: var(--cyber-text-muted);
   --theme-accent: var(--cyber-cyan);
   --theme-accent-light: var(--cyber-cyan-bright);
-  --theme-accent-glow: rgba(34, 211, 238, 0.4);
+  --theme-accent-glow: var(--cyber-cyan-glow);
   --theme-secondary: var(--cyber-lime);
-  --theme-card: rgba(7, 17, 31, 0.75);
-  --theme-card-hover: rgba(12, 28, 48, 0.9);
+  --theme-card: var(--bg-card);
+  --theme-card-hover: rgba(20, 28, 42, 0.9);
   --theme-shadow: rgba(0, 0, 0, 0.5);
-  --theme-bento-meteo: #22d3ee;
-  --theme-bento-curiosities: #a3e635;
+  --theme-bento-meteo: #4dd8e8;
+  --theme-bento-curiosities: #c8f04a;
   --theme-bento-public: #818cf8;
   --theme-bento-turism: #4ade80;
-  --theme-bento-events: #f472b6;
+  --theme-bento-events: #d946ef;
   --theme-bento-transport: #fb923c;
-  --theme-bento-motivation: #a855f7;
+  --theme-bento-motivation: #d946ef;
 
   --glass-blur: 12px;
   --glass-blur-card: 10px;
@@ -45,15 +67,36 @@
   --duration-normal: 0.35s;
   --duration-slow: 0.6s;
   --duration-hero: 1.5s;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
   --radius-xl: 1rem;
   --radius-2xl: 1.25rem;
+  --radius-pill: 999px;
 }
 
 .theme-shell {
   background: var(--theme-bg-gradient), var(--theme-bg);
   background-attachment: fixed;
   color: var(--theme-text);
+}
+
+.portfolio-shell {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.maia-page[data-brand="maia"] {
+  --bg-primary: #140a1f;
+  --bg-secondary: #1a0e2e;
+  --cyber-bg: var(--bg-primary);
+  --cyber-bg-elevated: var(--bg-secondary);
+  --theme-bg: var(--bg-primary);
+  --theme-bg-gradient: radial-gradient(ellipse 100% 70% at 50% 0%, rgba(217, 70, 239, 0.12), transparent 55%),
+    linear-gradient(180deg, #140a1f 0%, #1a0e2e 100%);
+  --theme-glass: rgba(26, 14, 46, 0.75);
+  --theme-glass-border: rgba(217, 70, 239, 0.35);
+  --theme-accent: var(--cyber-cyan);
+  --theme-secondary: var(--cyber-magenta);
+  --theme-card: rgba(26, 14, 46, 0.75);
+  font-family: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
 }

@@ -6,18 +6,17 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Added
 
-- `docs/design/DESIGN.md` — contrato visual cyberpunk/terminal reutilizável com mockups em `docs/design/assets/`.
-- Componentes UI `TerminalPanel`, `NeonCard` e `CircuitBackground`.
-- Timeline de experiência com barras de progresso no portefólio.
-- Secção Maia com hero cinematográfico CSS e dashboards neon.
+- `docs/design/DESIGN.md` v1.0.0 (Grinnu Nells) — spec completa Home + sub-marca `/maia`.
+- Componentes `Badge`, `StatCard`, `ProgressBar`; variante `magenta` em `NeonCard`.
+- Asset `site/public/assets/circuit-pattern.svg`.
+- `ArchitectureDiagram` na secção Maia; carousel de observability com dots.
 
 ### Changed
 
-- Tema hora-do-dia substituído por paleta terminal fixa (ciano/lima, fundo escuro, PCB).
-- Hero do portefólio em janela terminal; System Pulse com gráficos dual-line e waveform.
-- Projectos em grelha 3 colunas com cartões neon; footer estilo dev-ops.
-- KPIs Maia com bordas gradiente; monitoring em cartões dashboard.
-- Removido `ThemeSelector` e fases dawn/morning/afternoon/sunset/night.
+- Tokens alinhados à spec v1.0.0 (`#4dd8e8`, `#c8f04a`, `#0a0e17`; Maia `#140a1f` + magenta).
+- Home com tipografia mono; `/maia` com sans-serif via `data-brand="maia"`.
+- `Button` com variantes primary/secondary/tertiary; System Pulse no header.
+- Hero Maia em `glass-card-maia`; KPIs com glow magenta; footer CONTACT/SOCIAL.
 
 ### Added (anterior)
 - Secção `PortfolioGitHubSignals` no portefólio com métricas, gráficos de linguagens e actividade, e citações rotativas.
