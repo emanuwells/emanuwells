@@ -28,6 +28,15 @@ node scripts/generate-profile-metrics.mjs
 
 O script consulta apenas dados públicos da conta `emanuwells`. Em GitHub Actions usa o `GITHUB_TOKEN` temporário da workflow.
 
+### Tema Wells para widgets externos
+
+Parâmetros de cor usados no README para `github-readme-stats` e `github-readme-activity-graph`:
+
+```
+bg_color=07111f&title_color=67e8f9&text_color=a8b5c7&icon_color=22d3ee&border_color=263449
+```
+
+
 ## Validação do template
 
 ```powershell

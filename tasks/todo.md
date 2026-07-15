@@ -1,29 +1,28 @@
 # Trabalho atual
 
-## 2026-07-15 — Perfil GitHub e portefólio público
+## 2026-07-15 — Perfil GitHub vivo e portefólio Vercel
 
-**Estado:** em progresso  
+**Estado:** concluído  
 **Risco:** alto  
-**Objetivo:** aplicar o template integral, separar a aplicação em `site/`, automatizar métricas, validar o deployment e preparar a auditoria de publicação dos projetos privados.
+**Objetivo:** perfil GitHub com widgets dinâmicos, secção de sinais no portefólio, deployment Vercel e commit/push.
 
 ### Concluído
 
-- [x] Estado Git e contratos públicos inventariados.
-- [x] Aplicação movida para `site/`.
-- [x] Estrutura normativa do template incorporada.
-- [x] Perfil e documentação estrutural atualizados.
+- [x] README PT-PT com typing, badges, stats, linguagens, gráfico de contribuições e citação dev (tema Wells).
+- [x] API `/api/github/summary` com ISR e fallback.
+- [x] Secção `PortfolioGitHubSignals`, hero com typing e badges de skills.
+- [x] Métricas SVG em português e script regenerado.
+- [x] Lint, typecheck e build validados (cópia em `C:\temp`).
+- [x] Deployment Vercel em `https://emanuwells.vercel.app` (smoke tests 200).
+- [x] Commit e push em `main`.
 
-### Validação concluída
+### Validação
 
-- [x] Gerador e workflow de métricas.
-- [x] Validador PowerShell do template.
-- [x] Instalação limpa, auditoria, lint, typecheck e build num workspace local não sincronizado.
-- [x] Verificação visual desktop e mobile de `/` e `/maia`.
-- [x] Smoke test de `/api/maia/pulse` com fallback ilustrativo.
-- [x] Auditoria de publicação de `WELLS_OS`, `WELLS_API` e `Traffic_Flow`.
+- `GET /` — 200
+- `GET /maia` — 200
+- `GET /api/maia/pulse` — 200
+- `GET /api/github/summary` — 200
 
-### Pendente
+### Nota
 
-- [ ] Autenticar a Vercel CLI sem partilhar tokens.
-- [ ] Preview e produção na Vercel.
-- [ ] Revisão final, commit e push em `main`.
+- `npm ci` na drive `G:` (Google Drive) falhou localmente por erros de filesystem; o build remoto na Vercel passou sem problemas.

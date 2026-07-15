@@ -8,6 +8,7 @@ import PersonalMark from "@/components/brand/PersonalMark";
 import WellsSearchBar from "@/components/search/WellsSearchBar";
 import Button from "@/components/ui/Button";
 import { HeroTitle } from "@/components/ui/Typography";
+import TypingText from "@/components/ui/TypingText";
 import GlassPanel from "@/components/ui/GlassPanel";
 import MaiaCtaLink from "./MaiaCtaLink";
 
@@ -37,7 +38,9 @@ export default function PortfolioHero() {
       <div className="mb-8">
         <WellsSearchBar />
       </div>
-      <HeroTitle>{t(hero.title, lang)}</HeroTitle>
+      <HeroTitle>
+        <TypingText phrases={hero.typingPhrases[lang]} />
+      </HeroTitle>
       <p className="text-lg text-[var(--theme-text-muted)] max-w-2xl leading-relaxed mt-8 mb-10">
         {t(hero.subtitle, lang)}
       </p>
@@ -81,7 +84,9 @@ export default function PortfolioHero() {
               <WellsSearchBar />
             </motion.div>
             <motion.div variants={item}>
-              <HeroTitle>{t(hero.title, lang)}</HeroTitle>
+              <HeroTitle>
+                <TypingText phrases={hero.typingPhrases[lang]} />
+              </HeroTitle>
             </motion.div>
             <motion.div variants={item}>
               <p className="text-lg text-[var(--theme-text-muted)] max-w-2xl leading-relaxed mt-8 mb-10">

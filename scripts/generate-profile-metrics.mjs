@@ -59,10 +59,10 @@ const updated = new Intl.DateTimeFormat("en-GB", {
 }).format(new Date());
 
 const metrics = [
-  [profile.public_repos, "public repositories"],
-  [stars, "stars received"],
-  [forks, "public forks"],
-  [profile.followers, "followers"],
+  [profile.public_repos, "repositórios públicos"],
+  [stars, "estrelas recebidas"],
+  [forks, "forks públicos"],
+  [profile.followers, "seguidores"],
 ];
 
 const cards = metrics
@@ -97,10 +97,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="820" height="250" vi
   </defs>
   <rect x="1" y="1" width="818" height="248" rx="20" fill="url(#background)" stroke="#263449" stroke-width="2"/>
   <rect x="30" y="31" width="54" height="5" rx="2.5" fill="url(#accent)"/>
-  <text x="30" y="70" class="heading">PUBLIC BUILD SIGNALS</text>
+  <text x="30" y="70" class="heading">SINAIS PÚBLICOS DE BUILD</text>
   ${cards}
-  <text x="30" y="218" class="meta">Languages across original public repositories: ${escapeXml(languages.join(" · ") || "Not available")}</text>
-  <text x="790" y="218" text-anchor="end" class="meta">Updated ${escapeXml(updated)}</text>
+  <text x="30" y="218" class="meta">Linguagens nos repositórios públicos originais: ${escapeXml(languages.join(" · ") || "Indisponível")}</text>
+  <text x="790" y="218" text-anchor="end" class="meta">Actualizado ${escapeXml(updated)}</text>
 </svg>
 `;
 

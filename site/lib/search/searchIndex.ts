@@ -1,4 +1,4 @@
-import { portfolioNavItems, projects, contact } from "@/lib/content/portfolio";
+import { portfolioNavItems, projects, contact, githubSignals } from "@/lib/content/portfolio";
 import { maiaNavItems } from "@/lib/content/maia";
 import { pipelines } from "@/lib/content/maia-system";
 import type { SearchItem } from "./types";
@@ -24,6 +24,29 @@ export function buildSearchIndex(): { priority: SearchItem[]; extended: SearchIt
       priority: true,
     });
   }
+
+  priority.push({
+    id: "section-signals",
+    title: githubSignals.title.pt,
+    titleEn: githubSignals.title.en,
+    subtitle: githubSignals.intro.pt,
+    subtitleEn: githubSignals.intro.en,
+    category: "Perfil",
+    categoryEn: "Profile",
+    searchBlob: blob(
+      githubSignals.title.pt,
+      githubSignals.title.en,
+      githubSignals.intro.pt,
+      githubSignals.intro.en,
+      "github",
+      "estatisticas",
+      "stats",
+      "signals",
+    ),
+    acao: "scroll",
+    sectionId: "signals",
+    priority: true,
+  });
 
   for (const p of projects.items) {
     priority.push({

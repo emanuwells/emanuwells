@@ -1,10 +1,11 @@
 "use client";
 
-import { skills } from "@/lib/content";
+import { skills, skillBadges } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
 import Section, { Eyebrow, SectionTitle } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import TechIcon from "@/components/ui/TechIcon";
+import TechTag from "@/components/ui/TechTag";
 
 export default function PortfolioSkills() {
   const { lang } = useLang();
@@ -14,6 +15,13 @@ export default function PortfolioSkills() {
       <Reveal>
         <Eyebrow>{t(skills.eyebrow, lang)}</Eyebrow>
         <SectionTitle>{t(skills.title, lang)}</SectionTitle>
+      </Reveal>
+      <Reveal delay={0.04}>
+        <div className="flex flex-wrap gap-2 mt-6 mb-2">
+          {skillBadges.map((badge) => (
+            <TechTag key={badge} label={badge} className="bg-[var(--color-surface-2)]" />
+          ))}
+        </div>
       </Reveal>
       <div className="grid sm:grid-cols-2 gap-5 mt-8">
         {skills.groups.map((group, i) => (

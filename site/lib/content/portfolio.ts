@@ -21,6 +21,7 @@ export const siteMeta = {
 
 export const portfolioNavItems: { id: string; label: Bi }[] = [
   { id: "hero", label: { pt: "Início", en: "Home" } },
+  { id: "signals", label: { pt: "Sinais GitHub", en: "GitHub signals" } },
   { id: "projects", label: { pt: "Projetos", en: "Projects" } },
   { id: "skills", label: { pt: "Competências", en: "Skills" } },
   { id: "experience", label: { pt: "Experiência", en: "Experience" } },
@@ -33,6 +34,18 @@ export const hero = {
     pt: "Trabalho com dados. Programo o que falta para os pôr a funcionar.",
     en: "I work with data. I build what's missing to make it run.",
   } as Bi,
+  typingPhrases: {
+    pt: [
+      "Olá! Sou o Emanuel Wells.",
+      "Pipelines que correm todos os dias.",
+      "APIs, observabilidade e sistemas reais.",
+    ],
+    en: [
+      "Hello! I'm Emanuel Wells.",
+      "Pipelines that run every day.",
+      "APIs, observability and real systems.",
+    ],
+  },
   subtitle: {
     pt: "Pipelines, APIs, observabilidade e infraestrutura — sistemas reais que correm todos os dias. Este portefólio junta o que construí; o case study da Maia mostra o trabalho mais profundo.",
     en: "Pipelines, APIs, observability and infrastructure — real systems that run every day. This portfolio brings together what I've built; the Maia case study shows the deepest work.",
@@ -61,6 +74,40 @@ export const evidence = {
     },
   ],
 };
+
+export const githubSignals = {
+  eyebrow: { pt: "Sinais públicos", en: "Public signals" } as Bi,
+  title: { pt: "Actividade GitHub em tempo quase real", en: "Near-real-time GitHub activity" } as Bi,
+  intro: {
+    pt: "Métricas públicas, linguagens e ritmo de contribuição — o mesmo espírito do perfil GitHub, agora no portefólio.",
+    en: "Public metrics, languages and contribution rhythm — the same spirit as the GitHub profile, now on the portfolio.",
+  } as Bi,
+  metrics: {
+    publicRepos: { pt: "repositórios públicos", en: "public repositories" } as Bi,
+    stars: { pt: "estrelas recebidas", en: "stars received" } as Bi,
+    forks: { pt: "forks públicos", en: "public forks" } as Bi,
+    followers: { pt: "seguidores", en: "followers" } as Bi,
+  },
+  languagesTitle: { pt: "Linguagens nos repositórios", en: "Repository languages" } as Bi,
+  activityTitle: { pt: "Ritmo semanal (eventos públicos)", en: "Weekly rhythm (public events)" } as Bi,
+  quoteTitle: { pt: "Citação dev", en: "Dev quote" } as Bi,
+  liveSource: { pt: "Dados públicos GitHub · actualização horária", en: "Public GitHub data · hourly refresh" } as Bi,
+  fallbackSource: {
+    pt: "Snapshot local · API indisponível",
+    en: "Local snapshot · API unavailable",
+  } as Bi,
+};
+
+export const skillBadges = [
+  "Python",
+  "PHP",
+  "TypeScript",
+  "React",
+  "Docker",
+  "Power BI",
+  "PostgreSQL",
+  "Linux",
+];
 
 export const projects = {
   eyebrow: { pt: "Projetos", en: "Projects" } as Bi,
