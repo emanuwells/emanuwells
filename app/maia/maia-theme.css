@@ -1,0 +1,63 @@
+.maia-theme-dawn {
+  --maia-sky: #1a1f3a;
+  --maia-glow: #f59e0b;
+  --maia-mist: rgba(245, 158, 11, 0.12);
+}
+
+.maia-theme-morning {
+  --maia-sky: #0f172a;
+  --maia-glow: #38bdf8;
+  --maia-mist: rgba(56, 189, 248, 0.1);
+}
+
+.maia-theme-afternoon {
+  --maia-sky: #0c1222;
+  --maia-glow: #22d3ee;
+  --maia-mist: rgba(34, 211, 238, 0.08);
+}
+
+.maia-theme-sunset {
+  --maia-sky: #1a1028;
+  --maia-glow: #fb7185;
+  --maia-mist: rgba(251, 113, 133, 0.12);
+}
+
+.maia-theme-night {
+  --maia-sky: #05060a;
+  --maia-glow: #a78bfa;
+  --maia-mist: rgba(167, 139, 250, 0.1);
+}
+
+.maia-page {
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, var(--maia-mist), transparent 55%),
+    linear-gradient(180deg, var(--maia-sky) 0%, var(--color-bg) 45%);
+}
+
+.maia-chapter {
+  min-height: min(100vh, 900px);
+  scroll-margin-top: 5rem;
+}
+
+.maia-editorial-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warn);
+  border: 1px solid color-mix(in srgb, var(--color-warn) 35%, transparent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maia-page * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .maia-layer-optional {
+    display: none;
+  }
+}

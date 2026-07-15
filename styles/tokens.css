@@ -1,0 +1,46 @@
+/* Tokens Robim5 — valores por defeito (morning); ThemeProvider actualiza em runtime */
+:root {
+  --theme-bg: #e8f4f6;
+  --theme-bg-gradient: linear-gradient(145deg, #99cdd8 0%, #daebe3 35%, #fde8d3 70%, #f3c3b2 100%);
+  --theme-glass: rgba(235, 248, 242, 0.82);
+  --theme-glass-border: rgba(255, 255, 255, 0.6);
+  --theme-glass-highlight: rgba(255, 255, 255, 0.75);
+  --theme-text: #0f2028;
+  --theme-text-muted: #3a5560;
+  --theme-accent: #066057;
+  --theme-accent-light: #318067;
+  --theme-accent-glow: rgba(6, 96, 87, 0.4);
+  --theme-secondary: #daebe3;
+  --theme-card: rgba(255, 255, 255, 0.52);
+  --theme-card-hover: rgba(255, 255, 255, 0.68);
+  --theme-shadow: rgba(0, 0, 0, 0.06);
+  --theme-bento-meteo: #7dd3fc;
+  --theme-bento-curiosities: #fde047;
+  --theme-bento-public: #a5b4fc;
+  --theme-bento-turism: #6ee7b7;
+  --theme-bento-events: #fda4af;
+  --theme-bento-transport: #fdba74;
+  --theme-bento-motivation: #c4b5fd;
+
+  --glass-blur: 16px;
+  --glass-blur-card: 12px;
+  --glass-blur-strong: 24px;
+  --ease-out-expressive: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-standard: cubic-bezier(0.4, 0, 1, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.35s;
+  --duration-slow: 0.6s;
+  --duration-hero: 1.5s;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+}
+
+.theme-shell {
+  background: var(--theme-bg-gradient), var(--theme-bg);
+  background-attachment: fixed;
+  color: var(--theme-text);
+  transition: background 0.8s ease, color 0.4s ease;
+}

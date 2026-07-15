@@ -1,0 +1,297 @@
+.glass-panel {
+  background: var(--theme-glass);
+  border: 1px solid var(--theme-glass-border);
+  box-shadow:
+    0 8px 32px var(--theme-shadow),
+    inset 0 1px 0 var(--theme-glass-highlight);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+  border-radius: var(--radius-xl);
+}
+
+.glass-card {
+  background: var(--theme-card);
+  border: 1px solid var(--theme-glass-border);
+  backdrop-filter: blur(var(--glass-blur-card)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(140%);
+  border-radius: var(--radius-lg);
+  transition:
+    background var(--duration-normal) var(--ease-out-expressive),
+    transform var(--duration-normal) var(--ease-out-expressive),
+    box-shadow var(--duration-normal) var(--ease-out-expressive);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    color-mix(in srgb, var(--theme-glass-highlight) 40%, transparent) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease-out-expressive);
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  transform: translateX(120%);
+}
+
+.glass-card:hover {
+  background: var(--theme-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px var(--theme-shadow);
+}
+
+.glass-header {
+  background: color-mix(in srgb, var(--theme-glass) 88%, transparent);
+  border-bottom: 1px solid var(--theme-glass-border);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+}
+
+.theme-selector {
+  position: relative;
+}
+
+.theme-selector-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--theme-glass-border);
+  background: var(--theme-glass);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-accent);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out-expressive);
+}
+
+.theme-selector-btn:hover {
+  transform: scale(1.06);
+}
+
+.theme-selector-popover {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 11rem;
+  padding: 0.35rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--theme-glass-border);
+  background: color-mix(in srgb, var(--theme-glass) 92%, transparent);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+  box-shadow: 0 16px 40px var(--theme-shadow);
+  z-index: 60;
+  animation: themePopoverIn 0.35s var(--ease-out-expressive);
+}
+
+.theme-selector-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  color: var(--theme-text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.theme-selector-option:hover,
+.theme-selector-option.is-selected {
+  background: var(--theme-card-hover);
+  color: var(--theme-text);
+}
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes logoShimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes creditFade {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.wells-logo-link {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wells-logo-link--static {
+  cursor: default;
+}
+
+.wells-brand {
+  position: relative;
+  display: inline-flex;
+}
+
+.wells-brand-lockup {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.65rem;
+}
+
+.wells-brand--hero .wells-brand-lockup {
+  gap: 1rem;
+}
+
+.wells-brand-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.wells-brand--header .wells-brand-title {
+  font-size: 1.125rem;
+}
+
+.wells-brand--hero .wells-brand-title {
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+}
+
+.wells-brand-well {
+  color: var(--theme-text);
+}
+
+.wells-brand-os {
+  color: var(--theme-accent);
+  text-shadow: 0 0 24px var(--theme-accent-glow);
+}
+
+.wells-brand-title--animated .wells-brand-os {
+  background: linear-gradient(
+    105deg,
+    var(--theme-accent-light) 0%,
+    var(--theme-accent) 35%,
+    var(--theme-text) 50%,
+    var(--theme-accent) 65%,
+    var(--theme-accent-light) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logoShimmer 5s linear infinite;
+}
+
+.wells-brand-credit {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--theme-text-muted);
+  transform: rotate(-8deg) translateY(-0.15em);
+  white-space: nowrap;
+  animation: creditFade 4s ease-in-out infinite;
+}
+
+.wells-brand-credit em {
+  font-style: normal;
+  color: var(--theme-accent);
+}
+
+.wells-brand--header .wells-brand-credit {
+  font-size: 0.5rem;
+  transform: rotate(-6deg) translateY(-0.1em);
+}
+
+.wells-brand-glow {
+  position: absolute;
+  inset: -20% -8%;
+  background: radial-gradient(ellipse at 40% 50%, var(--theme-accent-glow) 0%, transparent 65%);
+  z-index: -1;
+  animation: logoGlow 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.tech-icon {
+  display: inline-block;
+  opacity: 0.88;
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="light"] .tech-icon,
+:root:not([data-theme="dark"]) .tech-icon {
+  filter: none;
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wells-brand-glow,
+  .wells-brand-title--animated .wells-brand-os,
+  .wells-brand-credit {
+    animation: none;
+  }
+
+  .wells-brand-title--animated .wells-brand-os {
+    color: var(--theme-accent);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+}
+
+@keyframes themePopoverIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
