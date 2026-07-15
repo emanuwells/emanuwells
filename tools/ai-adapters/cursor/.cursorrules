@@ -1,0 +1,14 @@
+# Cursor Legacy Rules
+
+Ler primeiro `AGENTS.md`, `PROJECT_CONTEXT.md`, `COMMANDS.md`, `docs/ai/` e `docs/ai/`.
+
+A pasta `.cursor/` é apenas um adaptador Cursor. O núcleo neutro do projeto prevalece.
+
+Regras essenciais:
+
+- planear antes de alterações médias, altas ou críticas;
+- preservar comportamento existente;
+- executar fases pequenas;
+- validar com comandos reais;
+- atualizar tasks, documentação e changelog quando aplicável;
+- não declarar validações não executadas.

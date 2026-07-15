@@ -1,0 +1,16 @@
+---
+description: Critérios de qualidade para alterações técnicas, código, testes, build, Docker, DB e CI/CD.
+alwaysApply: false
+---
+
+# Critérios de Qualidade
+
+Aplicar validação proporcional:
+
+- Frontend: lint, typecheck, build, estados loading/error/empty, acessibilidade básica.
+- Backend: testes, validação de input, erros, logs, contrato API, segurança.
+- DB: rollback, integridade, performance, dados existentes.
+- Full stack: contrato frontend/backend, env vars, fluxo ponta-a-ponta.
+- Docker/CI/CD: build, healthcheck, segredos, rollback.
+
+Nunca declarar comandos executados se não foram executados.

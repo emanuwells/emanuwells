@@ -1,0 +1,6 @@
+Lê AGENTS.md, PROJECT_CONTEXT.md, COMMANDS.md, docs/ai/ e docs/ai/workflows/20-safe-refactor.md.
+
+Quero um refactor seguro, faseado e reversível.
+Não alteres código ainda.
+Entrega diagnóstico, ficheiros afetados, riscos, plano por fases, validações e rollback.
+Executa apenas a fase que eu pedir explicitamente.

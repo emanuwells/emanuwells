@@ -1,0 +1,4 @@
+Lê AGENTS.md, PROJECT_CONTEXT.md, COMMANDS.md, docs/ai/ e docs/ai/workflows/10-feature-delivery.md.
+
+Entrega a feature de forma incremental: análise, plano, implementação mínima, validação, documentação, changelog e auditoria de limpeza.
+Não mistures refactor estrutural não pedido.

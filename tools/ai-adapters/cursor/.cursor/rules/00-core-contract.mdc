@@ -1,0 +1,20 @@
+---
+description: Contrato principal do projeto para qualquer pedido no Cursor.
+alwaysApply: true
+---
+
+# Contrato Principal
+
+Antes de agir, aplicar `AGENTS.md`, `PROJECT_CONTEXT.md` e `COMMANDS.md`.
+
+Regras obrigatórias:
+
+- Preservar alterações existentes do utilizador.
+- Não expor segredos.
+- Não apagar ficheiros ambíguos sem confirmação.
+- Não declarar validações não executadas.
+- Trabalhar por fases em tarefas médias/altas.
+- Atualizar `tasks/todo.md` em iterações não triviais.
+- Atualizar `tasks/lessons.md` quando houver aprendizagem reutilizável.
+- Atualizar `CHANGELOG.md` em alterações versionáveis.
+- Documentação em PT-PT com acentuação correta.

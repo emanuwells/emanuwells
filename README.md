@@ -1,32 +1,46 @@
+<div align="center">
+
 # Emanuel Wells
 
-Data engineering, APIs, observability and the practical systems that connect them.
+**Data engineering · APIs · observability · product-minded delivery**
 
-I design and maintain data products that have to work outside a demo: ingestion pipelines, governed datasets, operational APIs, monitoring and the interfaces people use to understand them. I value straightforward architecture, evidence over claims and documentation that remains useful after delivery.
+[Portfolio](https://emanuwells.vercel.app) · [Maia case study](https://emanuwells.vercel.app/maia) · [LinkedIn](https://www.linkedin.com/in/emanuel-ferreira91)
+
+</div>
+
+I build data products that have to work beyond the demo: ingestion pipelines, governed datasets, operational APIs, monitoring and the interfaces that make complex systems understandable.
+
+I care about direct architecture, observable operations, evidence over claims and documentation that remains useful after delivery.
+
+## At a glance
+
+<p align="center">
+  <img src=".github/assets/profile-metrics.svg" alt="Public GitHub activity and technology overview" width="820" />
+</p>
 
 ## Selected work
 
-- [WELLS_OS](https://github.com/emanuwells/WELLS_OS) — a read-only control plane for the services and servers where my projects run.
-- [WELLS_API](https://github.com/emanuwells/WELLS_API) — a small PHP API layer for operational and geographic data.
-- [Traffic Flow](https://github.com/emanuwells/Traffic_Flow) — traffic observations prepared for interoperable APIs and analytics.
-- [Overseer](https://github.com/emanuwells/Overseer) — pipeline health, execution history and operational signals.
-- [Warden](https://github.com/emanuwells/Warden) — server telemetry, retention and alerting.
+| Project | What it does | Access |
+|---|---|---|
+| [WELLS_OS](https://wells-os.vercel.app) | Read-only control plane for the services and servers where my projects run. | Live product; source private |
+| [Maia case study](https://emanuwells.vercel.app/maia) | Technical narrative connecting pipelines, catalogue governance, APIs, traffic data and observability. | Public case study |
+| [Overseer](https://github.com/emanuwells/Overseer) | Pipeline health, execution history and operational signals. | Public source |
+| [Warden](https://github.com/emanuwells/Warden) | Server telemetry, retention and alerting. | Public source |
+| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | A focused automation project designed for dependable unattended operation. | Public source |
 
-## Cases
-
-The [Maia case](https://emanuwells.vercel.app/maia) brings together the systems I have built in my day-to-day work at the Municipality of Maia: data pipelines, catalogue governance, APIs, traffic data and observability. It is presented as a personal technical case study and does not represent an official municipal publication.
-
-More project and case-study detail is available at [emanuwells.vercel.app](https://emanuwells.vercel.app).
+`WELLS_API` and `Traffic Flow` currently appear through public demonstrations and case studies while their source repositories undergo a separate publication-readiness review.
 
 ## Current focus
 
-- dependable data pipelines and APIs;
-- observability that makes failures actionable;
+- dependable data pipelines and interoperable APIs;
+- observability that turns failures into actionable signals;
 - simple interfaces for complex operational systems;
 - maintainable delivery across Linux, Docker, PHP, Python and TypeScript.
 
-Based in Portugal. Documentation and communication in European Portuguese and English.
+Based in Portugal. I write and work in European Portuguese and English.
+
+<sub>The Maia case study is a personal technical account and is not an official publication of the Municipality of Maia.</sub>
 
 ---
 
-This repository also contains the source for my public portfolio. Setup and deployment notes live in [DEPLOY.md](DEPLOY.md).
+This repository is both my GitHub profile repository and the source of the portfolio. The Next.js application lives in [`site/`](site/); project operations are documented in [`COMMANDS.md`](COMMANDS.md).

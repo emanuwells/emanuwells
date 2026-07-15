@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="250" viewBox="0 0 820 250" role="img" aria-labelledby="title description">
+  <title id="title">Public GitHub overview for emanuwells</title>
+  <desc id="description">4 public repositories, 4 stars received, 0 public forks, 6 followers. Main repository languages: JavaScript, Python, TypeScript.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#0f1f2f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <style>
+      .heading { fill: #f8fafc; font: 700 22px ui-monospace, SFMono-Regular, Consolas, monospace; }
+      .value { fill: #67e8f9; font: 700 25px ui-monospace, SFMono-Regular, Consolas, monospace; }
+      .label { fill: #a8b5c7; font: 500 12px system-ui, -apple-system, Segoe UI, sans-serif; }
+      .meta { fill: #9fb0c5; font: 500 12px system-ui, -apple-system, Segoe UI, sans-serif; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="818" height="248" rx="20" fill="url(#background)" stroke="#263449" stroke-width="2"/>
+  <rect x="30" y="31" width="54" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="30" y="70" class="heading">PUBLIC BUILD SIGNALS</text>
+  
+      <g transform="translate(30 92)">
+        <rect width="175" height="88" rx="14" fill="#111827" stroke="#263449"/>
+        <text x="16" y="38" class="value">4</text>
+        <text x="16" y="64" class="label">public repositories</text>
+      </g>
+      <g transform="translate(225 92)">
+        <rect width="175" height="88" rx="14" fill="#111827" stroke="#263449"/>
+        <text x="16" y="38" class="value">4</text>
+        <text x="16" y="64" class="label">stars received</text>
+      </g>
+      <g transform="translate(420 92)">
+        <rect width="175" height="88" rx="14" fill="#111827" stroke="#263449"/>
+        <text x="16" y="38" class="value">0</text>
+        <text x="16" y="64" class="label">public forks</text>
+      </g>
+      <g transform="translate(615 92)">
+        <rect width="175" height="88" rx="14" fill="#111827" stroke="#263449"/>
+        <text x="16" y="38" class="value">6</text>
+        <text x="16" y="64" class="label">followers</text>
+      </g>
+  <text x="30" y="218" class="meta">Languages across original public repositories: JavaScript · Python · TypeScript</text>
+  <text x="790" y="218" text-anchor="end" class="meta">Updated 15 Jul 2026</text>
+</svg>
