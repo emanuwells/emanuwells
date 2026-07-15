@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { portfolioNavItems } from "@/lib/content/portfolio";
 import { maiaNavItems, maiaBackLabel, maiaDisclaimer } from "@/lib/content/maia";
 import { useLang, t } from "@/lib/i18n";
-import { HeaderClock, ThemeBadge } from "@/components/layout/FloatingCategories";
-import ThemeSelector from "@/components/layout/ThemeSelector";
+import { HeaderClock } from "@/components/layout/FloatingCategories";
 import PersonalMark from "@/components/brand/PersonalMark";
 import WellsSearchBar from "@/components/search/WellsSearchBar";
 
@@ -95,8 +94,6 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
             <PersonalMark variant="header" href="/" />
           )}
           <HeaderClock />
-          <ThemeBadge />
-          <ThemeSelector />
         </div>
 
         {variant === "portfolio" && (
@@ -134,9 +131,10 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         )}
 
         <div className="flex items-center gap-2 shrink-0">
-          <button type="button" onClick={toggle} className="font-[family-name:var(--font-mono)] text-xs" aria-label="Language">
-            <span className={lang === "pt" ? "text-[var(--theme-accent)]" : ""}>PT</span>/
-            <span className={lang === "en" ? "text-[var(--theme-accent)]" : ""}>EN</span>
+          <button type="button" onClick={toggle} className="lang-pill" aria-label="Language">
+            <span className={lang === "pt" ? "text-[var(--cyber-lime-bright)]" : "text-[var(--cyber-text-muted)]"}>PT</span>
+            <span className="text-[var(--cyber-text-muted)]">/</span>
+            <span className={lang === "en" ? "text-[var(--cyber-lime-bright)]" : "text-[var(--cyber-text-muted)]"}>EN</span>
           </button>
           {variant === "portfolio" && (
             <button

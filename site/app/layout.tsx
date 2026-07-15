@@ -3,12 +3,10 @@ import { Nunito_Sans, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/goo
 import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import { getServerLang } from "@/lib/i18n-server";
-import { readThemeModeFromCookie } from "@/lib/design-system/theme-mode";
 import { getThemeBootScript } from "@/lib/design-system/theme-script";
 import LangHtml from "@/components/LangHtml";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteMeta } from "@/lib/content";
-import { cookies } from "next/headers";
 
 const nunito = Nunito_Sans({
   variable: "--font-nunito",
@@ -45,11 +43,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const initialLang = await getServerLang();
-  const cookieStore = await cookies();
-  const initialMode = readThemeModeFromCookie(cookieStore.toString());
 
   return (
-    <html lang={initialLang} data-theme="morning" suppressHydrationWarning>
+    <html lang={initialLang} data-theme="terminal" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: getThemeBootScript() }} />
       </head>
@@ -57,7 +53,7 @@ export default async function RootLayout({
         className={`${nunito.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <LangProvider initialLang={initialLang}>
-          <ThemeProvider initialMode={initialMode}>
+          <ThemeProvider>
             <LangHtml />
             {children}
           </ThemeProvider>

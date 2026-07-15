@@ -34,3 +34,7 @@ O estado interativo fica em componentes cliente pequenos. Conteúdo e composiç�
 - mudanças visuais relevantes exigem verificação desktop e mobile;
 - não existe autenticação nem estado persistente do utilizador.
 
+## Design system
+
+O contrato visual (paleta terminal, componentes cyberpunk-lite, responsividade e acessibilidade) está documentado em [`docs/design/DESIGN.md`](../design/DESIGN.md), com mockups de referência em `docs/design/assets/`.
+

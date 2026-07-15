@@ -1,36 +1,6 @@
-.maia-theme-dawn {
-  --maia-sky: #1a1f3a;
-  --maia-glow: #f59e0b;
-  --maia-mist: rgba(245, 158, 11, 0.12);
-}
-
-.maia-theme-morning {
-  --maia-sky: #0f172a;
-  --maia-glow: #38bdf8;
-  --maia-mist: rgba(56, 189, 248, 0.1);
-}
-
-.maia-theme-afternoon {
-  --maia-sky: #0c1222;
-  --maia-glow: #22d3ee;
-  --maia-mist: rgba(34, 211, 238, 0.08);
-}
-
-.maia-theme-sunset {
-  --maia-sky: #1a1028;
-  --maia-glow: #fb7185;
-  --maia-mist: rgba(251, 113, 133, 0.12);
-}
-
-.maia-theme-night {
-  --maia-sky: #05060a;
-  --maia-glow: #a78bfa;
-  --maia-mist: rgba(167, 139, 250, 0.1);
-}
-
 .maia-page {
-  background: radial-gradient(ellipse 120% 80% at 50% -20%, var(--maia-mist), transparent 55%),
-    linear-gradient(180deg, var(--maia-sky) 0%, var(--color-bg) 45%);
+  background: var(--theme-bg-gradient), var(--theme-bg);
+  background-attachment: fixed;
 }
 
 .maia-chapter {
@@ -49,15 +19,12 @@
   border-radius: 0.25rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .maia-page * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+.maia-layer-optional {
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.25));
 }
 
 @media (max-width: 640px) {
-  .maia-layer-optional {
-    display: none;
+  .maia-chapter {
+    min-height: auto;
   }
 }

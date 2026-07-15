@@ -20,6 +20,8 @@ npm run build
 npm run test:pulse
 ```
 
+O contrato visual está em [`docs/design/DESIGN.md`](docs/design/DESIGN.md).
+
 ## Métricas do perfil
 
 ```powershell

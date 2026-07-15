@@ -77,6 +77,7 @@ export const evidence = {
 
 export const githubSignals = {
   eyebrow: { pt: "Sinais públicos", en: "Public signals" } as Bi,
+  systemPulse: { pt: "System Pulse", en: "System Pulse" } as Bi,
   title: { pt: "Actividade GitHub em tempo quase real", en: "Near-real-time GitHub activity" } as Bi,
   intro: {
     pt: "Métricas públicas, linguagens e ritmo de contribuição — o mesmo espírito do perfil GitHub, agora no portefólio.",
@@ -215,6 +216,32 @@ export const experience = {
     en: "I built the municipality's data and observability ecosystem from scratch — production pipelines, central portal, monitoring and mentoring an internship team. No invented job title: the work speaks through the systems.",
   } as Bi,
   linkLabel: { pt: "Ver case study cinematográfico", en: "View cinematic case study" } as Bi,
+  milestones: [
+    {
+      title: { pt: "Desenvolvimento backend", en: "Backend development" } as Bi,
+      description: {
+        pt: "APIs municipais, integrações e serviços em produção.",
+        en: "Municipal APIs, integrations and production services.",
+      } as Bi,
+      progress: 92,
+    },
+    {
+      title: { pt: "Integração de dados", en: "Data integration" } as Bi,
+      description: {
+        pt: "Pipelines, catálogos governados e exposição para BI.",
+        en: "Pipelines, governed catalogues and BI exposure.",
+      } as Bi,
+      progress: 88,
+    },
+    {
+      title: { pt: "Transformação digital", en: "Digital transformation" } as Bi,
+      description: {
+        pt: "Portal central, observabilidade e formação de equipa.",
+        en: "Central portal, observability and team mentoring.",
+      } as Bi,
+      progress: 85,
+    },
+  ],
 };
 
 export const about = {

@@ -1,7 +1,6 @@
-import { RESOLVED_PALETTES } from "./palettes";
-import type { ResolvedPhase } from "./theme-mode";
+import { TERMINAL_PALETTE } from "./palettes";
 
-const VARS: (keyof (typeof RESOLVED_PALETTES)["morning"])[] = [
+const VARS: (keyof typeof TERMINAL_PALETTE)[] = [
   "bg",
   "bgGradient",
   "glass",
@@ -25,11 +24,11 @@ const VARS: (keyof (typeof RESOLVED_PALETTES)["morning"])[] = [
   "bentoMotivation",
 ];
 
-export function applyThemeToDocument(phase: ResolvedPhase) {
+export function applyThemeToDocument() {
   if (typeof document === "undefined") return;
-  const palette = RESOLVED_PALETTES[phase];
+  const palette = TERMINAL_PALETTE;
   const root = document.documentElement;
-  root.setAttribute("data-theme", phase);
+  root.setAttribute("data-theme", "terminal");
 
   for (const key of VARS) {
     const cssKey = key.replace(/([A-Z])/g, "-$1").toLowerCase();

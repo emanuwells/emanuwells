@@ -6,7 +6,20 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Added
 
-- README de perfil em PT-PT com widgets dinâmicos (typing, badges, estatísticas GitHub, gráfico de contribuições e citação dev) no tema Wells.
+- `docs/design/DESIGN.md` — contrato visual cyberpunk/terminal reutilizável com mockups em `docs/design/assets/`.
+- Componentes UI `TerminalPanel`, `NeonCard` e `CircuitBackground`.
+- Timeline de experiência com barras de progresso no portefólio.
+- Secção Maia com hero cinematográfico CSS e dashboards neon.
+
+### Changed
+
+- Tema hora-do-dia substituído por paleta terminal fixa (ciano/lima, fundo escuro, PCB).
+- Hero do portefólio em janela terminal; System Pulse com gráficos dual-line e waveform.
+- Projectos em grelha 3 colunas com cartões neon; footer estilo dev-ops.
+- KPIs Maia com bordas gradiente; monitoring em cartões dashboard.
+- Removido `ThemeSelector` e fases dawn/morning/afternoon/sunset/night.
+
+### Added (anterior)
 - Secção `PortfolioGitHubSignals` no portefólio com métricas, gráficos de linguagens e actividade, e citações rotativas.
 - API pública `/api/github/summary` com cache ISR de 1 hora e fallback local.
 - Componente `TypingText` no hero e fila de badges coloridos na secção de competências.

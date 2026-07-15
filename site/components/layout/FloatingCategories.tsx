@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { Briefcase, MapPin, Sparkles, Mail } from "lucide-react";
 import { useLang } from "@/lib/i18n";
-import { PHASE_LABELS } from "@/lib/design-system/time";
-import { useThemePhase } from "@/components/ThemeProvider";
 import CategoryPopup from "./CategoryPopup";
 
 const CATEGORIES = [
@@ -72,13 +70,3 @@ export function HeaderClock() {
   );
 }
 
-export function ThemeBadge() {
-  const phase = useThemePhase();
-  const { lang } = useLang();
-  const label = phase === "dark" ? (lang === "pt" ? "Escuro" : "Dark") : PHASE_LABELS[phase][lang];
-  return (
-    <span className="hidden sm:inline font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-[var(--theme-text-muted)]">
-      {label}
-    </span>
-  );
-}

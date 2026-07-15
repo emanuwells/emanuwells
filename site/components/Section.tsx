@@ -28,7 +28,7 @@ export default function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] mb-4">
+    <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.2em] uppercase text-[var(--cyber-cyan)] mb-4">
       {children}
     </p>
   );

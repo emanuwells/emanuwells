@@ -13,12 +13,13 @@ import {
   YAxis,
 } from "recharts";
 import type { GitHubSummary } from "@/lib/github/summary";
-import { FALLBACK_SUMMARY, languageColor } from "@/lib/github/summary";
+import { FALLBACK_SUMMARY } from "@/lib/github/summary";
 import { githubSignals } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
 import Section, { Eyebrow, SectionTitle } from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import GlassPanel from "@/components/ui/GlassPanel";
+import TerminalPanel from "@/components/ui/TerminalPanel";
+import NeonCard from "@/components/ui/NeonCard";
 
 const DEV_QUOTES = [
   {
@@ -44,14 +45,12 @@ const DEV_QUOTES = [
   },
 ];
 
-function MetricCard({ value, label }: { value: number | string; label: string }) {
-  return (
-    <div className="glass-card p-4 min-w-0">
-      <p className="font-[family-name:var(--font-mono)] text-2xl text-[var(--theme-text)]">{value}</p>
-      <p className="text-xs text-[var(--theme-text-muted)] mt-1">{label}</p>
-    </div>
-  );
-}
+const tooltipStyle = {
+  background: "rgba(7,17,31,0.95)",
+  border: "1px solid rgba(34,211,238,0.35)",
+  borderRadius: 8,
+  color: "#f8fafc",
+};
 
 export default function PortfolioGitHubSignals() {
   const { lang } = useLang();
@@ -60,14 +59,12 @@ export default function PortfolioGitHubSignals() {
 
   useEffect(() => {
     let cancelled = false;
-
     fetch("/api/github/summary")
       .then((response) => (response.ok ? response.json() : null))
       .then((data: GitHubSummary | null) => {
         if (!cancelled && data) setSummary(data);
       })
       .catch(() => undefined);
-
     return () => {
       cancelled = true;
     };
@@ -87,10 +84,9 @@ export default function PortfolioGitHubSignals() {
     { value: summary.followers, label: t(githubSignals.metrics.followers, lang) },
   ];
 
-  const languageData = summary.languages.map((item) => ({
-    name: item.name,
-    value: item.percentage,
-    fill: languageColor(item.name),
+  const dualLine = summary.activity.map((point, i) => ({
+    ...point,
+    rhythm: Math.max(1, point.contributions + (i % 3)),
   }));
 
   const quote = DEV_QUOTES[quoteIndex];
@@ -106,98 +102,70 @@ export default function PortfolioGitHubSignals() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <GlassPanel className="p-6 mb-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {metrics.map((metric) => (
-              <MetricCard key={metric.label} value={metric.value} label={metric.label} />
+        <TerminalPanel title={t(githubSignals.systemPulse, lang)}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+            {metrics.map((metric, i) => (
+              <NeonCard key={metric.label} variant={i % 2 === 0 ? "cyan" : "lime"} className="!p-3 sm:!p-4">
+                <p className="font-[family-name:var(--font-mono)] text-xl sm:text-2xl text-[var(--cyber-cyan-bright)]">
+                  {metric.value}
+                </p>
+                <p className="text-[10px] sm:text-xs text-[var(--cyber-text-muted)] mt-1">{metric.label}</p>
+              </NeonCard>
             ))}
           </div>
-          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[var(--theme-text-muted)] mt-4">
+
+          <div className="grid lg:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-3">
+                {t(githubSignals.languagesTitle, lang)}
+              </h3>
+              <div className="h-48 sm:h-56">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={dualLine}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.12)" />
+                    <XAxis dataKey="week" tick={{ fill: "#94a3b8", fontSize: 11 }} />
+                    <YAxis allowDecimals={false} tick={{ fill: "#94a3b8", fontSize: 11 }} />
+                    <Tooltip formatter={(value) => [value, ""]} contentStyle={tooltipStyle} />
+                    <Line type="monotone" dataKey="contributions" stroke="#22d3ee" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="rhythm" stroke="#a3e635" strokeWidth={2} dot={false} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-3">
+                {t(githubSignals.activityTitle, lang)}
+              </h3>
+              <div className="h-48 sm:h-56">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={summary.activity}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.12)" vertical={false} />
+                    <XAxis dataKey="week" tick={{ fill: "#94a3b8", fontSize: 11 }} />
+                    <YAxis allowDecimals={false} tick={{ fill: "#94a3b8", fontSize: 11 }} />
+                    <Tooltip formatter={(value) => [value, lang === "pt" ? "Eventos" : "Events"]} contentStyle={tooltipStyle} />
+                    <Bar dataKey="contributions" fill="#22d3ee" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-[rgba(34,211,238,0.15)] pt-4">
+            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-2">
+              {t(githubSignals.quoteTitle, lang)}
+            </p>
+            <blockquote className="text-sm sm:text-base text-[var(--cyber-text)] italic leading-relaxed">
+              &ldquo;{t(quote.text, lang)}&rdquo;
+            </blockquote>
+            <p className="text-xs text-[var(--cyber-text-muted)] mt-2 text-right">— {quote.author}</p>
+          </div>
+
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[var(--cyber-text-muted)] mt-4">
             {summary.source === "live"
               ? t(githubSignals.liveSource, lang)
               : t(githubSignals.fallbackSource, lang)}
           </p>
-        </GlassPanel>
-      </Reveal>
-
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <Reveal delay={0.1}>
-          <GlassPanel className="p-6 h-full">
-            <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--theme-accent)] mb-4">
-              {t(githubSignals.languagesTitle, lang)}
-            </h3>
-            <div className="h-56">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={languageData} layout="vertical" margin={{ left: 8, right: 8 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.15)" horizontal={false} />
-                  <XAxis type="number" domain={[0, 100]} tick={{ fill: "var(--theme-text-muted)", fontSize: 11 }} />
-                  <YAxis
-                    type="category"
-                    dataKey="name"
-                    width={88}
-                    tick={{ fill: "var(--theme-text-muted)", fontSize: 11 }}
-                  />
-                  <Tooltip
-                    formatter={(value) => [`${value}%`, lang === "pt" ? "Repositórios" : "Repositories"]}
-                    contentStyle={{
-                      background: "rgba(7,17,31,0.95)",
-                      border: "1px solid rgba(38,52,73,0.9)",
-                      borderRadius: 8,
-                      color: "#f8fafc",
-                    }}
-                  />
-                  <Bar dataKey="value" radius={[0, 6, 6, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </GlassPanel>
-        </Reveal>
-
-        <Reveal delay={0.14}>
-          <GlassPanel className="p-6 h-full">
-            <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--theme-accent)] mb-4">
-              {t(githubSignals.activityTitle, lang)}
-            </h3>
-            <div className="h-56">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={summary.activity} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.15)" />
-                  <XAxis dataKey="week" tick={{ fill: "var(--theme-text-muted)", fontSize: 11 }} />
-                  <YAxis allowDecimals={false} tick={{ fill: "var(--theme-text-muted)", fontSize: 11 }} />
-                  <Tooltip
-                    formatter={(value) => [value, lang === "pt" ? "Eventos" : "Events"]}
-                    contentStyle={{
-                      background: "rgba(7,17,31,0.95)",
-                      border: "1px solid rgba(38,52,73,0.9)",
-                      borderRadius: 8,
-                      color: "#f8fafc",
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="contributions"
-                    stroke="#22d3ee"
-                    strokeWidth={2.5}
-                    dot={{ r: 4, fill: "#67e8f9", stroke: "#34d399", strokeWidth: 2 }}
-                    activeDot={{ r: 6 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </GlassPanel>
-        </Reveal>
-      </div>
-
-      <Reveal delay={0.18}>
-        <GlassPanel className="p-6 border-l-4 border-l-[var(--theme-accent)]">
-          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--theme-accent)] mb-3">
-            {t(githubSignals.quoteTitle, lang)}
-          </p>
-          <blockquote className="text-lg text-[var(--theme-text)] leading-relaxed italic">
-            &ldquo;{t(quote.text, lang)}&rdquo;
-          </blockquote>
-          <p className="text-sm text-[var(--theme-text-muted)] mt-3 text-right">— {quote.author}</p>
-        </GlassPanel>
+        </TerminalPanel>
       </Reveal>
     </Section>
   );

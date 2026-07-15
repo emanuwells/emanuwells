@@ -18,7 +18,7 @@ export default function MaiaCtaLink() {
     >
       <Link
         href="/maia"
-        className="group inline-flex items-center gap-2 rounded-lg border border-[var(--theme-accent)]/40 bg-[var(--theme-card)] px-5 py-3 text-sm font-medium text-[var(--theme-accent)] hover:bg-[var(--theme-card-hover)] transition-colors"
+        className="group inline-flex items-center gap-2 rounded-lg border border-[var(--cyber-cyan)] px-5 py-2.5 text-sm font-medium text-[var(--cyber-cyan-bright)] bg-transparent hover:bg-[rgba(34,211,238,0.08)] shadow-[var(--cyber-glow-cyan)] transition-colors"
       >
         {label}
         <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>

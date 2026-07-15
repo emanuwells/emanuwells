@@ -1,30 +1,44 @@
-/* Tokens Robim5 — valores por defeito (morning); ThemeProvider actualiza em runtime */
+/* Wells Terminal — tokens fixos (ver docs/design/DESIGN.md) */
 :root {
-  --theme-bg: #e8f4f6;
-  --theme-bg-gradient: linear-gradient(145deg, #99cdd8 0%, #daebe3 35%, #fde8d3 70%, #f3c3b2 100%);
-  --theme-glass: rgba(235, 248, 242, 0.82);
-  --theme-glass-border: rgba(255, 255, 255, 0.6);
-  --theme-glass-highlight: rgba(255, 255, 255, 0.75);
-  --theme-text: #0f2028;
-  --theme-text-muted: #3a5560;
-  --theme-accent: #066057;
-  --theme-accent-light: #318067;
-  --theme-accent-glow: rgba(6, 96, 87, 0.4);
-  --theme-secondary: #daebe3;
-  --theme-card: rgba(255, 255, 255, 0.52);
-  --theme-card-hover: rgba(255, 255, 255, 0.68);
-  --theme-shadow: rgba(0, 0, 0, 0.06);
-  --theme-bento-meteo: #7dd3fc;
-  --theme-bento-curiosities: #fde047;
-  --theme-bento-public: #a5b4fc;
-  --theme-bento-turism: #6ee7b7;
-  --theme-bento-events: #fda4af;
-  --theme-bento-transport: #fdba74;
-  --theme-bento-motivation: #c4b5fd;
+  --cyber-bg: #050a0f;
+  --cyber-bg-elevated: #07111f;
+  --cyber-cyan: #22d3ee;
+  --cyber-cyan-bright: #67e8f9;
+  --cyber-lime: #84cc16;
+  --cyber-lime-bright: #a3e635;
+  --cyber-purple: #a855f7;
+  --cyber-text: #f8fafc;
+  --cyber-text-muted: #94a3b8;
+  --cyber-border: rgba(34, 211, 238, 0.35);
+  --cyber-glow-cyan: 0 0 20px rgba(34, 211, 238, 0.35);
+  --cyber-glow-lime: 0 0 20px rgba(132, 204, 22, 0.35);
 
-  --glass-blur: 16px;
-  --glass-blur-card: 12px;
-  --glass-blur-strong: 24px;
+  --theme-bg: var(--cyber-bg);
+  --theme-bg-gradient: radial-gradient(ellipse 120% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent 55%),
+    linear-gradient(180deg, #050a0f 0%, #07111f 100%);
+  --theme-glass: rgba(7, 17, 31, 0.88);
+  --theme-glass-border: var(--cyber-border);
+  --theme-glass-highlight: rgba(103, 232, 249, 0.08);
+  --theme-text: var(--cyber-text);
+  --theme-text-muted: var(--cyber-text-muted);
+  --theme-accent: var(--cyber-cyan);
+  --theme-accent-light: var(--cyber-cyan-bright);
+  --theme-accent-glow: rgba(34, 211, 238, 0.4);
+  --theme-secondary: var(--cyber-lime);
+  --theme-card: rgba(7, 17, 31, 0.75);
+  --theme-card-hover: rgba(12, 28, 48, 0.9);
+  --theme-shadow: rgba(0, 0, 0, 0.5);
+  --theme-bento-meteo: #22d3ee;
+  --theme-bento-curiosities: #a3e635;
+  --theme-bento-public: #818cf8;
+  --theme-bento-turism: #4ade80;
+  --theme-bento-events: #f472b6;
+  --theme-bento-transport: #fb923c;
+  --theme-bento-motivation: #a855f7;
+
+  --glass-blur: 12px;
+  --glass-blur-card: 10px;
+  --glass-blur-strong: 18px;
   --ease-out-expressive: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-standard: cubic-bezier(0.4, 0, 1, 1);
   --duration-fast: 0.2s;
@@ -32,15 +46,14 @@
   --duration-slow: 0.6s;
   --duration-hero: 1.5s;
   --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
-  --radius-2xl: 1.75rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
 }
 
 .theme-shell {
   background: var(--theme-bg-gradient), var(--theme-bg);
   background-attachment: fixed;
   color: var(--theme-text);
-  transition: background 0.8s ease, color 0.4s ease;
 }

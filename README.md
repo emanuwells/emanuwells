@@ -1,13 +1,5 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=67E8F9&center=true&vCenter=true&width=500&lines=Ol%C3%A1!+Sou+o+Emanuel+Wells;Engenharia+de+dados+%C2%B7+APIs+%C2%B7+observabilidade)](https://git.io/typing-svg)
-
-**Engenharia de dados · APIs · observabilidade · entrega orientada a produto**
-
-[Portefólio](https://emanuwells.vercel.app) · [Case study Maia](https://emanuwells.vercel.app/maia) · [LinkedIn](https://www.linkedin.com/in/emanuel-ferreira91)
-
-</div>
-
 Construo produtos de dados que têm de funcionar para além da demo: pipelines de ingestão, conjuntos de dados governados, APIs operacionais, monitorização e interfaces que tornam sistemas complexos compreensíveis.
 
 Preocupo-me com arquitectura directa, operações observáveis, evidência em vez de afirmações e documentação que continua útil depois da entrega.
@@ -60,13 +52,13 @@ Preocupo-me com arquitectura directa, operações observáveis, evidência em ve
 
 ## Trabalho seleccionado
 
-| Projecto | O que faz | Acesso |
-|---|---|---|
-| [WELLS_OS](https://wells-os.vercel.app) | Plano de controlo read-only dos serviços e servidores onde os meus projectos correm. | Produto activo; código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Narrativa técnica que liga pipelines, governação de catálogo, APIs, dados de tráfego e observabilidade. | Case study público |
-| [Overseer](https://github.com/emanuwells/Overseer) | Saúde de pipelines, histórico de execuções e sinais operacionais. | Código público |
-| [Warden](https://github.com/emanuwells/Warden) | Telemetria de servidores, retenção e alertas. | Código público |
-| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Projecto de automação focado, concebido para operação fiável sem supervisão. | Código público |
+| Projecto                                                    | O que faz                                                                                                    | Acesso                          |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| [WELLS_OS](https://wells-os.vercel.app)                      | Plano de controlo read-only dos serviços e servidores onde os meus projectos correm.                        | Produto activo; código privado |
+| [Case study Maia](https://emanuwells.vercel.app/maia)        | Narrativa técnica que liga pipelines, governação de catálogo, APIs, dados de tráfego e observabilidade. | Case study público             |
+| [Overseer](https://github.com/emanuwells/Overseer)           | Saúde de pipelines, histórico de execuções e sinais operacionais.                                        | Código público                |
+| [Warden](https://github.com/emanuwells/Warden)               | Telemetria de servidores, retenção e alertas.                                                              | Código público                |
+| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Projecto de automação focado, concebido para operação fiável sem supervisão.                           | Código público                |
 
 `WELLS_API` e `Traffic Flow` aparecem actualmente através de demonstrações públicas e case studies enquanto os respectivos repositórios passam por uma revisão de prontidão para publicação.
 

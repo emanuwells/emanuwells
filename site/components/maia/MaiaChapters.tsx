@@ -20,6 +20,7 @@ import PulsePanel from "@/components/maia/PulsePanel";
 import GlassChapter from "@/components/maia/GlassChapter";
 import { BentoGrid, BentoItem } from "@/components/maia/BentoGrid";
 import GlassPanel from "@/components/ui/GlassPanel";
+import TerminalPanel from "@/components/ui/TerminalPanel";
 import { SceneLabel, SceneTitle, HeroTitle } from "@/components/ui/Typography";
 
 const BENTO_ACCENTS = [
@@ -36,16 +37,18 @@ export default function MaiaChapters() {
 
   return (
     <>
-      <section id="intro" className="maia-chapter px-4 sm:px-6 py-12 max-w-4xl mx-auto">
-        <GlassPanel className="p-8 sm:p-12">
+      <section id="intro" className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center">
+        <div className="max-w-4xl mx-auto w-full py-16 sm:py-24 relative z-10">
           <Reveal>
-            <SceneLabel>{t(maiaIntro.eyebrow, lang)}</SceneLabel>
-            <HeroTitle>{t(maiaIntro.title, lang)}</HeroTitle>
-            <p className="text-lg text-[var(--theme-text-muted)] max-w-2xl mt-6 mb-4">{t(maiaIntro.subtitle, lang)}</p>
-            <p className="text-sm text-[var(--theme-accent)] max-w-2xl mb-6">{t(maiaIntro.tagline, lang)}</p>
-            <p className="maia-editorial-badge inline-block">{t(maiaDisclaimer, lang)}</p>
+            <TerminalPanel title="/maia" className="max-w-3xl mx-auto">
+              <SceneLabel>{t(maiaIntro.eyebrow, lang)}</SceneLabel>
+              <HeroTitle>{t(maiaIntro.title, lang)}</HeroTitle>
+              <p className="text-base sm:text-lg text-[var(--cyber-text-muted)] max-w-2xl mt-6 mb-4">{t(maiaIntro.subtitle, lang)}</p>
+              <p className="text-sm text-[var(--cyber-cyan-bright)] max-w-2xl mb-6">{t(maiaIntro.tagline, lang)}</p>
+              <p className="maia-editorial-badge inline-block">{t(maiaDisclaimer, lang)}</p>
+            </TerminalPanel>
           </Reveal>
-        </GlassPanel>
+        </div>
       </section>
 
       <PulsePanel />

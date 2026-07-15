@@ -6,6 +6,12 @@
 **Aprendizagem:** isolar a aplicação em `site/` mantém o perfil compatível com GitHub e dá à Vercel uma Root Directory inequívoca.  
 **Aplicação futura:** preservar a raiz para identidade e governação; colocar produtos publicáveis em pastas explícitas e documentar os respetivos comandos.
 
+## 2026-07-15 — DESIGN.md portável acelera consistência visual
+
+**Contexto:** mockups cyberpunk precisavam de contrato reutilizável e implementação única no site.  
+**Aprendizagem:** documentar tokens, padrões e breakpoints em `docs/design/DESIGN.md` antes do CSS evita deriva entre projectos.  
+**Aplicação futura:** copiar `DESIGN.md` + `tokens.css` + `cyber.css` + componentes `ui/` como kit inicial.
+
 ## 2026-07-15 — Widgets do README e portefólio podem partilhar a mesma paleta
 
 **Contexto:** o perfil GitHub usa serviços externos (stats, activity graph) enquanto o portefólio precisa de dados equivalentes sem depender de iframes.  
