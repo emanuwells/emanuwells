@@ -211,3 +211,14 @@ Para trabalho executado, responder com:
 - validações executadas e resultado;
 - limitações conhecidas;
 - próximos passos, apenas se forem necessários.
+
+## Cursor Cloud specific instructions
+
+A aplicação vive em `site/` (Next.js 16, App Router). Requer Node.js ≥ 20.9. Os comandos canónicos estão em `COMMANDS.md` e nos scripts de `site/package.json` (`dev`, `build`, `lint`, `typecheck`, `test:pulse`). Executar sempre a partir de `site/`.
+
+O update script instala dependências com `npm ci --prefix site`. Para desenvolver:
+
+- Servidor de desenvolvimento: `npm run dev --prefix site` (porta 3000).
+- Não requer segredos, base de dados nem serviços externos. O único env var opcional é `MAIA_TRAFFIC_FLOW_URL` (`site/.env.local`); sem ele, os dados de trânsito em `/maia` são ilustrativos. Dados de tempo (IPMA) e GitHub são obtidos de APIs públicas quando há rede, com fallback offline.
+
+Gotcha: `npm run test:pulse` é um smoke test que faz fetch a `http://localhost:3000/api/maia/pulse`, por isso o servidor de desenvolvimento (`npm run dev`) tem de estar a correr primeiro, senão falha com `ECONNREFUSED`.
