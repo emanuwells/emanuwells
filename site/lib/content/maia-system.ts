@@ -10,8 +10,8 @@ export interface Bi {
 
 export const siteMeta = {
   title: {
-    pt: "Emanuel Wells — Engenharia de dados e sistemas",
-    en: "Emanuel Wells — Data engineering and systems",
+    pt: "Emanuel Ferreira — Engenharia de dados e sistemas",
+    en: "Emanuel Ferreira — Data engineering and systems",
   } as Bi,
   description: {
     pt: "Portfolio e hub operacional: engenharia de dados, observabilidade e sistemas em produção — com destaque para o ecossistema da Câmara Municipal da Maia.",
@@ -592,7 +592,7 @@ export const contact = {
 
 export const footer = {
   text: {
-    pt: "Desenhado e construído por Emanuel Wells.",
-    en: "Designed and built by Emanuel Wells.",
+    pt: "Desenhado e construído por Emanuel Ferreira · emanuwells",
+    en: "Designed and built by Emanuel Ferreira · emanuwells",
   } as Bi,
 };

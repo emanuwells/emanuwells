@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import { getServerLang } from "@/lib/i18n-server";
@@ -7,12 +7,6 @@ import { getThemeBootScript } from "@/lib/design-system/theme-script";
 import LangHtml from "@/components/LangHtml";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteMeta } from "@/lib/content";
-
-const nunito = Nunito_Sans({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -49,9 +43,7 @@ export default async function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: getThemeBootScript() }} />
       </head>
-      <body
-        className={`${nunito.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
-      >
+      <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <LangProvider initialLang={initialLang}>
           <ThemeProvider>
             <LangHtml />

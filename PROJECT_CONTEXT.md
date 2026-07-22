@@ -2,7 +2,7 @@
 
 ## Identidade
 
-`emanuwells` é simultaneamente o repositório de perfil GitHub de Emanuel Wells e a fonte do portefólio publicado em `emanuwells.vercel.app`.
+`emanuwells` é simultaneamente o repositório de perfil GitHub de Emanuel Ferreira e a fonte do portefólio publicado em `emanuwells.vercel.app`.
 
 ## Objetivos
 

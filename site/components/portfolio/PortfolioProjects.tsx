@@ -39,7 +39,7 @@ export default function PortfolioProjects() {
                   <TechTag key={tag} label={tag} />
                 ))}
               </div>
-              <div className="flex gap-3 mt-auto pt-2 border-t border-[rgba(34,211,238,0.12)]">
+              <div className="flex gap-3 mt-auto pt-2 border-t border-[var(--border-subtle)]">
                 {item.githubUrl && (
                   <a href={item.githubUrl} target="_blank" rel="noreferrer" className="text-sm text-[var(--cyber-cyan-bright)] hover:underline">
                     GitHub ↗

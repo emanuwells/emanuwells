@@ -14,7 +14,7 @@ O portfolio segue uma estética **cyberpunk / terminal tech**, fundo escuro, tip
 |---|---|---|
 | Tom | Terminal, developer-first | Case study, storytelling visual |
 | Cor de destaque | Cyan + Verde-lima | Cyan + Magenta |
-| Tipografia | Monospace | Sans-serif |
+| Tipografia | Inter + Space Grotesk + Mono (chrome) | Inter + Space Grotesk; accent magenta |
 | Fundo | Preto-azulado + padrão de circuito | Roxo-escuro profundo |
 
 ---
@@ -71,10 +71,13 @@ export const theme = {
 
 ```js
 fonts: {
-  mono: "'JetBrains Mono', 'Fira Code', ui-monospace, monospace", // Home
-  sans: "'Inter', -apple-system, 'Segoe UI', sans-serif",          // /maia
+  body: "'Inter', -apple-system, 'Segoe UI', sans-serif",       // corpo (Home e Maia)
+  display: "'Space Grotesk', system-ui, sans-serif",            // títulos e marca
+  mono: "'JetBrains Mono', 'Fira Code', ui-monospace, monospace", // terminal / labels
 },
+```
 
+> Home e Maia partilham o mesmo trio tipográfico. Maia troca o accent para magenta via `data-brand="maia"`.
 fontSizes: {
   xs: '0.75rem',   // 12px — labels, badges
   sm: '0.875rem',  // 14px — texto secundário
@@ -618,7 +621,7 @@ A implementação real em `site/` segue:
 - Framer Motion para motion de página, secções, nav e microinterações;
 - componentes React em `site/components/`;
 - navegação única: `WellsHeader` (portfolio + Maia);
-- branding público: **Emanuel Wells** (`emanuwells.vercel.app`).
+- branding público: **Emanuel Ferreira** · handle `emanuwells` (`emanuwells.vercel.app`).
 
 | Spec DESIGN.md | Implementação |
 |---|---|

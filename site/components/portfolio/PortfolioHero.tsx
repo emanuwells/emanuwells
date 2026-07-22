@@ -14,7 +14,7 @@ import MaiaCtaLink from "./MaiaCtaLink";
 function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () => void }) {
   return (
     <>
-      <TerminalPanel title="wells@portfolio ~">
+      <TerminalPanel title="emanuwells@portfolio ~">
         <p className="text-[var(--theme-accent)] mb-2 text-sm sm:text-base">&gt; boot sequence</p>
         <h1 className="text-xl sm:text-2xl lg:text-3xl text-[var(--theme-text)] leading-snug mb-4">
           <TypingText phrases={hero.typingPhrases[lang]} />

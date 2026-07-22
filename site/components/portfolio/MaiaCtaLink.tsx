@@ -8,7 +8,7 @@ import { slideInX, useMotionSafe, VIEWPORT_ONCE } from "@/lib/motion";
 export default function MaiaCtaLink() {
   const { lang } = useLang();
   const motionSafe = useMotionSafe();
-  const label = lang === "pt" ? "Descobrir o trabalho na Maia" : "Discover the Maia work";
+  const label = lang === "pt" ? "Case study Maia" : "Maia case study";
 
   const link = (
     <Link

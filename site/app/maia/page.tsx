@@ -13,15 +13,13 @@ export const metadata: Metadata = {
 
 export default function MaiaPage() {
   return (
-    <>
+    <MaiaThemeShell>
       <WellsHeader variant="maia" />
-      <MaiaThemeShell>
-        <PageMotion>
-          <main className="pt-28">
-            <MaiaChapters />
-          </main>
-        </PageMotion>
-      </MaiaThemeShell>
-    </>
+      <PageMotion>
+        <main className="pt-28">
+          <MaiaChapters />
+        </main>
+      </PageMotion>
+    </MaiaThemeShell>
   );
 }

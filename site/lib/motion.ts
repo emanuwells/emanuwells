@@ -79,6 +79,7 @@ export const menuPanel: Variants = {
 
 export const hoverLift = { y: -3 };
 export const tapPress = { scale: 0.98 };
+export const navHover = { y: -1 };
 
 export const springSoft: Transition = {
   type: "spring",

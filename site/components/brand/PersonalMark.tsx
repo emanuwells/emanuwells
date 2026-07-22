@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { tapPress, useMotionSafe } from "@/lib/motion";
 
 export default function PersonalMark({
   variant = "header",
@@ -10,12 +11,12 @@ export default function PersonalMark({
   variant?: "header" | "hero";
   href?: string;
 }) {
-  const reduceMotion = useReducedMotion();
+  const motionSafe = useMotionSafe();
   const mark = (
     <span className={`wells-brand wells-brand--${variant}`} aria-label="emanuwells">
       <span className="wells-brand-glow" aria-hidden />
       <span className="wells-brand-lockup">
-        <span className={`wells-brand-title ${reduceMotion ? "" : "wells-brand-title--animated"}`}>
+        <span className={`wells-brand-title ${motionSafe ? "wells-brand-title--animated" : ""}`}>
           <span className="wells-brand-well">emanu</span>
           <span className="wells-brand-os">wells</span>
         </span>
@@ -24,12 +25,18 @@ export default function PersonalMark({
   );
 
   const linkedMark = (
-    <Link href={href} className="wells-logo-link">
-      {mark}
+    <Link href={href} className="wells-logo-link" aria-label="emanuwells — início">
+      {motionSafe ? (
+        <motion.span className="inline-flex" whileHover={{ scale: 1.03 }} whileTap={tapPress} transition={{ duration: 0.2 }}>
+          {mark}
+        </motion.span>
+      ) : (
+        mark
+      )}
     </Link>
   );
 
-  if (reduceMotion || variant === "header") return linkedMark;
+  if (!motionSafe || variant === "header") return linkedMark;
 
   return (
     <motion.div

@@ -4,6 +4,14 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ## [Unreleased]
 
+### Changed
+
+- Nome pessoal alinhado a **Emanuel Ferreira**; handle/logo `emanuwells` e produtos WELLS_* mantidos.
+- Copy PT/EN do portefólio e Maia reescrita com tom mais natural e profissional.
+- Tipografia partilhada: Inter (corpo), Space Grotesk (títulos/marca), JetBrains Mono (chrome); Nunito removido.
+- Sub-marca Maia: header dentro de `data-brand`, accent magenta no progresso/nav; aliases `--color-*` ↔ `--theme-*`.
+- Logo `emanuwells` sem gap; micro-interações na nav e no mark.
+
 ### Removed
 
 - Pesquisa site-wide (`fuse.js`, `WellsSearchBar`, `lib/search/*`).
@@ -12,7 +20,7 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 - Stubs de tema time-of-day (`lib/design-system/time.ts`, `lib/maia/theme.ts`) e CSS `.theme-selector*`.
 - Bloco de citações rotativas em GitHub Signals.
 
-### Changed
+### Changed (motion / limpeza)
 
 - `WellsHeader` unificado: scroll-spy partilhado, indicador `layoutId`, menu mobile com `AnimatePresence`, progresso via `useScroll`/`useSpring`.
 - Sistema de motion consolidado em `lib/motion.ts` (`Reveal`, `PageMotion`, hover em `NeonCard`/`Button`, Bento).

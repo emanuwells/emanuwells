@@ -58,6 +58,15 @@
   --theme-bento-transport: #fb923c;
   --theme-bento-motivation: #d946ef;
 
+  /* Semantic aliases — defaults before JS hydration */
+  --color-bg: var(--theme-bg);
+  --color-surface: var(--theme-card);
+  --color-border: var(--theme-glass-border);
+  --color-accent: var(--theme-accent);
+  --color-accent-2: var(--theme-secondary);
+  --color-text: var(--theme-text);
+  --color-text-muted: var(--theme-text-muted);
+
   --glass-blur: 12px;
   --glass-blur-card: 10px;
   --glass-blur-strong: 18px;
@@ -82,7 +91,7 @@
 }
 
 .portfolio-shell {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 
 .maia-page[data-brand="maia"] {
@@ -95,8 +104,16 @@
     linear-gradient(180deg, #140a1f 0%, #1a0e2e 100%);
   --theme-glass: rgba(26, 14, 46, 0.75);
   --theme-glass-border: rgba(217, 70, 239, 0.35);
-  --theme-accent: var(--cyber-cyan);
-  --theme-secondary: var(--cyber-magenta);
+  --theme-glass-highlight: rgba(217, 70, 239, 0.1);
+  --theme-accent: var(--cyber-magenta);
+  --theme-accent-light: #e879f9;
+  --theme-accent-glow: var(--cyber-magenta-glow);
+  --theme-secondary: var(--cyber-cyan);
   --theme-card: rgba(26, 14, 46, 0.75);
-  font-family: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
+  --theme-card-hover: rgba(36, 20, 58, 0.9);
+  --color-accent: var(--theme-accent);
+  --color-accent-2: var(--theme-secondary);
+  --border-subtle: rgba(217, 70, 239, 0.15);
+  --border-default: rgba(217, 70, 239, 0.35);
+  font-family: var(--font-body), -apple-system, "Segoe UI", sans-serif;
 }

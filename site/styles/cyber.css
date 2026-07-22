@@ -290,7 +290,7 @@
     linear-gradient(180deg, rgba(20, 10, 31, 0.2) 0%, rgba(20, 10, 31, 0.92) 75%),
     linear-gradient(115deg, transparent 35%, rgba(77, 216, 232, 0.18) 48%, rgba(217, 70, 239, 0.12) 52%, transparent 65%),
     radial-gradient(ellipse 80% 60% at 50% 0%, rgba(217, 70, 239, 0.15), transparent 55%),
-    #140a1f;
+    var(--bg-primary);
   min-height: min(70vh, 560px);
 }
 

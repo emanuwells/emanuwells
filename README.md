@@ -35,7 +35,7 @@ Preocupo-me com arquitectura directa, operações observáveis, evidência em ve
 ## Gráfico de contribuições
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=emanuwells&bg_color=07111f&color=22d3ee&line=34d399&point=67e8f9&area=true&hide_border=false&custom_title=Emanuel%20Wells%20%E2%80%94%20contribui%C3%A7%C3%B5es" alt="Gráfico de contribuições GitHub" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=emanuwells&bg_color=07111f&color=22d3ee&line=34d399&point=67e8f9&area=true&hide_border=false&custom_title=Emanuel%20Ferreira%20%E2%80%94%20contribui%C3%A7%C3%B5es" alt="Gráfico de contribuições GitHub" />
 </p>
 
 ## Sinais públicos de build

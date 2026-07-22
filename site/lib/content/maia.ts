@@ -10,8 +10,8 @@ export const maiaNavItems: { id: string; label: Bi }[] = [
 ];
 
 export const maiaDisclaimer = {
-  pt: "Case study pessoal — não é um site oficial da Câmara Municipal da Maia.",
-  en: "Personal case study — not an official Maia City Council website.",
+  pt: "Case study pessoal de Emanuel Ferreira — não é um site oficial da Câmara Municipal da Maia.",
+  en: "Personal case study by Emanuel Ferreira — not an official Maia City Council website.",
 } as Bi;
 
 export const maiaIntro = {
@@ -21,12 +21,12 @@ export const maiaIntro = {
     en: "A municipality seen from inside its data",
   } as Bi,
   subtitle: {
-    pt: "Scroll para percorrer o ecossistema que construí — do portal visível ao WELLS_API, pipelines e observabilidade que alimentam a cidade.",
-    en: "Scroll through the ecosystem I built — from the visible portal to WELLS_API, pipelines and observability that feed the city.",
+    pt: "Percorre o ecossistema que construí — do portal público ao WELLS_API, às pipelines e à observabilidade que sustentam a operação.",
+    en: "Walk through the ecosystem I built — from the public portal to WELLS_API, the pipelines and the observability that keep operations running.",
   } as Bi,
   tagline: {
-    pt: "Glass, bento e motion inspirados no ecossistema Robim5 — com dados reais quando a fonte o permite.",
-    en: "Glass, bento and motion inspired by the Robim5 ecosystem — with real data when the source allows.",
+    pt: "Narrativa visual com dados reais quando a fonte o permite.",
+    en: "A visual narrative with real data when the source allows.",
   } as Bi,
 };
 

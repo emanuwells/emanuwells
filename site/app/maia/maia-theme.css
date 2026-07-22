@@ -20,7 +20,7 @@
 }
 
 .maia-layer-optional {
-  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.25));
+  filter: drop-shadow(0 0 8px var(--cyber-cyan-glow));
 }
 
 @media (max-width: 640px) {

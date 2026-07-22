@@ -12,7 +12,7 @@ import {
 import { portfolioNavItems } from "@/lib/content/portfolio";
 import { maiaNavItems, maiaBackLabel, maiaDisclaimer } from "@/lib/content/maia";
 import { useLang, t } from "@/lib/i18n";
-import { menuPanel } from "@/lib/motion";
+import { menuPanel, tapPress } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scroll";
 import PersonalMark from "@/components/brand/PersonalMark";
 
@@ -52,6 +52,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
     [variant]
   );
   const underlineId = variant === "maia" ? "maia-nav-underline" : "portfolio-nav-underline";
+  const mobileUnderlineId = `${underlineId}-mobile`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -103,6 +104,13 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         : "text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)]"
     }`;
 
+  const motionNavProps = reduce
+    ? {}
+    : {
+        whileHover: { y: -1 },
+        whileTap: tapPress,
+      };
+
   return (
     <header className={headerClass}>
       <motion.div
@@ -114,12 +122,14 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3 min-w-0">
           {variant === "maia" ? (
-            <Link
-              href="/"
-              className="text-sm text-[var(--theme-accent)] shrink-0 border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)]"
-            >
-              ← {t(maiaBackLabel, lang)}
-            </Link>
+            <motion.div {...motionNavProps}>
+              <Link
+                href="/"
+                className="text-sm text-[var(--theme-accent)] shrink-0 border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)] transition-colors"
+              >
+                ← {t(maiaBackLabel, lang)}
+              </Link>
+            </motion.div>
           ) : (
             <PersonalMark variant="header" href="/" />
           )}
@@ -128,25 +138,27 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         {variant === "portfolio" && (
           <nav aria-label="Principal" className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
             {portfolioNavItems.map((item) => (
-              <button
+              <motion.button
                 key={item.id}
                 type="button"
                 onClick={() => goTo(item.id)}
                 className={navBtnClass(item.id)}
                 aria-current={active === item.id ? "true" : undefined}
+                {...motionNavProps}
               >
                 {t(item.label, lang)}
                 {active === item.id && !reduce && <NavUnderline layoutId={underlineId} />}
-              </button>
+              </motion.button>
             ))}
             {EXTRA_NAV.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                className="relative px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)]"
-              >
-                {t(item.label, lang)}
-              </Link>
+              <motion.div key={item.id} {...motionNavProps}>
+                <Link
+                  href={item.href}
+                  className="relative px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)] transition-colors"
+                >
+                  {t(item.label, lang)}
+                </Link>
+              </motion.div>
             ))}
           </nav>
         )}
@@ -154,26 +166,28 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         {variant === "maia" && (
           <nav aria-label="Capítulos" className="hidden md:flex gap-1 overflow-x-auto no-scrollbar flex-1 justify-center">
             {maiaNavItems.map((ch) => (
-              <button
+              <motion.button
                 key={ch.id}
                 type="button"
                 onClick={() => goTo(ch.id)}
                 className={`${navBtnClass(ch.id)} text-xs whitespace-nowrap`}
                 aria-current={active === ch.id ? "true" : undefined}
+                {...motionNavProps}
               >
                 {t(ch.label, lang)}
                 {active === ch.id && !reduce && <NavUnderline layoutId={underlineId} />}
-              </button>
+              </motion.button>
             ))}
           </nav>
         )}
 
         <div className="flex items-center gap-2 shrink-0">
-          <button
+          <motion.button
             type="button"
             onClick={toggle}
             className="lang-pill"
             aria-label={lang === "pt" ? "Mudar para inglês" : "Switch to Portuguese"}
+            {...motionNavProps}
           >
             <span className={lang === "pt" ? "text-[var(--theme-accent)]" : "text-[var(--theme-text-muted)]"}>
               PT
@@ -182,16 +196,17 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
             <span className={lang === "en" ? "text-[var(--theme-accent)]" : "text-[var(--theme-text-muted)]"}>
               EN
             </span>
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             type="button"
             className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} px-2.5 py-1.5 text-sm border border-[var(--theme-glass-border)] rounded-md text-[var(--theme-text)]`}
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
+            {...motionNavProps}
           >
             {open ? (lang === "pt" ? "Fechar" : "Close") : "Menu"}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -219,17 +234,22 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                   <button
                     key={item.id}
                     type="button"
-                    className={`text-left py-2.5 text-sm ${
+                    className={`relative text-left py-2.5 text-sm ${
                       active === item.id ? "text-[var(--theme-accent)]" : "text-[var(--theme-text)]"
                     }`}
                     onClick={() => goTo(item.id)}
                     aria-current={active === item.id ? "true" : undefined}
                   >
                     {t(item.label, lang)}
+                    {active === item.id && !reduce && <NavUnderline layoutId={mobileUnderlineId} />}
                   </button>
                 ))}
               {variant === "portfolio" && (
-                <Link href="/maia" className="py-2.5 text-sm text-[var(--theme-text)]" onClick={() => setOpen(false)}>
+                <Link
+                  href="/maia"
+                  className="py-2.5 text-sm text-[var(--theme-text)] hover:text-[var(--theme-accent)]"
+                  onClick={() => setOpen(false)}
+                >
                   Maia
                 </Link>
               )}
@@ -238,13 +258,14 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                   <button
                     key={ch.id}
                     type="button"
-                    className={`text-left py-2.5 text-sm ${
+                    className={`relative text-left py-2.5 text-sm ${
                       active === ch.id ? "text-[var(--theme-accent)]" : "text-[var(--theme-text)]"
                     }`}
                     onClick={() => goTo(ch.id)}
                     aria-current={active === ch.id ? "true" : undefined}
                   >
                     {t(ch.label, lang)}
+                    {active === ch.id && !reduce && <NavUnderline layoutId={mobileUnderlineId} />}
                   </button>
                 ))}
             </div>
