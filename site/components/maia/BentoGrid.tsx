@@ -1,12 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { EASE_OUT_EXPRESSIVE } from "@/lib/motion";
+import { EASE_OUT_EXPRESSIVE, hoverLift, scaleIn, staggerContainer, useMotionSafe, VIEWPORT_ONCE } from "@/lib/motion";
 
 export function BentoGrid({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const reduce = useReducedMotion();
-  if (reduce) {
+  const motionSafe = useMotionSafe();
+  if (!motionSafe) {
     return <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 ${className}`}>{children}</div>;
   }
   return (
@@ -14,8 +14,8 @@ export function BentoGrid({ children, className = "" }: { children: ReactNode; c
       className={`grid grid-cols-2 md:grid-cols-3 gap-4 ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-40px" }}
-      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+      viewport={VIEWPORT_ONCE}
+      variants={staggerContainer}
     >
       {children}
     </motion.div>
@@ -33,12 +33,12 @@ export function BentoItem({
   accent?: string;
   span?: 1 | 2 | 3;
 }) {
-  const reduce = useReducedMotion();
+  const motionSafe = useMotionSafe();
   const spanClass = span === 2 ? "md:col-span-2" : span === 3 ? "col-span-full" : "";
   const classNames = `glass-card p-5 ${spanClass} ${className}`;
   const style = accent ? { borderLeft: `3px solid ${accent}` } : undefined;
 
-  if (reduce) {
+  if (!motionSafe) {
     return (
       <article className={classNames} style={style}>
         {children}
@@ -50,11 +50,9 @@ export function BentoItem({
     <motion.article
       className={classNames}
       style={style}
-      variants={{
-        hidden: { opacity: 0, y: 20, scale: 0.98 },
-        visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: EASE_OUT_EXPRESSIVE } },
-      }}
-      whileHover={{ y: -3 }}
+      variants={scaleIn}
+      transition={{ duration: 0.45, ease: EASE_OUT_EXPRESSIVE }}
+      whileHover={hoverLift}
     >
       {children}
     </motion.article>

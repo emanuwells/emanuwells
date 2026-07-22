@@ -14,10 +14,3 @@ export const maiaAssetManifest = [
   { file: "/maia/illustrations/girl_relaxing.svg", source: "Robim5/MaiaPPoint_LandingPage/frontend/public/assets/geral/image/girl_relaxing.svg" },
   { file: "/maia/illustrations/persons_inbench.svg", source: "Robim5/MaiaPPoint_LandingPage/frontend/public/assets/geral/image/persons_inbench.svg" },
 ] as const;
-
-/** Backgrounds PNG referenciados no código Robim5 mas ausentes no disco — usar gradientes CSS. */
-export const maiaMissingBackgrounds = [
-  "assets/geral/background/morning.png",
-  "assets/geral/background/afternoon.png",
-  "assets/geral/background/night.png",
-] as const;

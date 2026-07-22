@@ -1,38 +1,25 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { hero, evidence } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
-import { EASE_OUT_EXPRESSIVE } from "@/lib/motion";
-import WellsSearchBar from "@/components/search/WellsSearchBar";
+import { fadeUp, staggerContainer, useMotionSafe } from "@/lib/motion";
+import { scrollToSection } from "@/lib/scroll";
 import Button from "@/components/ui/Button";
 import TypingText from "@/components/ui/TypingText";
 import TerminalPanel from "@/components/ui/TerminalPanel";
 import StatCard from "@/components/ui/StatCard";
 import MaiaCtaLink from "./MaiaCtaLink";
 
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT_EXPRESSIVE } },
-};
-
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
 function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () => void }) {
   return (
     <>
-      <div className="mb-6 hidden sm:block">
-        <WellsSearchBar />
-      </div>
       <TerminalPanel title="wells@portfolio ~">
-        <p className="text-[var(--cyber-cyan)] mb-2 text-sm sm:text-base">&gt; boot sequence</p>
-        <h1 className="text-xl sm:text-2xl lg:text-3xl text-[var(--cyber-text)] leading-snug mb-4">
+        <p className="text-[var(--theme-accent)] mb-2 text-sm sm:text-base">&gt; boot sequence</p>
+        <h1 className="text-xl sm:text-2xl lg:text-3xl text-[var(--theme-text)] leading-snug mb-4">
           <TypingText phrases={hero.typingPhrases[lang]} />
         </h1>
-        <p className="text-sm sm:text-base text-[var(--cyber-text-muted)] max-w-2xl leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--theme-text-muted)] max-w-2xl leading-relaxed">
           {t(hero.subtitle, lang)}
         </p>
       </TerminalPanel>
@@ -48,7 +35,7 @@ function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () =
         </a>
       </div>
       <div>
-        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.05em] text-[var(--cyber-cyan)] mb-4">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.05em] text-[var(--theme-accent)] mb-4">
           {t(evidence.eyebrow, lang)}
         </p>
         <dl className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -68,24 +55,20 @@ function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () =
 
 export default function PortfolioHero() {
   const { lang } = useLang();
-  const reduce = useReducedMotion();
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const motionSafe = useMotionSafe();
 
   return (
     <section id="hero" className="relative min-h-[92vh] flex flex-col px-4 sm:px-6 pt-24 pb-16 bg-grid overflow-hidden">
       <div className="hero-kenburns" aria-hidden />
       <div className="mx-auto max-w-4xl w-full flex-1 flex flex-col justify-center relative z-10">
-        {reduce ? (
-          <HeroContent lang={lang} onProjects={() => scrollTo("projects")} />
-        ) : (
-          <motion.div variants={container} initial="hidden" animate="visible">
-            <motion.div variants={item}>
-              <HeroContent lang={lang} onProjects={() => scrollTo("projects")} />
+        {motionSafe ? (
+          <motion.div variants={staggerContainer} initial="hidden" animate="visible">
+            <motion.div variants={fadeUp}>
+              <HeroContent lang={lang} onProjects={() => scrollToSection("projects")} />
             </motion.div>
           </motion.div>
+        ) : (
+          <HeroContent lang={lang} onProjects={() => scrollToSection("projects")} />
         )}
       </div>
     </section>

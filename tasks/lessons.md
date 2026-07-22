@@ -1,5 +1,11 @@
 # Aprendizagens reutilizáveis
 
+## 2026-07-22 — Google Drive pode bloquear deletes de ficheiros já removidos do índice Git
+
+**Contexto:** ao limpar nav legado (`PortfolioNav`, `MaiaNav`) no caminho `G:\O meu disco\...`, o SO devolveu Access denied e o `git rm` falhou no disco embora `git update-index --force-remove` tenha marcado a eliminação.  
+**Aprendizagem:** validar build/lint em espelho local (`C:\temp`) quando o sync cloud corrompe `npm install` ou bloqueia deletes; confirmar depois o estado dos ficheiros fantasma no working tree.  
+**Aplicação futura:** em repos sob Drive/OneDrive, preferir validação em disco local e tratar locks de ficheiro como risco operacional separado do código.
+
 ## 2026-07-15 — Perfil GitHub e aplicação podem partilhar o repositório sem partilhar a raiz
 
 **Contexto:** o README de perfil tem de permanecer na raiz, enquanto a aplicação Next.js traz manifestos, código e configurações próprios.  

@@ -100,75 +100,6 @@ body {
   box-shadow: 0 16px 40px var(--theme-shadow);
 }
 
-.search-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 45;
-  background: color-mix(in srgb, var(--theme-bg) 40%, transparent);
-  backdrop-filter: blur(6px);
-  animation: searchBackdropIn 0.25s var(--ease-out-expressive);
-}
-
-.search-modal-panel {
-  animation: searchPanelIn 0.3s var(--ease-out-expressive);
-}
-
-.search-root--open {
-  z-index: 50;
-}
-
-@keyframes searchBackdropIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes searchPanelIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.floating-cat-btn {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 999px;
-  border: 1px solid var(--theme-glass-border);
-  background: var(--theme-glass);
-  backdrop-filter: blur(12px) saturate(150%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  animation: floatBob 4.5s ease-in-out infinite;
-  animation-delay: var(--float-delay, 0s);
-  transition: transform 0.25s var(--ease-out-expressive), box-shadow 0.25s;
-}
-
-.floating-cat-btn:hover {
-  transform: scale(1.1);
-  animation-play-state: paused;
-  box-shadow: 0 8px 24px var(--theme-shadow);
-}
-
-@keyframes floatBob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
 .hero-kenburns {
   position: absolute;
   inset: -8%;
@@ -206,17 +137,6 @@ body {
     transform: translateY(0);
   }
 }
-.search-highlight {
-  background: color-mix(in srgb, var(--theme-accent) 35%, transparent);
-  border-radius: 2px;
-}
-
-@media (max-width: 900px) {
-  .floating-cats {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -227,10 +147,8 @@ body {
   .icon-button.spinning svg {
     animation: none;
   }
-  .floating-cat-btn,
   .hero-kenburns,
-  .hero-stagger > *,
-  .theme-selector-popover {
+  .hero-stagger > * {
     animation: none !important;
   }
   .glass-card::after {

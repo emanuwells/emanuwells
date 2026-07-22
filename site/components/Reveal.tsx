@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { type ReactNode } from "react";
+import { EASE_OUT_EXPRESSIVE, VIEWPORT_ONCE, fadeUp, useMotionSafe } from "@/lib/motion";
 
 export default function Reveal({
   children,
@@ -12,19 +13,21 @@ export default function Reveal({
   delay?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
+  const motionSafe = useMotionSafe();
 
-  if (reduce) {
+  if (!motionSafe) {
     return <div className={className}>{children}</div>;
   }
 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT_ONCE}
+      custom={delay}
+      variants={fadeUp}
+      transition={{ duration: 0.55, delay, ease: EASE_OUT_EXPRESSIVE }}
     >
       {children}
     </motion.div>

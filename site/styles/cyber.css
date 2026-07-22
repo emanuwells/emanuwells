@@ -355,11 +355,6 @@
   box-shadow: 0 0 8px var(--cyber-cyan-glow);
 }
 
-.quote-block {
-  border-left: 2px solid var(--cyber-cyan);
-  padding-left: 1rem;
-}
-
 .architecture-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

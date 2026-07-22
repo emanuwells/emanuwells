@@ -19,32 +19,7 @@ import { useLang, t } from "@/lib/i18n";
 import Section, { Eyebrow, SectionTitle } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import TerminalPanel from "@/components/ui/TerminalPanel";
-import ProgressBar from "@/components/ui/ProgressBar";
 import StatCard from "@/components/ui/StatCard";
-
-const DEV_QUOTES = [
-  {
-    text: {
-      pt: "Há poucas coisas mais frustrantes do que depurar código. Não seria mais rápido se simplesmente não criássemos os bugs?",
-      en: "There are few things more frustrating than debugging. Wouldn't it be quicker if we just didn't create the bugs in the first place?",
-    },
-    author: "Martin Fowler",
-  },
-  {
-    text: {
-      pt: "Qualquer tolo consegue escrever código que um computador entende. Bons programadores escrevem código que humanos entendem.",
-      en: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-    },
-    author: "Martin Fowler",
-  },
-  {
-    text: {
-      pt: "A simplicidade é pré-requisito para fiabilidade.",
-      en: "Simplicity is prerequisite for reliability.",
-    },
-    author: "Edsger W. Dijkstra",
-  },
-];
 
 const tooltipStyle = {
   background: "rgba(16,21,31,0.95)",
@@ -66,8 +41,6 @@ function Waveform() {
 export default function PortfolioGitHubSignals() {
   const { lang } = useLang();
   const [summary, setSummary] = useState<GitHubSummary>(FALLBACK_SUMMARY);
-  const [quoteIndex, setQuoteIndex] = useState(0);
-  const [pulse, setPulse] = useState(72);
 
   useEffect(() => {
     let cancelled = false;
@@ -82,14 +55,6 @@ export default function PortfolioGitHubSignals() {
     };
   }, []);
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setQuoteIndex((current) => (current + 1) % DEV_QUOTES.length);
-      setPulse((p) => 55 + ((p + 7) % 40));
-    }, 8000);
-    return () => window.clearInterval(timer);
-  }, []);
-
   const metrics = [
     { value: summary.publicRepos, label: t(githubSignals.metrics.publicRepos, lang) },
     { value: summary.stars, label: t(githubSignals.metrics.stars, lang) },
@@ -102,8 +67,6 @@ export default function PortfolioGitHubSignals() {
     rhythm: Math.max(1, point.contributions + (i % 3)),
   }));
 
-  const quote = DEV_QUOTES[quoteIndex];
-
   return (
     <Section id="signals">
       <Reveal>
@@ -115,16 +78,7 @@ export default function PortfolioGitHubSignals() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <TerminalPanel title={t(githubSignals.systemPulse, lang)}>
-          <div className="flex items-center justify-between gap-4 mb-6">
-            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)]">
-              {t(githubSignals.systemPulse, lang)}
-            </p>
-            <div className="w-32 sm:w-48">
-              <ProgressBar value={pulse} color="lime" label="System pulse" />
-            </div>
-          </div>
-
+        <TerminalPanel title={t(githubSignals.panelTitle, lang)}>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
             {metrics.map((metric, i) => (
               <StatCard
@@ -137,9 +91,9 @@ export default function PortfolioGitHubSignals() {
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 mb-6">
+          <div className="grid lg:grid-cols-2 gap-6 mb-2">
             <div>
-              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-3">
+              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--theme-accent)] mb-3">
                 {t(githubSignals.languagesTitle, lang)}
               </h3>
               <div className="h-48 sm:h-56">
@@ -156,7 +110,7 @@ export default function PortfolioGitHubSignals() {
               </div>
             </div>
             <div>
-              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-3">
+              <h3 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--theme-accent)] mb-3">
                 {t(githubSignals.activityTitle, lang)}
               </h3>
               <div className="h-48 sm:h-56 flex flex-col">
@@ -166,7 +120,10 @@ export default function PortfolioGitHubSignals() {
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(139,149,165,0.12)" vertical={false} />
                       <XAxis dataKey="week" tick={{ fill: "#8b95a5", fontSize: 11 }} />
                       <YAxis allowDecimals={false} tick={{ fill: "#8b95a5", fontSize: 11 }} />
-                      <Tooltip formatter={(value) => [value, lang === "pt" ? "Eventos" : "Events"]} contentStyle={tooltipStyle} />
+                      <Tooltip
+                        formatter={(value) => [value, lang === "pt" ? "Eventos" : "Events"]}
+                        contentStyle={tooltipStyle}
+                      />
                       <Bar dataKey="contributions" fill="#4dd8e8" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
@@ -176,17 +133,7 @@ export default function PortfolioGitHubSignals() {
             </div>
           </div>
 
-          <div className="border-t border-[var(--border-subtle)] pt-4 quote-block">
-            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-[var(--cyber-cyan)] mb-2">
-              {t(githubSignals.quoteTitle, lang)}
-            </p>
-            <blockquote className="text-sm sm:text-base text-[var(--cyber-text)] italic leading-relaxed">
-              &ldquo;{t(quote.text, lang)}&rdquo;
-            </blockquote>
-            <p className="text-xs text-[var(--cyber-text-muted)] mt-2 text-right">— {quote.author}</p>
-          </div>
-
-          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[var(--cyber-text-muted)] mt-4">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[var(--theme-text-muted)] mt-4">
             {summary.source === "live"
               ? t(githubSignals.liveSource, lang)
               : t(githubSignals.fallbackSource, lang)}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import WellsHeader from "@/components/layout/WellsHeader";
-import FloatingCategories from "@/components/layout/FloatingCategories";
+import PageMotion from "@/components/layout/PageMotion";
 import PortfolioHero from "@/components/portfolio/PortfolioHero";
 import PortfolioGitHubSignals from "@/components/portfolio/PortfolioGitHubSignals";
 import PortfolioProjects from "@/components/portfolio/PortfolioProjects";
@@ -19,16 +19,17 @@ export default function Home() {
   return (
     <>
       <WellsHeader variant="portfolio" />
-      <main>
-        <PortfolioHero />
-        <PortfolioGitHubSignals />
-        <PortfolioProjects />
-        <PortfolioSkills />
-        <PortfolioExperience />
-        <PortfolioAbout />
-        <PortfolioContact />
-      </main>
-      <FloatingCategories />
+      <PageMotion>
+        <main>
+          <PortfolioHero />
+          <PortfolioGitHubSignals />
+          <PortfolioProjects />
+          <PortfolioSkills />
+          <PortfolioExperience />
+          <PortfolioAbout />
+          <PortfolioContact />
+        </main>
+      </PageMotion>
     </>
   );
 }

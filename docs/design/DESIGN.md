@@ -1,8 +1,8 @@
 # DESIGN.md — Sistema de Design "Grinnu Nells" Portfolio
 
-> Documento de referência para implementação em **React + Styled Components**.
+> Documento de referência para a implementação em **Next.js + React + Tailwind CSS + Framer Motion**.
 > Cobre dois layouts: **Home** (portfolio principal) e **/maia** (case study de projeto).
-> Versão do documento: `1.0.0`
+> Versão do documento: `1.1.0`
 
 ---
 
@@ -465,12 +465,12 @@ Estrutura vertical, container centrado a `1200px`, secções espaçadas por `the
 - Cores de glow alternadas: cyan / lime / cyan
 
 ### 5.3 "Sinais Públicos"
-- `Card` grande (glow cyan) com header "System Pulse" + `ProgressBar` fina no topo direito
-- Sub-grid de 4 mini-stats com ícone (repositórios públicos, estrelas, forks, seguidores)
+- `TerminalPanel` com métricas GitHub públicas (sem chrome ornamental tipo “System Pulse” ou citações)
+- Sub-grid de 4 mini-stats (repositórios públicos, estrelas, forks, seguidores)
 - Duas visualizações lado a lado:
-  - Gráfico de linha suave (área com gradiente verde→cyan)
-  - Waveform tipo equalizador (barras verticais cyan/verde alternadas)
-- Bloco de citação ("CITAÇÃO DEV"): texto em itálico, borda esquerda cyan de 2px
+  - Gráfico de linha (ritmo de contribuição)
+  - Gráfico de barras + waveform subtil
+- Rodapé com origem dos dados (live vs snapshot local)
 
 ### 5.4 "Projetos"
 - Grid `gridProjects` (3×2) de `ProjectCard`:
@@ -554,16 +554,24 @@ const Grid = styled.div`
 
 ## 9. Animações & Microinterações
 
+Biblioteca: **Framer Motion** (`site/lib/motion.ts` — presets partilhados: `fadeUp`, `staggerContainer`, `scaleIn`, `pageEnter`, `menuPanel`).
+
 | Elemento | Efeito |
 |---|---|
+| Entrada de página | `PageMotion` — fade + leve `translateY` |
+| Secções | `Reveal` com `whileInView` (fade-up) |
+| Nav activa | `layoutId` underline spring |
+| Menu mobile | `AnimatePresence` + altura/opacidade |
+| Progresso de scroll | `useScroll` + `useSpring` no header |
 | Cursor do terminal | Piscar `1s step-end infinite` |
-| Cards (hover) | `translateY(-2px)` + box-shadow glow, `0.2s ease` |
-| Botões (hover) | Intensificação do glow + leve elevação |
-| Progress bars | `width` anima em `0.4s ease` ao entrar em viewport |
-| Waveform (Sinais Públicos) | Barras com altura animada em loop subtil, dessincronizada |
-| Dots de paginação (/maia) | Transição de opacidade/cor ao trocar de slide ativo |
+| Cards (hover) | `translateY(-3px)` via Framer Motion |
+| Botões (hover/tap) | Elevação + `scale` em tap |
+| Waveform (Sinais Públicos) | Barras com altura animada em loop subtil |
+| Dots de paginação (/maia) | Transição de opacidade/cor ao trocar de slide activo |
 
-Respeitar sempre `@media (prefers-reduced-motion: reduce)` desativando ou reduzindo estas animações.
+**Removido do produto:** pesquisa site-wide (`fuse.js`), rail flutuante de categorias, relógio do header, “System Pulse” duplicado e selector de tema time-of-day.
+
+Respeitar sempre `@media (prefers-reduced-motion: reduce)` e `useReducedMotion` / `useMotionSafe`.
 
 ---
 
@@ -603,25 +611,31 @@ src/
 
 ## 11. Implementação neste repositório
 
-Este documento usa **Styled Components** como referência pedagógica. A implementação real em `site/` segue a stack do projeto:
+A implementação real em `site/` segue:
 
 - Next.js App Router, React 19, TypeScript;
-- Tailwind CSS 4 + variáveis CSS (`site/styles/tokens.css`, `site/styles/cyber.css`);
-- componentes React em `site/components/ui/`;
+- Tailwind CSS 4 + variáveis CSS (`site/styles/tokens.css`, `site/styles/cyber.css`, `site/styles/glass.css`);
+- Framer Motion para motion de página, secções, nav e microinterações;
+- componentes React em `site/components/`;
+- navegação única: `WellsHeader` (portfolio + Maia);
 - branding público: **Emanuel Wells** (`emanuwells.vercel.app`).
 
 | Spec DESIGN.md | Implementação |
 |---|---|
-| `theme.js` | `tokens.css`, `palettes.ts` |
+| Tokens / theme | `tokens.css`, `palettes.ts` |
 | `Button` | `site/components/ui/Button.tsx` |
 | `Badge` | `site/components/ui/Badge.tsx` |
 | `StatCard` | `site/components/ui/StatCard.tsx` |
 | `ProgressBar` | `site/components/ui/ProgressBar.tsx` |
 | `TerminalWindow` | `site/components/ui/TerminalPanel.tsx` |
-| `GlassCard` | `site/components/ui/GlassPanel.tsx` |
+| `GlassCard` | `glass-card` / `glass.css` |
+| Motion presets | `site/lib/motion.ts` + `Reveal.tsx` |
+| Nav | `site/components/layout/WellsHeader.tsx` |
 | `circuit-pattern.svg` | `site/public/assets/circuit-pattern.svg` |
-| Home | `/` — tipografia mono (`.portfolio-shell`) |
+| Home | `/` — tipografia mono |
 | `/maia` | `MaiaThemeShell` com `data-brand="maia"` — sans-serif, tokens magenta |
+
+Exemplos Styled Components noutros capítulos são apenas referência visual; não fazem parte da stack de produção.
 
 ---
 

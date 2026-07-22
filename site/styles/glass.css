@@ -53,64 +53,6 @@
   -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
 }
 
-.theme-selector {
-  position: relative;
-}
-
-.theme-selector-btn {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  border: 1px solid var(--theme-glass-border);
-  background: var(--theme-glass);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--theme-accent);
-  cursor: pointer;
-  transition: transform var(--duration-fast) var(--ease-out-expressive);
-}
-
-.theme-selector-btn:hover {
-  transform: scale(1.06);
-}
-
-.theme-selector-popover {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  min-width: 11rem;
-  padding: 0.35rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--theme-glass-border);
-  background: color-mix(in srgb, var(--theme-glass) 92%, transparent);
-  backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
-  box-shadow: 0 16px 40px var(--theme-shadow);
-  z-index: 60;
-  animation: themePopoverIn 0.35s var(--ease-out-expressive);
-}
-
-.theme-selector-option {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.6rem;
-  border-radius: var(--radius-md);
-  font-size: 0.8rem;
-  color: var(--theme-text-muted);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-}
-
-.theme-selector-option:hover,
-.theme-selector-option.is-selected {
-  background: var(--theme-card-hover);
-  color: var(--theme-text);
-}
-
 @keyframes logoGlow {
   0%,
   100% {
@@ -266,17 +208,6 @@
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
-  }
-}
-
-@keyframes themePopoverIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 

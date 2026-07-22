@@ -77,7 +77,7 @@ export const evidence = {
 
 export const githubSignals = {
   eyebrow: { pt: "Sinais públicos", en: "Public signals" } as Bi,
-  systemPulse: { pt: "System Pulse", en: "System Pulse" } as Bi,
+  panelTitle: { pt: "github@emanuwells", en: "github@emanuwells" } as Bi,
   title: { pt: "Actividade GitHub em tempo quase real", en: "Near-real-time GitHub activity" } as Bi,
   intro: {
     pt: "Métricas públicas, linguagens e ritmo de contribuição — o mesmo espírito do perfil GitHub, agora no portefólio.",
@@ -91,7 +91,6 @@ export const githubSignals = {
   },
   languagesTitle: { pt: "Linguagens nos repositórios", en: "Repository languages" } as Bi,
   activityTitle: { pt: "Ritmo semanal (eventos públicos)", en: "Weekly rhythm (public events)" } as Bi,
-  quoteTitle: { pt: "Citação dev", en: "Dev quote" } as Bi,
   liveSource: { pt: "Dados públicos GitHub · actualização horária", en: "Public GitHub data · hourly refresh" } as Bi,
   fallbackSource: {
     pt: "Snapshot local · API indisponível",

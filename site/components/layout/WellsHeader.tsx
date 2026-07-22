@@ -1,14 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import { portfolioNavItems } from "@/lib/content/portfolio";
 import { maiaNavItems, maiaBackLabel, maiaDisclaimer } from "@/lib/content/maia";
 import { useLang, t } from "@/lib/i18n";
-import { HeaderClock } from "@/components/layout/FloatingCategories";
+import { menuPanel } from "@/lib/motion";
+import { scrollToSection } from "@/lib/scroll";
 import PersonalMark from "@/components/brand/PersonalMark";
-import WellsSearchBar from "@/components/search/WellsSearchBar";
-import ProgressBar from "@/components/ui/ProgressBar";
 
 export type HeaderVariant = "portfolio" | "maia";
 
@@ -16,12 +22,36 @@ const EXTRA_NAV = [
   { id: "maia-link", href: "/maia", label: { pt: "Maia", en: "Maia" } },
 ] as const;
 
+function NavUnderline({ layoutId }: { layoutId: string }) {
+  return (
+    <motion.span
+      layoutId={layoutId}
+      className="absolute inset-x-1 -bottom-0.5 h-0.5 rounded-full bg-[var(--theme-accent)]"
+      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+    />
+  );
+}
+
 export default function WellsHeader({ variant = "portfolio" }: { variant?: HeaderVariant }) {
   const { lang, toggle } = useLang();
-  const [active, setActive] = useState("hero");
+  const reduce = useReducedMotion();
+  const menuId = useId();
+  const [active, setActive] = useState(variant === "maia" ? "intro" : "hero");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [progress, setProgress] = useState(0);
+
+  const { scrollYProgress } = useScroll();
+  const progressScale = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 28,
+    mass: 0.35,
+  });
+
+  const sectionIds = useMemo(
+    () => (variant === "maia" ? maiaNavItems.map((i) => i.id) : portfolioNavItems.map((i) => i.id)),
+    [variant]
+  );
+  const underlineId = variant === "maia" ? "maia-nav-underline" : "portfolio-nav-underline";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -31,93 +61,89 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
   }, []);
 
   useEffect(() => {
-    if (variant !== "portfolio" && variant !== "maia") return;
-    const onScroll = () => {
-      const y = window.scrollY;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? (y / max) * 100 : 0);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [variant]);
-
-  useEffect(() => {
-    if (variant !== "portfolio") return;
-    const sections = portfolioNavItems
-      .map((i) => document.getElementById(i.id))
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { rootMargin: "-30% 0px -55% 0px" }
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-28% 0px -55% 0px", threshold: 0 }
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();
-  }, [variant]);
+  }, [sectionIds]);
 
   useEffect(() => {
-    if (variant !== "maia") return;
-    const chapters = maiaNavItems.map((c) => document.getElementById(c.id)).filter(Boolean) as HTMLElement[];
-    const onScroll = () => {
-      for (const ch of chapters) {
-        const rect = ch.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom > 120) setActive(ch.id);
-      }
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [variant]);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-  const scrollTo = (id: string) => {
+  const goTo = (id: string) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(id);
   };
 
-  const headerClass = `fixed top-0 inset-x-0 z-50 transition-all border-b border-[var(--border-subtle)] ${scrolled || variant !== "portfolio" ? "glass-header shadow-sm" : ""}`;
+  const headerClass = `fixed top-0 inset-x-0 z-50 transition-all border-b border-[var(--theme-glass-border)] ${
+    scrolled || variant === "maia" ? "glass-header shadow-sm" : "bg-transparent"
+  }`;
+
+  const navBtnClass = (id: string) =>
+    `relative px-2.5 py-1.5 text-sm transition-colors ${
+      active === id
+        ? "text-[var(--theme-accent)]"
+        : "text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)]"
+    }`;
 
   return (
     <header className={headerClass}>
-      {(variant === "maia" || variant === "portfolio") && (
-        <div
-          className="h-0.5 bg-[var(--theme-accent)] origin-left transition-transform"
-          style={{ transform: `scaleX(${progress / 100})`, width: "100%" }}
-          aria-hidden
-        />
-      )}
+      <motion.div
+        className="h-0.5 origin-left bg-[var(--theme-accent)]"
+        style={reduce ? { scaleX: 0 } : { scaleX: progressScale }}
+        aria-hidden
+      />
+
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3 min-w-0">
           {variant === "maia" ? (
-            <Link href="/" className="text-sm text-[var(--theme-accent)] shrink-0 border-b-2 border-transparent hover:border-[var(--theme-accent)] pb-0.5">
+            <Link
+              href="/"
+              className="text-sm text-[var(--theme-accent)] shrink-0 border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)]"
+            >
               ← {t(maiaBackLabel, lang)}
             </Link>
           ) : (
             <PersonalMark variant="header" href="/" />
           )}
-          {variant === "portfolio" && <HeaderClock />}
         </div>
 
         {variant === "portfolio" && (
-          <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
+          <nav aria-label="Principal" className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
             {portfolioNavItems.map((item) => (
               <button
                 key={item.id}
                 type="button"
-                onClick={() => scrollTo(item.id)}
-                className={`px-2.5 py-1.5 text-sm rounded-md border-b-2 ${
-                  active === item.id
-                    ? "text-[var(--theme-accent)] border-[var(--theme-accent)]"
-                    : "text-[var(--theme-text-muted)] border-transparent hover:text-[var(--theme-accent)]"
-                }`}
+                onClick={() => goTo(item.id)}
+                className={navBtnClass(item.id)}
+                aria-current={active === item.id ? "true" : undefined}
               >
                 {t(item.label, lang)}
+                {active === item.id && !reduce && <NavUnderline layoutId={underlineId} />}
               </button>
             ))}
             {EXTRA_NAV.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
-                className="px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)] border-b-2 border-transparent"
+                className="relative px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)]"
               >
                 {t(item.label, lang)}
               </Link>
@@ -126,47 +152,46 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         )}
 
         {variant === "maia" && (
-          <nav aria-label="Chapters" className="hidden md:flex gap-1 overflow-x-auto no-scrollbar">
+          <nav aria-label="Capítulos" className="hidden md:flex gap-1 overflow-x-auto no-scrollbar flex-1 justify-center">
             {maiaNavItems.map((ch) => (
-              <a
+              <button
                 key={ch.id}
-                href={`#${ch.id}`}
-                className={`px-2 py-1 text-xs rounded whitespace-nowrap border-b-2 ${
-                  active === ch.id
-                    ? "text-[var(--theme-accent)] border-[var(--theme-accent)]"
-                    : "text-[var(--theme-text-muted)] border-transparent"
-                }`}
+                type="button"
+                onClick={() => goTo(ch.id)}
+                className={`${navBtnClass(ch.id)} text-xs whitespace-nowrap`}
+                aria-current={active === ch.id ? "true" : undefined}
               >
                 {t(ch.label, lang)}
-              </a>
+                {active === ch.id && !reduce && <NavUnderline layoutId={underlineId} />}
+              </button>
             ))}
           </nav>
         )}
 
-        <div className="flex items-center gap-3 shrink-0">
-          {variant === "portfolio" && (
-            <div className="hidden sm:flex flex-col items-end gap-1 min-w-[120px]">
-              <span className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest text-[var(--cyber-text-muted)]">
-                System Pulse
-              </span>
-              <ProgressBar value={progress} color="lime" className="w-full" label="Scroll progress" />
-            </div>
-          )}
-          <button type="button" onClick={toggle} className="lang-pill" aria-label="Language">
-            <span className={lang === "pt" ? "text-[var(--cyber-lime-bright)]" : "text-[var(--cyber-text-muted)]"}>PT</span>
-            <span className="text-[var(--cyber-text-muted)]">/</span>
-            <span className={lang === "en" ? "text-[var(--cyber-lime-bright)]" : "text-[var(--cyber-text-muted)]"}>EN</span>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={toggle}
+            className="lang-pill"
+            aria-label={lang === "pt" ? "Mudar para inglês" : "Switch to Portuguese"}
+          >
+            <span className={lang === "pt" ? "text-[var(--theme-accent)]" : "text-[var(--theme-text-muted)]"}>
+              PT
+            </span>
+            <span className="text-[var(--theme-text-muted)]">/</span>
+            <span className={lang === "en" ? "text-[var(--theme-accent)]" : "text-[var(--theme-text-muted)]"}>
+              EN
+            </span>
           </button>
-          {variant === "portfolio" && (
-            <button
-              type="button"
-              className="lg:hidden px-2 py-1 text-sm border border-[var(--theme-glass-border)] rounded-md"
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
-            >
-              Menu
-            </button>
-          )}
+          <button
+            type="button"
+            className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} px-2.5 py-1.5 text-sm border border-[var(--theme-glass-border)] rounded-md text-[var(--theme-text)]`}
+            aria-expanded={open}
+            aria-controls={menuId}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (lang === "pt" ? "Fechar" : "Close") : "Menu"}
+          </button>
         </div>
       </div>
 
@@ -176,26 +201,56 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         </p>
       )}
 
-      {open && variant === "portfolio" && (
-        <nav className="lg:hidden border-t border-[var(--theme-glass-border)] px-4 py-3 flex flex-col gap-1">
-          {portfolioNavItems.map((item) => (
-            <button key={item.id} type="button" className="text-left py-2 text-sm" onClick={() => scrollTo(item.id)}>
-              {t(item.label, lang)}
-            </button>
-          ))}
-          <Link href="/maia" className="py-2 text-sm">
-            Maia
-          </Link>
-        </nav>
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.nav
+            id={menuId}
+            key="mobile-nav"
+            aria-label={variant === "maia" ? "Capítulos" : "Principal"}
+            className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} overflow-hidden border-t border-[var(--theme-glass-border)]`}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={reduce ? undefined : menuPanel}
+          >
+            <div className="px-4 py-3 flex flex-col gap-0.5">
+              {variant === "portfolio" &&
+                portfolioNavItems.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`text-left py-2.5 text-sm ${
+                      active === item.id ? "text-[var(--theme-accent)]" : "text-[var(--theme-text)]"
+                    }`}
+                    onClick={() => goTo(item.id)}
+                    aria-current={active === item.id ? "true" : undefined}
+                  >
+                    {t(item.label, lang)}
+                  </button>
+                ))}
+              {variant === "portfolio" && (
+                <Link href="/maia" className="py-2.5 text-sm text-[var(--theme-text)]" onClick={() => setOpen(false)}>
+                  Maia
+                </Link>
+              )}
+              {variant === "maia" &&
+                maiaNavItems.map((ch) => (
+                  <button
+                    key={ch.id}
+                    type="button"
+                    className={`text-left py-2.5 text-sm ${
+                      active === ch.id ? "text-[var(--theme-accent)]" : "text-[var(--theme-text)]"
+                    }`}
+                    onClick={() => goTo(ch.id)}
+                    aria-current={active === ch.id ? "true" : undefined}
+                  >
+                    {t(ch.label, lang)}
+                  </button>
+                ))}
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
-  );
-}
-
-export function WellsHeaderSearchRow() {
-  return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-4 pt-20">
-      <WellsSearchBar />
-    </div>
   );
 }

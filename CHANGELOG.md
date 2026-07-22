@@ -4,6 +4,21 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ## [Unreleased]
 
+### Removed
+
+- Pesquisa site-wide (`fuse.js`, `WellsSearchBar`, `lib/search/*`).
+- Rail flutuante de categorias, popup, relógio do header e “System Pulse” duplicado.
+- Nav legado (`PortfolioNav`, `MaiaNav`), `TopologyDiagram`, `DataCard`.
+- Stubs de tema time-of-day (`lib/design-system/time.ts`, `lib/maia/theme.ts`) e CSS `.theme-selector*`.
+- Bloco de citações rotativas em GitHub Signals.
+
+### Changed
+
+- `WellsHeader` unificado: scroll-spy partilhado, indicador `layoutId`, menu mobile com `AnimatePresence`, progresso via `useScroll`/`useSpring`.
+- Sistema de motion consolidado em `lib/motion.ts` (`Reveal`, `PageMotion`, hover em `NeonCard`/`Button`, Bento).
+- Hero e secções alinhados a apresentação mais limpa; tokens do header em `--theme-*`.
+- `docs/design/DESIGN.md` v1.1.0 — stack real (Next.js + Tailwind + Framer Motion).
+
 ### Added
 
 - `docs/design/DESIGN.md` v1.0.0 (Grinnu Nells) — spec completa Home + sub-marca `/maia`.
@@ -11,7 +26,7 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 - Asset `site/public/assets/circuit-pattern.svg`.
 - `ArchitectureDiagram` na secção Maia; carousel de observability com dots.
 
-### Changed
+### Changed (anterior)
 
 - Tokens alinhados à spec v1.0.0 (`#4dd8e8`, `#c8f04a`, `#0a0e17`; Maia `#140a1f` + magenta).
 - Home com tipografia mono; `/maia` com sans-serif via `data-brand="maia"`.
