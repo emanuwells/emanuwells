@@ -1,0 +1,18 @@
+---
+description: Deteção honesta de stack e comandos reais antes de gerar código, badges ou documentação técnica.
+alwaysApply: false
+---
+
+# Deteção de Stack
+
+Inferir stack apenas por evidência:
+
+- `package.json`, lockfiles, `vite.config`, `tsconfig`;
+- `composer.json`;
+- `pyproject.toml`, `requirements.txt`;
+- `.csproj`, `.sln`, `global.json`;
+- `Dockerfile`, `compose.yml`;
+- `go.mod`, `Cargo.toml`, `pom.xml`, `build.gradle`;
+- código e estrutura real.
+
+Não adicionar badges, dependências, comandos ou frameworks por suposição.

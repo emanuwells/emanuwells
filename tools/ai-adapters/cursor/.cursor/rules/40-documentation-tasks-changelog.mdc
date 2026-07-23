@@ -1,0 +1,17 @@
+---
+description: Atualização obrigatória de documentação, tasks, lessons, README, COMMANDS e changelog.
+alwaysApply: false
+---
+
+# Documentação e Registos
+
+Em tarefas não triviais:
+
+- Atualizar `tasks/todo.md`.
+- Atualizar `tasks/lessons.md` quando houver aprendizagem.
+- Atualizar `CHANGELOG.md` em alteração versionável.
+- Atualizar `README.md` quando uso, configuração, arquitetura ou stack mudarem.
+- Atualizar `COMMANDS.md` quando comandos mudarem.
+- Atualizar `PROJECT_CONTEXT.md` quando decisões/contexto mudarem.
+
+Usar português europeu com acentuação correta.

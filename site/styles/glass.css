@@ -1,0 +1,194 @@
+.glass-panel {
+  background: var(--theme-glass);
+  border: 1px solid var(--theme-glass-border);
+  box-shadow: var(--cyber-glow-cyan), inset 0 1px 0 var(--theme-glass-highlight);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(140%);
+  border-radius: var(--radius-lg);
+}
+
+.glass-card {
+  background: var(--theme-card);
+  border: 1px solid var(--theme-glass-border);
+  backdrop-filter: blur(var(--glass-blur-card)) saturate(130%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(130%);
+  border-radius: var(--radius-lg);
+  transition:
+    background var(--duration-normal) var(--ease-out-expressive),
+    transform var(--duration-normal) var(--ease-out-expressive),
+    box-shadow var(--duration-normal) var(--ease-out-expressive);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    color-mix(in srgb, var(--theme-glass-highlight) 40%, transparent) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease-out-expressive);
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  transform: translateX(120%);
+}
+
+.glass-card:hover {
+  background: var(--theme-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px var(--theme-shadow);
+}
+
+.glass-header {
+  background: color-mix(in srgb, var(--theme-glass) 88%, transparent);
+  border-bottom: 1px solid var(--theme-glass-border);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+}
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes logoShimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.wells-logo-link {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wells-logo-link--static {
+  cursor: default;
+}
+
+.wells-brand {
+  position: relative;
+  display: inline-flex;
+}
+
+.wells-brand-lockup {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+.wells-brand-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.wells-brand--header .wells-brand-title {
+  font-size: 1.125rem;
+}
+
+.wells-brand--hero .wells-brand-title {
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+}
+
+.wells-brand-well {
+  color: var(--theme-text);
+}
+
+.wells-brand-os {
+  color: var(--theme-accent);
+  text-shadow: 0 0 18px var(--theme-accent-glow);
+}
+
+.wells-brand-title--animated .wells-brand-os {
+  background: linear-gradient(
+    105deg,
+    var(--theme-accent-light) 0%,
+    var(--theme-accent) 35%,
+    var(--theme-text) 50%,
+    var(--theme-accent) 65%,
+    var(--theme-accent-light) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logoShimmer 6s linear infinite;
+}
+
+.wells-logo-link:hover .wells-brand-glow {
+  opacity: 1;
+}
+
+.wells-brand-glow {
+  position: absolute;
+  inset: -18% -6%;
+  background: radial-gradient(ellipse at 40% 50%, var(--theme-accent-glow) 0%, transparent 65%);
+  z-index: -1;
+  animation: logoGlow 4s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity 0.25s var(--ease-out-expressive);
+}
+
+.tech-icon {
+  display: inline-block;
+  opacity: 0.88;
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="light"] .tech-icon,
+:root:not([data-theme="dark"]) .tech-icon {
+  filter: none;
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wells-brand-glow,
+  .wells-brand-title--animated .wells-brand-os {
+    animation: none;
+  }
+
+  .wells-brand-title--animated .wells-brand-os {
+    color: var(--theme-accent);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}

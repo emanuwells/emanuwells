@@ -1,0 +1,30 @@
+.maia-page {
+  background: var(--theme-bg-gradient), var(--theme-bg);
+  background-attachment: fixed;
+}
+
+.maia-chapter {
+  min-height: min(100vh, 900px);
+  scroll-margin-top: 5rem;
+}
+
+.maia-editorial-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warn);
+  border: 1px solid color-mix(in srgb, var(--color-warn) 35%, transparent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.maia-layer-optional {
+  filter: drop-shadow(0 0 8px var(--cyber-cyan-glow));
+}
+
+@media (max-width: 640px) {
+  .maia-chapter {
+    min-height: auto;
+  }
+}

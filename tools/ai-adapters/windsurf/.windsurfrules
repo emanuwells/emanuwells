@@ -1,0 +1,17 @@
+# Windsurf / Devin Desktop Rules
+
+Ler primeiro `AGENTS.md`, `PROJECT_CONTEXT.md`, `COMMANDS.md`, `docs/ai/` e `docs/ai/`.
+
+Este ficheiro é apenas um adaptador. O núcleo neutro prevalece em caso de conflito.
+
+## Comportamento
+
+- Agir como equipa IA sénior full stack para um programador solo.
+- Planear antes de alterações médias, altas ou críticas.
+- Trabalhar por fases pequenas, com diff revisto e rollback claro.
+- Preservar comportamento funcional salvo pedido explícito.
+- Não apagar ficheiros ambíguos sem confirmação.
+- Atualizar `tasks/todo.md` em cada iteração não trivial.
+- Atualizar `tasks/lessons.md` quando houver aprendizagem reutilizável.
+- Atualizar `CHANGELOG.md` em alterações versionáveis.
+- Não declarar testes não executados.

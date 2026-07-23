@@ -1,0 +1,47 @@
+name: Update profile metrics
+
+on:
+  schedule:
+    - cron: "17 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-metrics
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # PAT do owner (PROFILE_METRICS_PAT) para commits atribuídos a emanuwells.
+          # Sem este secret, o push com GITHUB_TOKEN volta a aparecer como github-actions[bot].
+          token: ${{ secrets.PROFILE_METRICS_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate public metrics
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_METRICS_PAT || secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: emanuwells
+        run: node scripts/generate-profile-metrics.mjs
+
+      - name: Commit changed snapshot
+        run: |
+          if git diff --quiet -- .github/assets/profile-metrics.svg; then
+            echo "Metrics are already current."
+            exit 0
+          fi
+          git config user.name "Emanuel Ferreira"
+          git config user.email "emanuel.ferreira91@gmail.com"
+          git add .github/assets/profile-metrics.svg
+          git commit -m "chore: refresh public profile metrics"
+          git push

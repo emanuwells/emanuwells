@@ -1,0 +1,77 @@
+# Changelog
+
+Todas as alterações relevantes deste projeto serão documentadas neste ficheiro.
+
+## [Unreleased]
+
+### Changed
+
+- README de perfil: linguagem mais natural, Typing SVG «Olá» no topo, badges de stack com melhor contraste e tabela com coluna Tipo (profissional / case study / hobby).
+- Portefólio: distinção `professional` vs `hobby` nos projetos; Vacation Mode marcado como hobby; copy de pipelines alinhada ao README.
+- Workflow `profile-metrics`: commits com identidade Emanuel Ferreira; secret opcional `PROFILE_METRICS_PAT` para evitar `github-actions[bot]` nos contributors.
+- Dependências: `next`/`eslint-config-next` → 16.2.11; override `sharp` ^0.35.3 (audit high limpo).
+
+### Changed (anterior)
+
+- Nome pessoal alinhado a **Emanuel Ferreira**; handle/logo `emanuwells` e produtos WELLS_* mantidos.
+- Copy PT/EN do portefólio e Maia reescrita com tom mais natural e profissional.
+- Tipografia partilhada: Inter (corpo), Space Grotesk (títulos/marca), JetBrains Mono (chrome); Nunito removido.
+- Sub-marca Maia: header dentro de `data-brand`, accent magenta no progresso/nav; aliases `--color-*` ↔ `--theme-*`.
+- Logo `emanuwells` sem gap; micro-interações na nav e no mark.
+
+### Removed
+
+- Pesquisa site-wide (`fuse.js`, `WellsSearchBar`, `lib/search/*`).
+- Rail flutuante de categorias, popup, relógio do header e “System Pulse” duplicado.
+- Nav legado (`PortfolioNav`, `MaiaNav`), `TopologyDiagram`, `DataCard`.
+- Stubs de tema time-of-day (`lib/design-system/time.ts`, `lib/maia/theme.ts`) e CSS `.theme-selector*`.
+- Bloco de citações rotativas em GitHub Signals.
+
+### Changed (motion / limpeza)
+
+- `WellsHeader` unificado: scroll-spy partilhado, indicador `layoutId`, menu mobile com `AnimatePresence`, progresso via `useScroll`/`useSpring`.
+- Sistema de motion consolidado em `lib/motion.ts` (`Reveal`, `PageMotion`, hover em `NeonCard`/`Button`, Bento).
+- Hero e secções alinhados a apresentação mais limpa; tokens do header em `--theme-*`.
+- `docs/design/DESIGN.md` v1.1.0 — stack real (Next.js + Tailwind + Framer Motion).
+
+### Added
+
+- `docs/design/DESIGN.md` v1.0.0 (Grinnu Nells) — spec completa Home + sub-marca `/maia`.
+- Componentes `Badge`, `StatCard`, `ProgressBar`; variante `magenta` em `NeonCard`.
+- Asset `site/public/assets/circuit-pattern.svg`.
+- `ArchitectureDiagram` na secção Maia; carousel de observability com dots.
+
+### Changed (anterior)
+
+- Tokens alinhados à spec v1.0.0 (`#4dd8e8`, `#c8f04a`, `#0a0e17`; Maia `#140a1f` + magenta).
+- Home com tipografia mono; `/maia` com sans-serif via `data-brand="maia"`.
+- `Button` com variantes primary/secondary/tertiary; System Pulse no header.
+- Hero Maia em `glass-card-maia`; KPIs com glow magenta; footer CONTACT/SOCIAL.
+
+### Added (anterior)
+- Secção `PortfolioGitHubSignals` no portefólio com métricas, gráficos de linguagens e actividade, e citações rotativas.
+- API pública `/api/github/summary` com cache ISR de 1 hora e fallback local.
+- Componente `TypingText` no hero e fila de badges coloridos na secção de competências.
+- Repositório público independente para o GitHub Profile README, portefólio e casos.
+- Estrutura inicial extraída do WELLS_OS sem autenticação nem consola operacional.
+- Estrutura integral de governação, arquitetura, operações e adaptadores opcionais do template de repositório.
+- Métricas públicas do perfil geradas semanalmente por GitHub Actions e guardadas como SVG versionado.
+- Pipeline de integração contínua para validar o template e a aplicação Next.js.
+
+### Changed
+
+- Métricas SVG do perfil passaram a labels em português europeu.
+- Portefólio publicado em `https://emanuwells.vercel.app` a partir de `site/`.
+- Aplicação Next.js movida para `site/`, mantendo `/`, `/maia` e `/api/maia/pulse`.
+- README convertido num perfil GitHub visual, com ligações públicas verificáveis e distinção entre código público e privado.
+- Documentação de desenvolvimento e deployment consolidada em `COMMANDS.md` e `docs/architecture/`.
+
+### Removed
+
+- Configurações de produto dispersas na raiz, documentação de deployment duplicada e instalações locais obsoletas.
+
+### Security
+
+- Removidos endereços concretos de infraestrutura e ligações diretas a endpoints operacionais.
+- A integração Traffic Flow passou a ser opcional e configurada apenas por variável de ambiente.
+- Aplicado um override compatível para PostCSS 8.5.10 ou superior, eliminando o aviso de segurança presente na dependência transitiva do Next.js 16.2.10.

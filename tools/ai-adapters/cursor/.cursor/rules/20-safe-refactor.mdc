@@ -1,0 +1,29 @@
+---
+description: Usar quando o pedido envolver refactor, reorganização, migração, limpeza estrutural ou dívida técnica.
+alwaysApply: false
+---
+
+# Refactor Seguro
+
+Antes de alterar código:
+
+1. Mapear comportamento atual.
+2. Identificar ficheiros afetados.
+3. Identificar contratos públicos.
+4. Listar riscos.
+5. Propor fases pequenas.
+6. Definir validações e rollback.
+
+Durante:
+
+- Executar uma fase de cada vez.
+- Não misturar feature com refactor.
+- Preservar comportamento.
+- Atualizar imports, testes e documentação.
+- Parar se testes falharem sem causa clara.
+
+Depois:
+
+- Mostrar resumo do diff.
+- Indicar validações.
+- Atualizar changelog/tasks.
