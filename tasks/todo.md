@@ -2,7 +2,7 @@
 
 ## 2026-07-23 — README perfil, hobby vs pro, limpeza Git e deploy
 
-**Estado:** em curso (rewrite + deploy)  
+**Estado:** concluído  
 **Risco:** crítico (force push / orphan squash)  
 **Objetivo:** README natural + Olá animado, logos, hobby vs profissional, só `main` e contributor Emanuel, deploy Vercel.
 
@@ -11,11 +11,12 @@
 - [x] Conteúdo README + site (`kind` hobby/pro, Typing SVG, badges).
 - [x] Qualidade em espelho `C:\temp`: audit high 0, lint, build, test:pulse.
 - [x] Workflow métricas + COMMANDS/CHANGELOG/lessons; Next 16.2.11 + sharp override.
+- [x] Orphan squash, force push `main`, branches Cursor apagadas; worktree stale removido.
+- [x] Deploy Vercel produção (`emanuwells.vercel.app`); smoke `/`, `/maia`, `/api/maia/pulse` OK.
 
-### Em curso
+### Follow-up
 
-- [ ] Orphan squash, force push, apagar branches Cursor
-- [ ] Deploy Vercel produção
+- [ ] Criar secret `PROFILE_METRICS_PAT` no GitHub para o refresh semanal não voltar a listar `github-actions[bot]`.
 
 ## 2026-07-22 — Nome Ferreira, copy, brand e polish visual
 
