@@ -15,7 +15,7 @@
 
 ### Follow-up
 
-- [ ] Confirmar redeploy automático Vercel após push (sem token CLI neste ambiente).
+- [ ] Deploy Vercel manual: `cd site && vercel deploy --prod` (sem Git integration nem `VERCEL_TOKEN` neste ambiente).
 
 ## 2026-07-26 — Migração WELLS Agent Runtime 0.5.0
 

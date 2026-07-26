@@ -8,7 +8,7 @@
 ## Estado útil
 
 - **Concluído:** README de perfil (SVG corrigido, ecossistema WELLS, tabela completa); `portfolio.ts`, `maia.ts`, `maia-system.ts` com storytelling melhorado; runtime `.agents/` 0.5.0 em `main`
-- **Em curso:** deploy Vercel via Git integration (sem token CLI neste ambiente)
+- **Em curso:** deploy Vercel pendente — o projeto não tem Git integration ativa (produção não atualizou 5+ min após push) e este ambiente não tem `VERCEL_TOKEN`; correr `vercel deploy` em `site/` localmente ou adicionar o secret em Cloud Agents
 - **Bloqueios/riscos:** repos privados (WELLS_API, WELLS_OS) inacessíveis por API — descrições baseadas no conteúdo já público do site e nos READMEs públicos; Luna Sheet deliberadamente omitido
 - **Ficheiros relevantes:** `README.md`, `site/lib/content/portfolio.ts`, `site/lib/content/maia.ts`, `site/lib/content/maia-system.ts`
 - **Validações executadas:** `npm run lint`; `npm run typecheck`; `npm run build`
