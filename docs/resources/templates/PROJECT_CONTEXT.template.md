@@ -50,7 +50,7 @@ Manter `COMMANDS.md` atualizado com instalação, execução, lint, testes, buil
 - Data de ativação:
 - Observações:
 
-Adaptadores opcionais vivem em `tools/ai-adapters/` e são ativados/desativados por scripts.
+Adaptadores opcionais vivem em `.agents/adapters/`; ver notas por IDE em cada ficheiro.
 
 ## Riscos
 

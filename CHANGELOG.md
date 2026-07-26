@@ -6,7 +6,11 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
-- README de perfil: linguagem mais natural, Typing SVG «Olá» no topo, badges de stack com melhor contraste e tabela com coluna Tipo (profissional / case study / hobby).
+- Migração para **WELLS Agent Runtime 0.5.0**: runtime em `.agents/`; legado (`docs/ai/`, `tools/ai-adapters/`, `AGENTS.md` na raiz, `tasks/`) arquivado em `.agents/migration/legacy/`.
+- `COMMANDS.md`, `docs/ROOT_STRUCTURE.md` e governação alinhados ao novo contrato (`.agents/AGENTS.md`).
+- CI valida `.agents/` com `validate-project.mjs`; scripts `activate-ai-adapter` removidos (adaptadores em `.agents/adapters/`).
+
+### Changed (anterior)
 - Portefólio: distinção `professional` vs `hobby` nos projetos; Vacation Mode marcado como hobby; copy de pipelines alinhada ao README.
 - Workflow `profile-metrics`: commits com identidade Emanuel Ferreira; secret opcional `PROFILE_METRICS_PAT` para evitar `github-actions[bot]` nos contributors.
 - Dependências: `next`/`eslint-config-next` → 16.2.11; override `sharp` ^0.35.3 (audit high limpo).

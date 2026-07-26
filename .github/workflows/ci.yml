@@ -26,6 +26,9 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
 
+      - name: Validate WELLS runtime
+        run: node .agents/tools/validate-project.mjs
+
       - name: Validate repository structure
         shell: pwsh
         run: ./scripts/validate-template.ps1

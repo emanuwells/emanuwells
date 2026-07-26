@@ -2,6 +2,8 @@
 
 Os comandos da aplicação são executados em `site/`. A raiz contém o perfil GitHub e a governação do repositório.
 
+Contrato de agentes: ler `.agents/AGENTS.md` (nunca duplicar regras IA na raiz).
+
 ## Instalação e desenvolvimento
 
 ```powershell
@@ -16,11 +18,32 @@ npm run dev
 Set-Location site
 npm audit --audit-level=high
 npm run lint
+npm run typecheck
 npm run build
 npm run test:pulse
 ```
 
+`test:pulse` requer o servidor de desenvolvimento (`npm run dev`) em execução.
+
 O contrato visual está em [`docs/design/DESIGN.md`](docs/design/DESIGN.md).
+
+## Runtime WELLS
+
+```bash
+node .agents/tools/validate-project.mjs
+```
+
+Confirma contagens e integridade mínima de `.agents/` (versão em `manifest.json` / `toolkit-lock.json`).
+
+## Validação do repositório
+
+```powershell
+./scripts/validate-template.ps1
+```
+
+```bash
+bash ./scripts/validate-template.sh
+```
 
 ## Métricas do perfil
 
@@ -42,17 +65,6 @@ Parâmetros de cor usados no README para `github-readme-stats` e `github-readme-
 
 ```
 bg_color=07111f&title_color=67e8f9&text_color=a8b5c7&icon_color=22d3ee&border_color=263449
-```
-
-
-## Validação do template
-
-```powershell
-./scripts/validate-template.ps1
-```
-
-```bash
-./scripts/validate-template.sh
 ```
 
 ## Vercel

@@ -77,5 +77,5 @@ Trabalho com dados em produção: pipelines que correm todos os dias, APIs que a
 
 ---
 
-Este repositório é o meu perfil GitHub e a fonte do portefólio. A app Next.js está em [`site/`](site/); os comandos estão em [`COMMANDS.md`](COMMANDS.md).
+Este repositório é o meu perfil GitHub e a fonte do portefólio. A app Next.js está em [`site/`](site/); os comandos estão em [`COMMANDS.md`](COMMANDS.md); o contrato de agentes em [`.agents/AGENTS.md`](.agents/AGENTS.md).
 </div>
