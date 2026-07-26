@@ -132,8 +132,8 @@ export const maiaCaseStudy = {
     en: "Maia's data does not begin on a dashboard",
   } as Bi,
   intro: {
-    pt: "Começam numa câmara de trânsito, numa resposta de Forms, numa tabela do INE ou num catálogo que já perdeu consistência. Em cerca de oito meses, liguei essas origens a um sistema municipal observável — da recolha à decisão.",
-    en: "They begin at a traffic camera, in a Forms response, in an INE table, or in a catalogue that has lost consistency. In roughly eight months, I connected those sources to an observable municipal system — from collection to decision.",
+    pt: "Começam numa câmara de trânsito, numa resposta de Forms, numa tabela do INE ou num catálogo inconsistente. Em cerca de oito meses, a equipa de dados e programação ligou essas origens a um sistema municipal observável — da recolha à decisão — com contributo técnico forte em pipelines, APIs e interoperabilidade.",
+    en: "They begin at a traffic camera, in a Forms response, in an INE table, or in an inconsistent catalogue. In roughly eight months, the data and programming team connected those sources to an observable municipal system — from collection to decision — with strong technical contribution on pipelines, APIs and interoperability.",
   } as Bi,
   chapters: [
     { value: "01", label: { pt: "Recolher", en: "Collect" } as Bi },
@@ -150,15 +150,15 @@ export const overview = {
     en: "Three layers, one system",
   } as Bi,
   intro: {
-    pt: "O ecossistema assenta numa regra simples: quem produz dados, quem os observa e quem os consome nunca se misturam. Cada peça faz uma coisa; o Overseer e o Warden vigiam tudo de fora, sem tocar no código dos pipelines. Quando algo falha, o problema aparece na camada certa — e não em cascata pelo sistema inteiro.",
-    en: "The ecosystem rests on one simple rule: whoever produces data, observes it, or consumes it never mix. Each piece does one thing; Overseer and Warden watch everything from the outside without touching pipeline code. When something fails, the problem shows up in the right layer — not cascading through the whole system.",
+    pt: "O ecossistema assenta numa regra simples: quem produz dados, quem os observa e quem os consome não se misturam. Cada peça faz uma coisa; Overseer e Warden vigiam de fora. O fio condutor é interoperabilidade — fontes diversas → contrato comum → Power BI, Huwise e APIs.",
+    en: "The ecosystem rests on one simple rule: whoever produces data, observes it, or consumes it does not mix. Each piece does one thing; Overseer and Warden watch from the outside. The through-line is interoperability — diverse sources → shared contract → Power BI, Huwise and APIs.",
   } as Bi,
   layers: [
     {
       name: { pt: "Produção", en: "Production" } as Bi,
       description: {
-        pt: "Pipelines que recolhem, limpam e sincronizam dados de fontes reais — do INE a câmaras de tráfego.",
-        en: "Pipelines that collect, clean and sync data from real sources — from the national statistics office to traffic cameras.",
+        pt: "Pipelines que recolhem, limpam e sincronizam dados de fontes reais — do INE a câmaras de tráfego e Medidata.",
+        en: "Pipelines that collect, clean and sync data from real sources — from the national statistics office to traffic cameras and Medidata.",
       } as Bi,
     },
     {
@@ -171,14 +171,14 @@ export const overview = {
     {
       name: { pt: "Consumo", en: "Consumption" } as Bi,
       description: {
-        pt: "WELLS_API expõe os dados a dashboards, Power BI e integrações externas — tudo acessível pelo portal MAIATRON-HUB.",
-        en: "WELLS_API exposes data to dashboards, Power BI and external integrations — all reachable from the MAIATRON-HUB portal.",
+        pt: "WELLS_API expõe dados a Power BI e integrações; portais Huwise (aberto e interno SGM) e o DataTron no MAIATRON-HUB fecham o ciclo.",
+        en: "WELLS_API exposes data to Power BI and integrations; Huwise portals (open and internal MS) and DataTron in MAIATRON-HUB close the loop.",
       } as Bi,
     },
   ],
   hubNote: {
-    pt: "O MAIATRON-HUB reúne autenticação, catálogo e navegação entre aplicações. O WELLS_OS permanece um projeto pessoal separado, concebido para observar as integrações sem fazer parte do runtime municipal.",
-    en: "MAIATRON-HUB brings together authentication, catalogue and navigation across applications. WELLS_OS remains a separate personal project designed to observe integrations without becoming part of the municipal runtime.",
+    pt: "O MAIATRON-HUB reúne autenticação, catálogo e navegação. O DataTron trata dados, metas de indicadores e apoio ao Sistema de Gestão. O Webapp-Medidata apresenta dados Medidata das UOs; o Medidata Pipeline integra-os na base de dados. O WELLS_OS permanece um projeto pessoal separado para observar integrações sem fazer parte do runtime municipal.",
+    en: "MAIATRON-HUB brings together authentication, catalogue and navigation. DataTron handles data, indicator targets and Management System support. Webapp-Medidata presents Medidata data for organisational units; the Medidata Pipeline integrates them into the database. WELLS_OS remains a separate personal project to observe integrations without becoming part of the municipal runtime.",
   } as Bi,
 };
 
@@ -268,8 +268,8 @@ export const pipelines = {
       role: { pt: "Integrar indicadores internos", en: "Integrate internal indicators" } as Bi,
       status: { pt: "Produção · 07:30", en: "Production · 07:30" } as Bi,
       problem: {
-        pt: "A aplicação Medidata expõe indicadores numa interface interna, mas o repositório analítico precisa de factos normalizados, rastreáveis e seguros para consumo.",
-        en: "The Medidata application exposes indicators in an internal interface, but the analytical repository needs normalized, traceable, and safe facts for consumption.",
+        pt: "A aplicação Medidata expõe indicadores numa interface interna. O Webapp-Medidata apresenta esses dados das unidades orgânicas de forma mais legível; o Medidata Pipeline é que integra factos normalizados na base de dados para o repositório analítico.",
+        en: "The Medidata application exposes indicators in an internal interface. Webapp-Medidata presents that organisational-unit data more clearly; the Medidata Pipeline integrates normalized facts into the database for the analytical repository.",
       } as Bi,
       example: {
         label: { pt: "Separação de camadas", en: "Layer separation" } as Bi,
@@ -413,8 +413,8 @@ export const monitoring = {
   eyebrow: { pt: "Observabilidade", en: "Observability" } as Bi,
   title: { pt: "Ver tudo sem tocar em nada", en: "See everything, touch nothing" } as Bi,
   intro: {
-    pt: "Dois sistemas complementares que construí para responder à mesma pergunta de ângulos diferentes: «está tudo bem?». O Overseer observa os pipelines; o Warden observa as máquinas que os correm. Nenhum dos dois executa código de produção — só o vigiam, e é essa distância que os torna fiáveis.",
-    en: "Two complementary systems I built to answer the same question from different angles: \"is everything ok?\". Overseer watches the pipelines; Warden watches the machines running them. Neither executes production code — they only watch it, and that distance is what makes them reliable.",
+    pt: "Dois sistemas complementares respondem à mesma pergunta — «está tudo bem?» — de ângulos diferentes. O Overseer observa os pipelines; o Warden observa as máquinas. Nenhum executa código de produção: só vigiam. Essa distância é o que os torna fiáveis para a equipa.",
+    en: "Two complementary systems answer the same question — \"is everything ok?\" — from different angles. Overseer watches the pipelines; Warden watches the machines. Neither executes production code: they only watch. That distance is what makes them reliable for the team.",
   } as Bi,
   cards: [
     {
@@ -487,8 +487,8 @@ export const team = {
   eyebrow: { pt: "Gestão de Equipa", en: "Team Management" } as Bi,
   title: { pt: "Quatro estágios, dois projetos reais", en: "Four internships, two real projects" } as Bi,
   intro: {
-    pt: "Ao longo de cerca de 3 meses, orientei 4 estágios em mentoria e assistência nas áreas de dados e programação — não em tarefas isoladas, mas em projetos reais que foram para produção.",
-    en: "Over roughly 3 months, I mentored 4 interns across data and programming — not on isolated tasks, but on real projects that shipped to production.",
+    pt: "Ao longo de cerca de três meses, a orientação de quatro estágios em dados e programação focou-se em projetos reais — não em tarefas isoladas. Documentação, operação de máquinas e acompanhamento técnico fazem parte do dia-a-dia da equipa.",
+    en: "Over roughly three months, mentoring four interns across data and programming focused on real projects — not isolated tasks. Documentation, machine operations and technical guidance are part of the team's day-to-day.",
   } as Bi,
   projects: [
     {
@@ -550,27 +550,27 @@ export const results = {
   eyebrow: { pt: "Resultados", en: "Results" } as Bi,
   title: { pt: "Construído de raiz, em produção real", en: "Built from scratch, in real production" } as Bi,
   intro: {
-    pt: "Não é uma prova de conceito. É um sistema que corre todas as manhãs para um município real — às 07:30 sincroniza indicadores internos, às 07:45 recolhe formulários, e as câmaras de tráfego nunca param. Quando algo falha, o Slack avisa antes de alguém perguntar.",
-    en: "This isn't a proof of concept. It's a system that runs every morning for a real municipality — syncing internal indicators at 07:30, collecting forms at 07:45, with traffic cameras that never stop. When something fails, Slack knows before anyone asks.",
+    pt: "Não é uma prova de conceito. É um sistema que corre todas as manhãs — às 07:30 sincroniza indicadores internos, às 07:45 recolhe formulários, e as câmaras de tráfego não param. Quando algo falha, o Slack avisa a equipa. O mesmo fio alimenta Power BI, o DataTron e os portais Huwise.",
+    en: "This isn't a proof of concept. It's a system that runs every morning — syncing internal indicators at 07:30, collecting forms at 07:45, with traffic cameras that do not stop. When something fails, Slack alerts the team. The same through-line feeds Power BI, DataTron and Huwise portals.",
   } as Bi,
   metrics: [
     { value: "~8", label: { pt: "meses do zero à produção", en: "months from zero to production" } as Bi },
-    { value: "12+", label: { pt: "repositórios ativos", en: "active repositories" } as Bi },
-    { value: "300+", label: { pt: "entregas versionadas registadas", en: "logged versioned releases" } as Bi },
-    { value: "4", label: { pt: "estagiários orientados", en: "interns mentored" } as Bi },
+    { value: "6+", label: { pt: "pipelines activos", en: "active pipelines" } as Bi },
+    { value: "3", label: { pt: "normas ISO no SGM", en: "ISO standards in the MS" } as Bi },
+    { value: "4", label: { pt: "estágios orientados", en: "interns mentored" } as Bi },
   ],
   highlights: {
     pt: [
-      "Sistema de observabilidade próprio (Overseer + Warden), desenhado para nunca interferir com o código que vigia.",
-      "Integração com standards europeus de cidades inteligentes (NGSI-LD, Smart Data Models, CNMD) no Traffic Flow.",
-      "Portal central (MAIATRON-HUB) que unifica autenticação, catálogo e navegação entre todas as apps.",
-      "Cultura de documentação e changelog rigorosos em todos os repositórios — cada alteração é rastreável.",
+      "Interoperabilidade como regra: fontes diversas → catálogo/DataTron → WELLS_API → Power BI e Huwise.",
+      "Apoio ao Sistema de Gestão (ISO 9001, 14001, 37120) com amostragem para auditoria das UOs.",
+      "Observabilidade própria (Overseer + Warden) sem interferir no código observado.",
+      "Portal de dados aberto em Huwise (dados.cm-maia.pt) em construção e alimentação contínua.",
     ],
     en: [
-      "A custom observability system (Overseer + Warden), designed to never interfere with the code it watches.",
-      "Integration with European smart-city standards (NGSI-LD, Smart Data Models, CNMD) in Traffic Flow.",
-      "A central portal (MAIATRON-HUB) unifying authentication, catalog and navigation across every app.",
-      "A rigorous documentation and changelog culture across every repository — every change is traceable.",
+      "Interoperability as the rule: diverse sources → catalogue/DataTron → WELLS_API → Power BI and Huwise.",
+      "Management System support (ISO 9001, 14001, 37120) with sampling for organisational-unit audits.",
+      "Custom observability (Overseer + Warden) without interfering with watched code.",
+      "Open data portal on Huwise (dados.cm-maia.pt) under construction and continuous feeding.",
     ],
   },
 };

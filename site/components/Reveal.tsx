@@ -2,16 +2,18 @@
 
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
-import { EASE_OUT_EXPRESSIVE, VIEWPORT_ONCE, fadeUp, useMotionSafe } from "@/lib/motion";
+import { EASE_OUT_EXPRESSIVE, VIEWPORT_ONCE, fadeUp, riseSoft, useMotionSafe } from "@/lib/motion";
 
 export default function Reveal({
   children,
   delay = 0,
   className = "",
+  soft = false,
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  soft?: boolean;
 }) {
   const motionSafe = useMotionSafe();
 
@@ -26,8 +28,8 @@ export default function Reveal({
       whileInView="visible"
       viewport={VIEWPORT_ONCE}
       custom={delay}
-      variants={fadeUp}
-      transition={{ duration: 0.55, delay, ease: EASE_OUT_EXPRESSIVE }}
+      variants={soft ? riseSoft : fadeUp}
+      transition={{ duration: soft ? 0.6 : 0.55, delay, ease: EASE_OUT_EXPRESSIVE }}
     >
       {children}
     </motion.div>

@@ -8,6 +8,7 @@ import {
   maiaObserve,
   maiaPeople,
   maiaDisclaimer,
+  maiaGovernance,
 } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
 import Reveal from "@/components/Reveal";
@@ -39,7 +40,7 @@ export default function MaiaChapters() {
     <>
       <section id="intro" className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center justify-center">
         <div className="max-w-4xl mx-auto w-full py-16 sm:py-24 relative z-10 flex justify-center">
-          <Reveal>
+          <Reveal soft>
             <div className="glass-card-maia">
               <SceneLabel>{t(maiaIntro.eyebrow, lang)}</SceneLabel>
               <HeroTitle>{t(maiaIntro.title, lang)}</HeroTitle>
@@ -90,6 +91,47 @@ export default function MaiaChapters() {
           <Infrastructure />
         </div>
       </section>
+
+      <GlassChapter id="governance" eyebrow={t(maiaGovernance.eyebrow, lang)} title={t(maiaGovernance.title, lang)}>
+        <p className="text-[var(--theme-text-muted)] max-w-2xl mb-8">{t(maiaGovernance.intro, lang)}</p>
+        <BentoGrid>
+          {maiaGovernance.items.map((item, i) => (
+            <BentoItem key={item.id} accent={BENTO_ACCENTS[i % BENTO_ACCENTS.length]}>
+              <h3 className="font-medium mb-2">{t(item.title, lang)}</h3>
+              <p className="text-sm text-[var(--theme-text-muted)]">{t(item.description, lang)}</p>
+            </BentoItem>
+          ))}
+        </BentoGrid>
+        <div className="mt-10 space-y-4">
+          <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">
+            {t(maiaGovernance.portals.title, lang)}
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <GlassPanel className="p-5">
+              <a
+                href={maiaGovernance.portals.openData.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--cyber-cyan-bright)] hover:underline font-medium"
+              >
+                {t(maiaGovernance.portals.openData.label, lang)} ↗
+              </a>
+              <p className="text-sm text-[var(--theme-text-muted)] mt-2">
+                {t(maiaGovernance.portals.openData.note, lang)}
+              </p>
+              <p className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--theme-text-muted)] mt-2">
+                {maiaGovernance.portals.openData.href}
+              </p>
+            </GlassPanel>
+            <GlassPanel className="p-5">
+              <p className="font-medium">{t(maiaGovernance.portals.internal.label, lang)}</p>
+              <p className="text-sm text-[var(--theme-text-muted)] mt-2">
+                {t(maiaGovernance.portals.internal.note, lang)}
+              </p>
+            </GlassPanel>
+          </div>
+        </div>
+      </GlassChapter>
 
       <section id="people" className="maia-chapter px-4 sm:px-6 py-12 max-w-6xl mx-auto">
         <div className="mb-8">

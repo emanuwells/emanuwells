@@ -1,19 +1,21 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Dados+em+produ%C3%A7%C3%A3o%2C+todos+os+dias)](https://emanuwells.vercel.app)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Interoperabilidade+de+dados+em+produ%C3%A7%C3%A3o)](https://emanuwells.vercel.app)
 
 <br />
 
-Trabalho com dados em produção: pipelines que correm todos os dias, APIs que alimentam dashboards e monitorização que avisa quando algo falha — antes de alguém perguntar. Gosto de arquitectura simples, evidência em vez de slides e documentação que ainda serve depois da entrega.
+Trabalho em equipa na engenharia de dados e sistemas em produção: pipelines, APIs, documentação e observabilidade. O fio condutor é **interoperabilidade** — tornar dados de fontes diversas utilizáveis para o Sistema de Gestão, Power BI e portais.
 
-[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
+[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**Open data Maia**](https://dados.cm-maia.pt) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
 
-## Sobre mim
+## Sobre o trabalho
 
-- Construo e mantenho o ecossistema de dados de um município: ingestão, catálogo, APIs e observabilidade
-- Pergunta-me sobre ingestão de dados, Power BI, Docker ou como transformar um job vermelho num alerta acionável
-- Hábito: cada entrega leva changelog e evidência — mesmo quando ninguém pede
-- Baseado em Portugal · trabalho em português europeu e inglês
+- Equipa de dados e programação na Câmara Municipal da Maia — pipelines, catálogo, APIs e operação
+- Apoio ao Sistema de Gestão: **ISO 9001**, **ISO 14001**, **ISO 37120** (indicadores, evidência, amostragem para auditoria das UOs)
+- Power BI: preparação de amostras/factos e datasets; documentação dos workflows em curso
+- Portais Huwise: dados aberto ([dados.cm-maia.pt](https://dados.cm-maia.pt), ainda não completamente aprovado) e portal interno do SGM
+- Orientação de estágios, documentação e operação de máquinas no dia-a-dia
+- Baseado em Portugal · português europeu e inglês
 
 ## Stack
 
@@ -27,68 +29,60 @@ Trabalho com dados em produção: pipelines que correm todos os dias, APIs que a
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" />
+  <img src="https://img.shields.io/badge/NGSI--LD-0ea5e9?style=for-the-badge" alt="NGSI-LD" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
 </p>
 
-## O ecossistema WELLS
+<p align="center">
+  <img src="https://img.shields.io/badge/ISO_9001-Qualidade-1e293b?style=flat-square" alt="ISO 9001" />
+  <img src="https://img.shields.io/badge/ISO_14001-Ambiente-1e293b?style=flat-square" alt="ISO 14001" />
+  <img src="https://img.shields.io/badge/ISO_37120-Indicadores_urbanos-1e293b?style=flat-square" alt="ISO 37120" />
+</p>
 
-Os meus projectos não são repositórios isolados — trabalham em conjunto, em produção:
+## Interoperabilidade — o fio condutor
 
 ```text
-pipelines (Python) ──▶ WELLS_API ──▶ Power BI · dashboards · integrações NGSI-LD
-      │                    ▲
-      ├── Overseer ────────┤   observabilidade de pipelines (runs, logs, alertas)
-      └── Warden ──────────┘   telemetria de servidores (CPU, RAM, disco, MariaDB)
-                           │
-                       WELLS_OS   consola read-only — a sala de controlo
+fontes diversas          contrato comum              consumo
+───────────────          ──────────────              ───────
+INE · Forms · Medidata   Catálogo · DataTron    →    Power BI
+Câmaras · SGM            WELLS_API              →    Huwise (aberto + interno)
+                         NGSI-LD / GeoJSON      →    dashboards · integrações
+                                ▲
+              Overseer · Warden ┘   observabilidade sem tocar no runtime
+                                │
+                           WELLS_OS   consola read-only da operação
 ```
 
-- **WELLS_API** é a espinha dorsal: uma API municipal em PHP que expõe datasets, observações de tráfego (GeoJSON/NGSI-LD) e snapshots do Warden a dashboards, Power BI e integrações externas.
-- **WELLS_OS** é a sala de controlo: uma consola read-only, protegida por login, que agrega métricas Warden, execuções Overseer e o registo de aplicações — observa tudo sem tocar no runtime.
+- **WELLS_API** — espinha dorsal: datasets, tráfego e telemetria para BI e integrações
+- **WELLS_OS** — sala de controlo: métricas Warden + execuções Overseer num painel read-only
+- **MAIATRON-HUB / DataTron** — portal e módulo para dados, metas de indicadores e SGM
+- **Webapp-Medidata + Medidata Pipeline** — vista legível dos dados das UOs + integração na DB
 
 ## Trabalho seleccionado
 
 | Projecto | Tipo | O que faz | Acesso |
 | --- | --- | --- | --- |
-| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola operacional read-only: métricas Warden, execuções Overseer e registo de aplicações num só painel. | Produto activo; código privado |
-| WELLS_API | Profissional | API municipal que serve datasets, tráfego em GeoJSON/NGSI-LD e telemetria a Power BI e integrações externas. | Em produção; código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Como liguei seis pipelines, catálogo, APIs e observabilidade num ecossistema municipal — do zero à produção em ~8 meses. | Página pública |
-| [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Observabilidade Docker-first para pipelines e DAGs externos: catálogo, runs, logs e heartbeats por API, dashboard read-only e alertas Slack. | Código público |
-| [Warden](https://github.com/emanuwells/Warden) | Profissional | Collector Python que vigia CPU, RAM, disco, rede e MariaDB; exporta snapshots consumidos pelo WELLS_API e alerta no Slack. | Código público |
-| Traffic Flow | Profissional | Transforma contagens das câmaras de tráfego da Maia em observações normalizadas — GeoJSON e NGSI-LD com URN estável. | API pública; código privado |
-| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Google Apps Script que converte uma grelha anual de férias pintada à mão em eventos do Google Calendar. | Código público |
-
-## Estatísticas GitHub
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=emanuwells&show_icons=true&hide_border=false&count_private=false&bg_color=07111f&title_color=67e8f9&text_color=a8b5c7&icon_color=22d3ee&border_color=263449" alt="Estatísticas GitHub de emanuwells" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=emanuwells&layout=compact&hide=html,css&bg_color=07111f&title_color=67e8f9&text_color=a8b5c7&border_color=263449" alt="Linguagens mais usadas" height="165" />
-</p>
-
-## Gráfico de contribuições
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=emanuwells&bg_color=07111f&color=22d3ee&line=34d399&point=67e8f9&area=true&hide_border=false&custom_title=Emanuel%20Ferreira%20%E2%80%94%20contribui%C3%A7%C3%B5es" alt="Gráfico de contribuições GitHub" />
-</p>
-
-## Sinais públicos de build
-
-<p align="center">
-  <img src=".github/assets/profile-metrics.svg" alt="Visão geral da actividade pública GitHub e tecnologias" width="820" />
-</p>
+| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola operacional read-only: Warden, Overseer e registo de apps. | Produto activo; código privado |
+| WELLS_API | Profissional | API municipal — datasets, tráfego GeoJSON/NGSI-LD, snapshots Warden. | Em produção; código privado |
+| MAIATRON-HUB / DataTron | Profissional | Portal central + dados, metas e apoio ao Sistema de Gestão. | Interno; código privado |
+| Webapp-Medidata | Profissional | Vista clara dos dados Medidata das unidades orgânicas. | Interno; código privado |
+| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Pipelines, SGM/ISO, portais Huwise e observabilidade — narrativa da equipa. | Página pública |
+| [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Observabilidade de pipelines: runs, logs, heartbeats, Slack. | Código público |
+| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria de servidores e MariaDB; snapshots para WELLS_API. | Código público |
+| Traffic Flow | Profissional | Contagens urbanas → observações interoperáveis (GeoJSON / NGSI-LD). | Código privado |
+| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Grelha de férias → Google Calendar. | Código público |
 
 ## Foco actual
 
-- Pipelines que ingerem, transformam e expõem dados com falhas visíveis
-- APIs estáveis para BI, mapas e integrações smart city (NGSI-LD, Smart Data Models)
-- Observabilidade que transforma um job vermelho num alerta acionável
-- Interfaces simples para sistemas operacionais complexos
+- Interoperabilidade entre fontes reais e consumo (BI, Huwise, APIs)
+- Documentação dos workflows de amostragem em Power BI
+- Portal de dados aberto Maia (Huwise) — criação e alimentação contínua
+- Observabilidade e operação estáveis para a equipa
 
 <sub>O case study Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>
 
 ---
 
-Este repositório é o meu perfil GitHub e a fonte do portefólio. A app Next.js está em [`site/`](site/); os comandos estão em [`COMMANDS.md`](COMMANDS.md); o contrato de agentes em [`.agents/AGENTS.md`](.agents/AGENTS.md).
+Este repositório é o perfil GitHub e a fonte do portefólio. App em [`site/`](site/); comandos em [`COMMANDS.md`](COMMANDS.md); agentes em [`.agents/AGENTS.md`](.agents/AGENTS.md).
 </div>

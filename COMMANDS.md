@@ -45,34 +45,45 @@ Confirma contagens e integridade mínima de `.agents/` (versão em `manifest.jso
 bash ./scripts/validate-template.sh
 ```
 
-## Métricas do perfil
+## Métricas do perfil (opcional)
 
 ```powershell
 node scripts/generate-profile-metrics.mjs
 ```
 
-O script consulta apenas dados públicos da conta `emanuwells`.
+O script consulta dados públicos da conta `emanuwells` e actualiza `.github/assets/profile-metrics.svg`. O README de perfil **não** exibe estes widgets; a workflow `.github/workflows/profile-metrics.yml` pode continuar a correr no repo.
 
-Na workflow `.github/workflows/profile-metrics.yml`, o commit do SVG deve ficar atribuído a ti:
-
-1. Cria um fine-grained PAT com `Contents: Read and write` neste repositório.
-2. Guarda-o como secret do repositório `PROFILE_METRICS_PAT` (Settings → Secrets and variables → Actions).
-3. Sem este secret, a workflow faz fallback para `GITHUB_TOKEN` e o contributor `github-actions[bot]` volta a aparecer.
-
-### Tema Wells para widgets externos
-
-Parâmetros de cor usados no README para `github-readme-stats` e `github-readme-activity-graph`:
-
-```
-bg_color=07111f&title_color=67e8f9&text_color=a8b5c7&icon_color=22d3ee&border_color=263449
-```
+Para commits da workflow com a tua identidade: secret `PROFILE_METRICS_PAT` (Contents: Read and write). Sem este secret, o fallback é `GITHUB_TOKEN` / `github-actions[bot]`.
 
 ## Vercel
+
+Project `emanuwells`, scope `emanuwells-projects`, Root Directory `site/`, Production Branch `main`. Detalhe em [`docs/architecture/deployment.md`](docs/architecture/deployment.md).
+
+### Login (uma vez)
+
+```bash
+cd site
+vercel login
+```
+
+Ou definir `VERCEL_TOKEN` no ambiente do agente.
+
+### Preview
 
 ```powershell
 Set-Location site
 vercel link --yes --project emanuwells --scope emanuwells-projects
-vercel deploy
+vercel deploy --yes
 ```
 
-O deployment de produção só deve ser promovido depois de o Preview passar as verificações descritas em `docs/architecture/deployment.md`.
+### Produção
+
+```powershell
+Set-Location site
+vercel link --yes --project emanuwells --scope emanuwells-projects
+vercel deploy --prod --yes
+```
+
+Alternativa: push para `main` com Git Integration activa (Root Directory `site/`).
+
+Smoke após deploy: `/`, `/maia`, `/api/maia/pulse`.

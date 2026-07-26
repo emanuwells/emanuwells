@@ -14,6 +14,17 @@ export const fadeUp: Variants = {
   }),
 };
 
+/** Entrada suave para capítulos e painéis glass — menos deslocamento, mais presença. */
+export const riseSoft: Variants = {
+  hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, delay, ease: EASE_OUT_EXPRESSIVE },
+  }),
+};
+
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -42,6 +53,13 @@ export const staggerFast: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.06, delayChildren: 0.04 },
+  },
+};
+
+export const staggerSlow: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.08 },
   },
 };
 
@@ -77,7 +95,7 @@ export const menuPanel: Variants = {
   },
 };
 
-export const hoverLift = { y: -3 };
+export const hoverLift = { y: -4, transition: { duration: 0.25, ease: EASE_OUT_EXPRESSIVE } };
 export const tapPress = { scale: 0.98 };
 export const navHover = { y: -1 };
 

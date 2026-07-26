@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import WellsHeader from "@/components/layout/WellsHeader";
 import PageMotion from "@/components/layout/PageMotion";
 import PortfolioHero from "@/components/portfolio/PortfolioHero";
-import PortfolioGitHubSignals from "@/components/portfolio/PortfolioGitHubSignals";
 import PortfolioProjects from "@/components/portfolio/PortfolioProjects";
 import PortfolioSkills from "@/components/portfolio/PortfolioSkills";
 import PortfolioExperience from "@/components/portfolio/PortfolioExperience";
@@ -22,7 +21,6 @@ export default function Home() {
       <PageMotion>
         <main>
           <PortfolioHero />
-          <PortfolioGitHubSignals />
           <PortfolioProjects />
           <PortfolioSkills />
           <PortfolioExperience />

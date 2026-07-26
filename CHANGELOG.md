@@ -6,6 +6,14 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
+- Storytelling do portefólio e case study Maia: tom de equipa (contributo técnico realista), ISO 9001/14001/37120, DataTron, Webapp-Medidata, Huwise, open data e Power BI.
+- README de perfil sem métricas GitHub; diagrama de interoperabilidade e badges ISO.
+- Home sem secção GitHub Signals; capítulo Maia **SGM** (`#governance`).
+- Deploy documentado em modo C (Git Integration `site/` + CLI `vercel deploy --prod`).
+- Motion: `riseSoft`, hover lift reforçado; DESIGN.md → 1.2.0.
+
+### Changed (anterior)
+
 - README de perfil reescrito: Typing SVG com largura corrigida (sem cortes), secção «O ecossistema WELLS», tabela de projetos com WELLS_API, Traffic Flow e descrições mais ricas.
 - Portefólio: storytelling melhorado — hero, projetos (7 cartões, incluindo WELLS_API, MAIATRON-HUB e descrições baseadas na documentação real dos repos), sobre e experiência.
 - Case study Maia: intro, sistemas invisíveis, observabilidade e resultados reescritos com narrativa mais concreta.

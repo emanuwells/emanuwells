@@ -2,7 +2,7 @@
 
 > Documento de referência para a implementação em **Next.js + React + Tailwind CSS + Framer Motion**.
 > Cobre dois layouts: **Home** (portfolio principal) e **/maia** (case study de projeto).
-> Versão do documento: `1.1.0`
+> Versão do documento: `1.2.0`
 
 ---
 
@@ -16,6 +16,16 @@ O portfolio segue uma estética **cyberpunk / terminal tech**, fundo escuro, tip
 | Cor de destaque | Cyan + Verde-lima | Cyan + Magenta |
 | Tipografia | Inter + Space Grotesk + Mono (chrome) | Inter + Space Grotesk; accent magenta |
 | Fundo | Preto-azulado + padrão de circuito | Roxo-escuro profundo |
+| Motion | `fadeUp`, stagger no hero, hover lift nos cards | `riseSoft` na intro, stagger + `scaleIn` no bento, capítulos glass |
+
+### Motion (1.2.0)
+
+- Respeitar sempre `prefers-reduced-motion` via `useMotionSafe()`.
+- Entradas de secção: `fadeUp` (portefólio) e `riseSoft` (Maia intro / painéis).
+- Grelhas: `staggerContainer` + `scaleIn` nos `BentoItem`.
+- Hover: `hoverLift` (−4px) em cards interactivos; sem overlays flutuantes no hero.
+- Home sem secção GitHub Signals — fluxo: hero → projetos → competências → experiência → sobre → contacto.
+- Maia inclui capítulo **SGM** (`#governance`) para ISO e portais Huwise.
 
 ---
 

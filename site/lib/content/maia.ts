@@ -6,33 +6,34 @@ export const maiaNavItems: { id: string; label: Bi }[] = [
   { id: "visible", label: { pt: "Visível", en: "Visible" } },
   { id: "invisible", label: { pt: "Invisível", en: "Invisible" } },
   { id: "observe", label: { pt: "Observar", en: "Observe" } },
-  { id: "people", label: { pt: "Pessoas", en: "People" } },
+  { id: "governance", label: { pt: "SGM", en: "MS" } },
+  { id: "people", label: { pt: "Equipa", en: "Team" } },
 ];
 
 export const maiaDisclaimer = {
-  pt: "Case study pessoal de Emanuel Ferreira — não é um site oficial da Câmara Municipal da Maia.",
-  en: "Personal case study by Emanuel Ferreira — not an official Maia City Council website.",
+  pt: "Case study técnico pessoal — não é um site oficial da Câmara Municipal da Maia.",
+  en: "Personal technical case study — not an official Maia City Council website.",
 } as Bi;
 
 export const maiaIntro = {
   eyebrow: { pt: "Câmara Municipal da Maia", en: "Maia City Council" } as Bi,
   title: {
-    pt: "Um município visto por dentro dos dados",
-    en: "A municipality seen from inside its data",
+    pt: "Dados de muitas fontes, um contrato comum",
+    en: "Data from many sources, one shared contract",
   } as Bi,
   subtitle: {
-    pt: "Os dados da Maia não começam numa dashboard — começam numa câmara de trânsito, numa resposta de Forms, numa tabela do INE. Esta é a história de como liguei essas origens a um sistema observável: pipelines que recolhem, um catálogo que dá contexto, o WELLS_API que expõe e a observabilidade que vigia tudo.",
-    en: "Maia's data doesn't begin on a dashboard — it begins at a traffic camera, in a Forms response, in an INE table. This is the story of how I connected those sources into an observable system: pipelines that collect, a catalogue that adds context, WELLS_API that exposes, and observability watching it all.",
+    pt: "Os dados municipais chegam de câmaras de trânsito, formulários, estatística oficial e sistemas internos. O trabalho da equipa de dados e programação liga essas origens a catálogo, APIs, Power BI e portais — com apoio concreto ao Sistema de Gestão (ISO 9001, ISO 14001, ISO 37120).",
+    en: "Municipal data arrives from traffic cameras, forms, official statistics and internal systems. The data and programming team's work connects those sources to catalogue, APIs, Power BI and portals — with concrete support for the Management System (ISO 9001, ISO 14001, ISO 37120).",
   } as Bi,
   tagline: {
-    pt: "Narrativa visual com dados reais quando a fonte o permite.",
-    en: "A visual narrative with real data when the source allows.",
+    pt: "Foco: interoperabilidade. Narrativa com dados reais quando a fonte o permite.",
+    en: "Focus: interoperability. Narrative with real data when the source allows.",
   } as Bi,
 };
 
 export const maiaPulse = {
   eyebrow: { pt: "Pulso da cidade", en: "City pulse" } as Bi,
-  title: { pt: "O que o tempo e o trânsito dizem hoje", en: "What weather and traffic say today" } as Bi,
+  title: { pt: "Tempo e trânsito — sinais públicos", en: "Weather and traffic — public signals" } as Bi,
   weatherLabel: { pt: "Meteorologia", en: "Weather" } as Bi,
   trafficLabel: { pt: "Trânsito", en: "Traffic" } as Bi,
   sourceIpma: { pt: "Fonte: IPMA", en: "Source: IPMA" } as Bi,
@@ -49,16 +50,16 @@ export const maiaVisible = {
   eyebrow: { pt: "Experiências visíveis", en: "Visible experiences" } as Bi,
   title: { pt: "O que a cidade mostra", en: "What the city shows" } as Bi,
   editorialNote: {
-    pt: "Conteúdo editorial — sem fonte pública estável em tempo real.",
-    en: "Editorial content — no stable real-time public source.",
+    pt: "Conteúdo editorial — sem fonte pública estável em tempo real, excepto o pulso IPMA/Traffic Flow.",
+    en: "Editorial content — no stable real-time public source, except the IPMA/Traffic Flow pulse.",
   } as Bi,
   items: [
     {
       id: "weather",
       title: { pt: "Meteorologia", en: "Weather" } as Bi,
       description: {
-        pt: "Previsão e condições integradas no portal municipal — o painel Pulso usa IPMA em tempo real.",
-        en: "Forecast and conditions integrated into the municipal portal — the Pulse panel uses live IPMA data.",
+        pt: "Previsão e condições no portal municipal — o painel Pulso usa IPMA em tempo real.",
+        en: "Forecast and conditions in the municipal portal — the Pulse panel uses live IPMA data.",
       } as Bi,
       asset: "/maia/illustrations/tend.svg",
     },
@@ -84,8 +85,8 @@ export const maiaVisible = {
       id: "mobility",
       title: { pt: "Mobilidade", en: "Mobility" } as Bi,
       description: {
-        pt: "Fluxos de tráfego em tempo quase real via Traffic Flow — das câmaras da cidade para mapas e BI, expostos publicamente pelo WELLS_API.",
-        en: "Near-real-time traffic flows via Traffic Flow — from the city's cameras to maps and BI, publicly exposed through WELLS_API.",
+        pt: "Fluxos de tráfego via Traffic Flow — das câmaras para mapas e BI, expostos pelo WELLS_API.",
+        en: "Traffic flows via Traffic Flow — from cameras to maps and BI, exposed through WELLS_API.",
       } as Bi,
       asset: "/maia/illustrations/persons_inbench.svg",
     },
@@ -103,10 +104,10 @@ export const maiaVisible = {
 
 export const maiaInvisible = {
   eyebrow: { pt: "Sistemas invisíveis", en: "Invisible systems" } as Bi,
-  title: { pt: "Pipelines, APIs e catálogo", en: "Pipelines, APIs and catalogue" } as Bi,
+  title: { pt: "Pipelines, catálogo e APIs", en: "Pipelines, catalogue and APIs" } as Bi,
   intro: {
-    pt: "Por baixo das apps visíveis corre a malha que ninguém vê: seis pipelines recolhem e limpam dados de fontes tão diferentes como o INE, o SharePoint ou câmaras de tráfego; um catálogo governado dá-lhes uma linguagem comum; e o WELLS_API expõe tudo num único ponto — datasets, traffic_flow e telemetria.",
-    en: "Beneath the visible apps runs the mesh nobody sees: six pipelines collect and clean data from sources as different as the national statistics office, SharePoint or traffic cameras; a governed catalogue gives them one shared language; and WELLS_API exposes it all through a single point — datasets, traffic_flow and telemetry.",
+    pt: "Por baixo das apps corre a malha de interoperabilidade: pipelines que recolhem e limpam; um catálogo e o DataTron que dão linguagem comum e metas; o WELLS_API que expõe datasets, tráfego e telemetria; Power BI e portais Huwise que consomem.",
+    en: "Beneath the apps runs the interoperability mesh: pipelines that collect and clean; a catalogue and DataTron that provide a shared language and targets; WELLS_API that exposes datasets, traffic and telemetry; Power BI and Huwise portals that consume.",
   } as Bi,
 };
 
@@ -116,20 +117,76 @@ export const maiaObserve = {
 };
 
 export const maiaPeople = {
-  eyebrow: { pt: "Pessoas e resultados", en: "People and results" } as Bi,
-  title: { pt: "Equipa, entregas e próximos passos", en: "Team, deliveries and next steps" } as Bi,
+  eyebrow: { pt: "Equipa e resultados", en: "Team and results" } as Bi,
+  title: { pt: "Documentação, operação e formação", en: "Documentation, operations and mentoring" } as Bi,
   nextSteps: {
     pt: [
-      "Expandir standards NGSI-LD em mais domínios municipais.",
-      "Consolidar observabilidade cross-pipeline no Overseer.",
-      "Documentar contratos de API para integrações externas.",
+      "Consolidar interoperabilidade NGSI-LD e catálogo em mais domínios.",
+      "Acompanhar o portal de dados aberto (Huwise) até aprovação completa.",
+      "Fechar a documentação dos workflows de amostragem em Power BI.",
     ],
     en: [
-      "Expand NGSI-LD standards across more municipal domains.",
-      "Consolidate cross-pipeline observability in Overseer.",
-      "Document API contracts for external integrations.",
+      "Consolidate NGSI-LD interoperability and the catalogue across more domains.",
+      "Support the open data portal (Huwise) through to full approval.",
+      "Complete documentation for Power BI sampling workflows.",
     ],
   },
 };
 
 export const maiaBackLabel = { pt: "Voltar ao portefólio", en: "Back to portfolio" } as Bi;
+
+export const maiaGovernance = {
+  eyebrow: { pt: "Sistema de Gestão", en: "Management System" } as Bi,
+  title: {
+    pt: "ISO 9001 · ISO 14001 · ISO 37120",
+    en: "ISO 9001 · ISO 14001 · ISO 37120",
+  } as Bi,
+  intro: {
+    pt: "O apoio ao Sistema de Gestão é transversal: indicadores, evidência, documentação e amostragem de dados para auditoria das unidades orgânicas. O objectivo é dados fiáveis e interoperáveis — não um silo por norma.",
+    en: "Management System support is cross-cutting: indicators, evidence, documentation and data sampling for organisational-unit audits. The goal is reliable, interoperable data — not a silo per standard.",
+  } as Bi,
+  items: [
+    {
+      id: "iso9001",
+      title: { pt: "ISO 9001 — Qualidade", en: "ISO 9001 — Quality" } as Bi,
+      description: {
+        pt: "Indicadores e evidência no SGM; amostragem para auditoria das UOs; preparação de factos e datasets para Power BI, com documentação dos workflows em curso.",
+        en: "Indicators and evidence in the MS; sampling for organisational-unit audits; preparing facts and datasets for Power BI, with workflow documentation underway.",
+      } as Bi,
+    },
+    {
+      id: "iso14001",
+      title: { pt: "ISO 14001 — Ambiente", en: "ISO 14001 — Environment" } as Bi,
+      description: {
+        pt: "Séries ambientais no catálogo (ex.: MIRR) normalizadas para consumo analítico e metas no DataTron.",
+        en: "Environmental series in the catalogue (e.g. MIRR) normalized for analytical consumption and targets in DataTron.",
+      } as Bi,
+    },
+    {
+      id: "iso37120",
+      title: { pt: "ISO 37120 — Indicadores urbanos", en: "ISO 37120 — Urban indicators" } as Bi,
+      description: {
+        pt: "Dados urbanos (incluindo tráfego) e alimentação dos portais de dados — aberto e interno — na plataforma Huwise.",
+        en: "Urban data (including traffic) and feeding the open and internal data portals on the Huwise platform.",
+      } as Bi,
+    },
+  ],
+  portals: {
+    title: { pt: "Portais de dados (Huwise)", en: "Data portals (Huwise)" } as Bi,
+    openData: {
+      label: { pt: "Portal de dados aberto", en: "Open data portal" } as Bi,
+      note: {
+        pt: "Em construção e alimentação contínua — ainda não completamente aprovado.",
+        en: "Under construction and continuous feeding — not yet fully approved.",
+      } as Bi,
+      href: "https://dados.cm-maia.pt",
+    },
+    internal: {
+      label: { pt: "Portal interno do SGM", en: "Internal MS portal" } as Bi,
+      note: {
+        pt: "Dados internos do Sistema de Gestão na mesma plataforma Huwise.",
+        en: "Internal Management System data on the same Huwise platform.",
+      } as Bi,
+    },
+  },
+};
