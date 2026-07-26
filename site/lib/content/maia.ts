@@ -21,8 +21,8 @@ export const maiaIntro = {
     en: "A municipality seen from inside its data",
   } as Bi,
   subtitle: {
-    pt: "Percorre o ecossistema que construí — do portal público ao WELLS_API, às pipelines e à observabilidade que sustentam a operação.",
-    en: "Walk through the ecosystem I built — from the public portal to WELLS_API, the pipelines and the observability that keep operations running.",
+    pt: "Os dados da Maia não começam numa dashboard — começam numa câmara de trânsito, numa resposta de Forms, numa tabela do INE. Esta é a história de como liguei essas origens a um sistema observável: pipelines que recolhem, um catálogo que dá contexto, o WELLS_API que expõe e a observabilidade que vigia tudo.",
+    en: "Maia's data doesn't begin on a dashboard — it begins at a traffic camera, in a Forms response, in an INE table. This is the story of how I connected those sources into an observable system: pipelines that collect, a catalogue that adds context, WELLS_API that exposes, and observability watching it all.",
   } as Bi,
   tagline: {
     pt: "Narrativa visual com dados reais quando a fonte o permite.",
@@ -84,8 +84,8 @@ export const maiaVisible = {
       id: "mobility",
       title: { pt: "Mobilidade", en: "Mobility" } as Bi,
       description: {
-        pt: "Paragens, linhas e fluxos via Traffic Flow — exposto publicamente pelo WELLS_API.",
-        en: "Stops, lines and flows via Traffic Flow — publicly exposed through WELLS_API.",
+        pt: "Fluxos de tráfego em tempo quase real via Traffic Flow — das câmaras da cidade para mapas e BI, expostos publicamente pelo WELLS_API.",
+        en: "Near-real-time traffic flows via Traffic Flow — from the city's cameras to maps and BI, publicly exposed through WELLS_API.",
       } as Bi,
       asset: "/maia/illustrations/persons_inbench.svg",
     },
@@ -105,8 +105,8 @@ export const maiaInvisible = {
   eyebrow: { pt: "Sistemas invisíveis", en: "Invisible systems" } as Bi,
   title: { pt: "Pipelines, APIs e catálogo", en: "Pipelines, APIs and catalogue" } as Bi,
   intro: {
-    pt: "Por baixo das apps visíveis corre uma malha de recolha, limpeza e exposição — datasets, traffic_flow e proxies Overseer no WELLS_API.",
-    en: "Beneath the visible apps runs a mesh of collection, cleaning and exposure — datasets, traffic_flow and Overseer proxies on WELLS_API.",
+    pt: "Por baixo das apps visíveis corre a malha que ninguém vê: seis pipelines recolhem e limpam dados de fontes tão diferentes como o INE, o SharePoint ou câmaras de tráfego; um catálogo governado dá-lhes uma linguagem comum; e o WELLS_API expõe tudo num único ponto — datasets, traffic_flow e telemetria.",
+    en: "Beneath the visible apps runs the mesh nobody sees: six pipelines collect and clean data from sources as different as the national statistics office, SharePoint or traffic cameras; a governed catalogue gives them one shared language; and WELLS_API exposes it all through a single point — datasets, traffic_flow and telemetry.",
   } as Bi,
 };
 

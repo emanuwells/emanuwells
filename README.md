@@ -1,16 +1,18 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=67E8F9&center=true&vCenter=true&width=520&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Dados+em+produ%C3%A7%C3%A3o%2C+todos+os+dias)](https://emanuwells.vercel.app)
 
 <br />
 
-Trabalho com dados em produção: pipelines que correm todos os dias, APIs que alimentam dashboards e monitorização que avisa quando algo falha. Gosto de arquitectura simples, evidência em vez de slides e documentação que ainda serve depois da entrega.
+Trabalho com dados em produção: pipelines que correm todos os dias, APIs que alimentam dashboards e monitorização que avisa quando algo falha — antes de alguém perguntar. Gosto de arquitectura simples, evidência em vez de slides e documentação que ainda serve depois da entrega.
+
+[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
 
 ## Sobre mim
 
-- Actualmente a construir e manter pipelines, APIs e sinais de observabilidade em contexto municipal
-- Pergunta-me sobre ingestão de dados, Power BI, Docker ou como transformar falhas de pipeline em alertas úteis
-- Habito: cada entrega leva changelog — mesmo quando ninguém pede
+- Construo e mantenho o ecossistema de dados de um município: ingestão, catálogo, APIs e observabilidade
+- Pergunta-me sobre ingestão de dados, Power BI, Docker ou como transformar um job vermelho num alerta acionável
+- Hábito: cada entrega leva changelog e evidência — mesmo quando ninguém pede
 - Baseado em Portugal · trabalho em português europeu e inglês
 
 ## Stack
@@ -22,12 +24,41 @@ Trabalho com dados em produção: pipelines que correm todos os dias, APIs que a
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
 </p>
+
+## O ecossistema WELLS
+
+Os meus projectos não são repositórios isolados — trabalham em conjunto, em produção:
+
+```text
+pipelines (Python) ──▶ WELLS_API ──▶ Power BI · dashboards · integrações NGSI-LD
+      │                    ▲
+      ├── Overseer ────────┤   observabilidade de pipelines (runs, logs, alertas)
+      └── Warden ──────────┘   telemetria de servidores (CPU, RAM, disco, MariaDB)
+                           │
+                       WELLS_OS   consola read-only — a sala de controlo
+```
+
+- **WELLS_API** é a espinha dorsal: uma API municipal em PHP que expõe datasets, observações de tráfego (GeoJSON/NGSI-LD) e snapshots do Warden a dashboards, Power BI e integrações externas.
+- **WELLS_OS** é a sala de controlo: uma consola read-only, protegida por login, que agrega métricas Warden, execuções Overseer e o registo de aplicações — observa tudo sem tocar no runtime.
+
+## Trabalho seleccionado
+
+| Projecto | Tipo | O que faz | Acesso |
+| --- | --- | --- | --- |
+| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola operacional read-only: métricas Warden, execuções Overseer e registo de aplicações num só painel. | Produto activo; código privado |
+| WELLS_API | Profissional | API municipal que serve datasets, tráfego em GeoJSON/NGSI-LD e telemetria a Power BI e integrações externas. | Em produção; código privado |
+| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Como liguei seis pipelines, catálogo, APIs e observabilidade num ecossistema municipal — do zero à produção em ~8 meses. | Página pública |
+| [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Observabilidade Docker-first para pipelines e DAGs externos: catálogo, runs, logs e heartbeats por API, dashboard read-only e alertas Slack. | Código público |
+| [Warden](https://github.com/emanuwells/Warden) | Profissional | Collector Python que vigia CPU, RAM, disco, rede e MariaDB; exporta snapshots consumidos pelo WELLS_API e alerta no Slack. | Código público |
+| Traffic Flow | Profissional | Transforma contagens das câmaras de tráfego da Maia em observações normalizadas — GeoJSON e NGSI-LD com URN estável. | API pública; código privado |
+| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Google Apps Script que converte uma grelha anual de férias pintada à mão em eventos do Google Calendar. | Código público |
 
 ## Estatísticas GitHub
 
@@ -48,28 +79,10 @@ Trabalho com dados em produção: pipelines que correm todos os dias, APIs que a
   <img src=".github/assets/profile-metrics.svg" alt="Visão geral da actividade pública GitHub e tecnologias" width="820" />
 </p>
 
-## Citação dev
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Citação de programador" />
-</p>
-
-## Trabalho seleccionado
-
-| Projecto | Tipo | O que faz | Acesso |
-| --- | --- | --- | --- |
-| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola read-only dos serviços e servidores onde os meus projectos correm. | Produto activo; código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Como liguei pipelines de ingestão, catálogo, APIs e observabilidade num ecossistema municipal. | Página pública |
-| [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Segue execuções de pipeline: o que correu, o que falhou e o sinal operacional que daí sai. | Código público |
-| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria de servidores, retenção e alertas sem mexer no runtime de produção. | Código público |
-| [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby / script | Automação pessoal para manter rotinas estáveis quando estou fora — não é stack de produção. | Código público |
-
-`WELLS_API` e `Traffic Flow` aparecem no case study e em demos públicas enquanto os repositórios passam por revisão de prontidão para publicação.
-
 ## Foco actual
 
-- Pipelines que ingestam, transformam e expõem dados com falhas visíveis
-- APIs estáveis para BI e integrações
+- Pipelines que ingerem, transformam e expõem dados com falhas visíveis
+- APIs estáveis para BI, mapas e integrações smart city (NGSI-LD, Smart Data Models)
 - Observabilidade que transforma um job vermelho num alerta acionável
 - Interfaces simples para sistemas operacionais complexos
 

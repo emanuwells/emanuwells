@@ -6,6 +6,12 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
+- README de perfil reescrito: Typing SVG com largura corrigida (sem cortes), secção «O ecossistema WELLS», tabela de projetos com WELLS_API, Traffic Flow e descrições mais ricas.
+- Portefólio: storytelling melhorado — hero, projetos (7 cartões, incluindo WELLS_API, MAIATRON-HUB e descrições baseadas na documentação real dos repos), sobre e experiência.
+- Case study Maia: intro, sistemas invisíveis, observabilidade e resultados reescritos com narrativa mais concreta.
+
+### Changed (toolkit)
+
 - Migração para **WELLS Agent Runtime 0.5.0**: runtime em `.agents/`; legado (`docs/ai/`, `tools/ai-adapters/`, `AGENTS.md` na raiz, `tasks/`) arquivado em `.agents/migration/legacy/`.
 - `COMMANDS.md`, `docs/ROOT_STRUCTURE.md` e governação alinhados ao novo contrato (`.agents/AGENTS.md`).
 - CI valida `.agents/` com `validate-project.mjs`; scripts `activate-ai-adapter` removidos (adaptadores em `.agents/adapters/`).

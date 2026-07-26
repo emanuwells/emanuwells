@@ -1,5 +1,22 @@
 # Trabalho atual
 
+## 2026-07-26 — README top-tier + storytelling do portefólio e Maia
+
+**Estado:** concluído  
+**Risco:** médio (conteúdo público, sem lógica)  
+**Objetivo:** README de perfil sem cortes no SVG e com ecossistema WELLS; site com storytelling melhor (foco WELLS_API/WELLS_OS); Maia caprichada.
+
+### Concluído
+
+- [x] README: Typing SVG width 760 (sem cortes), secção «O ecossistema WELLS», tabela com WELLS_API e Traffic Flow.
+- [x] `portfolio.ts`: 7 projetos com descrições baseadas nos READMEs reais (Overseer, Warden, Vacation Mode) + MAIATRON-HUB.
+- [x] `maia.ts` / `maia-system.ts`: intro, invisível, observabilidade e resultados reescritos.
+- [x] Lint, typecheck e build OK.
+
+### Follow-up
+
+- [ ] Confirmar redeploy automático Vercel após push (sem token CLI neste ambiente).
+
 ## 2026-07-26 — Migração WELLS Agent Runtime 0.5.0
 
 **Estado:** concluído  

@@ -150,8 +150,8 @@ export const overview = {
     en: "Three layers, one system",
   } as Bi,
   intro: {
-    pt: "O ecossistema separa claramente quem produz dados, quem os observa e quem os consome — unificado por um portal central. Nenhuma camada executa o trabalho da outra: cada peça faz uma coisa e o Overseer e o Warden observam tudo de fora, sem tocar no código dos pipelines.",
-    en: "The ecosystem clearly separates who produces data, who observes it, and who consumes it — unified by a central portal. No layer does another's job: each piece does one thing, and Overseer and Warden observe everything from the outside, without touching pipeline code.",
+    pt: "O ecossistema assenta numa regra simples: quem produz dados, quem os observa e quem os consome nunca se misturam. Cada peça faz uma coisa; o Overseer e o Warden vigiam tudo de fora, sem tocar no código dos pipelines. Quando algo falha, o problema aparece na camada certa — e não em cascata pelo sistema inteiro.",
+    en: "The ecosystem rests on one simple rule: whoever produces data, observes it, or consumes it never mix. Each piece does one thing; Overseer and Warden watch everything from the outside without touching pipeline code. When something fails, the problem shows up in the right layer — not cascading through the whole system.",
   } as Bi,
   layers: [
     {
@@ -413,8 +413,8 @@ export const monitoring = {
   eyebrow: { pt: "Observabilidade", en: "Observability" } as Bi,
   title: { pt: "Ver tudo sem tocar em nada", en: "See everything, touch nothing" } as Bi,
   intro: {
-    pt: "Dois sistemas complementares: um observa os pipelines, o outro observa as máquinas que os correm. Nenhum dos dois executa código de produção — só o vigiam.",
-    en: "Two complementary systems: one watches the pipelines, the other watches the machines running them. Neither executes production code — they only watch it.",
+    pt: "Dois sistemas complementares que construí para responder à mesma pergunta de ângulos diferentes: «está tudo bem?». O Overseer observa os pipelines; o Warden observa as máquinas que os correm. Nenhum dos dois executa código de produção — só o vigiam, e é essa distância que os torna fiáveis.",
+    en: "Two complementary systems I built to answer the same question from different angles: \"is everything ok?\". Overseer watches the pipelines; Warden watches the machines running them. Neither executes production code — they only watch it, and that distance is what makes them reliable.",
   } as Bi,
   cards: [
     {
@@ -550,8 +550,8 @@ export const results = {
   eyebrow: { pt: "Resultados", en: "Results" } as Bi,
   title: { pt: "Construído de raiz, em produção real", en: "Built from scratch, in real production" } as Bi,
   intro: {
-    pt: "Não é uma prova de conceito. É um sistema que corre todos os dias para um município real, com dados reais e utilizadores reais.",
-    en: "This isn't a proof of concept. It's a system that runs every day for a real municipality, with real data and real users.",
+    pt: "Não é uma prova de conceito. É um sistema que corre todas as manhãs para um município real — às 07:30 sincroniza indicadores internos, às 07:45 recolhe formulários, e as câmaras de tráfego nunca param. Quando algo falha, o Slack avisa antes de alguém perguntar.",
+    en: "This isn't a proof of concept. It's a system that runs every morning for a real municipality — syncing internal indicators at 07:30, collecting forms at 07:45, with traffic cameras that never stop. When something fails, Slack knows before anyone asks.",
   } as Bi,
   metrics: [
     { value: "~8", label: { pt: "meses do zero à produção", en: "months from zero to production" } as Bi },
