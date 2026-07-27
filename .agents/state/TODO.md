@@ -1,17 +1,11 @@
 # Trabalho atual
 
-## 2026-07-27 — Header homogéneo + nav seamless + Sobre
+## 2026-07-27 — M oficial + polish Maia/portefólio
 
-**Estado:** concluído  
+**Estado:** em curso (fecho)
 
-### Concluído
-
-- [x] Header + M Maia + GitHub + rename Dados Município Maia
-- [x] FAB ↑↓, CTA fim Maia, footer Maia, PageMotion
-- [x] TypingText fix; Sobre idade; Experiência chips; README
-- [x] Squash `main`, PR `#3` fechado, branch apagada, deploy prod
-
-### Follow-up
-
-- [ ] Opcional: asset M a partir do PNG oficial (agora SVG geométrico)
-- [ ] Git Integration Vercel
+- [x] M oficial + nav + já ligado
+- [x] Equipa + Resultados
+- [x] CTAs / projetos / skills
+- [x] README
+- [ ] Validar, commit/push main, deploy, smoke

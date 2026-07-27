@@ -21,7 +21,7 @@ export default function GlassChapter({
         {eyebrow && <SceneLabel>{eyebrow}</SceneLabel>}
         {title && (
           <div className="mb-8">
-            <SceneTitle>{title}</SceneTitle>
+            <SceneTitle className="!text-[clamp(1.75rem,4vw,2.75rem)]">{title}</SceneTitle>
           </div>
         )}
         {children}

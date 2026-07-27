@@ -467,11 +467,14 @@ export const infrastructure = {
 };
 
 export const team = {
-  eyebrow: { pt: "Gestão de Equipa", en: "Team Management" } as Bi,
-  title: { pt: "Quatro estágios, dois projetos reais", en: "Four internships, two real projects" } as Bi,
+  eyebrow: { pt: "Equipa e estágios", en: "Team and internships" } as Bi,
+  title: {
+    pt: "Estágios que entram nos dados do município",
+    en: "Internships that feed municipal data work",
+  } as Bi,
   intro: {
-    pt: "Ao longo de cerca de três meses, a orientação de quatro estágios em dados e programação focou-se em projetos reais — não em tarefas isoladas. Documentação, operação de máquinas e acompanhamento técnico fazem parte do dia-a-dia da equipa.",
-    en: "Over roughly three months, mentoring four interns across data and programming focused on real projects — not isolated tasks. Documentation, machine operations and technical guidance are part of the team's day-to-day.",
+    pt: "Os estágios em dados e programação não são tarefas isoladas: entram no trabalho real do município. Assisto e acompanho o percurso — documentação, máquinas, boas práticas — porque isso ajuda a equipa, fortalece os dados e dá espaço aos estagiários para crescerem com responsabilidade. Dois exemplos concretos e um contributo decisivo para o INE Pipeline.",
+    en: "Internships in data and programming are not isolated tasks: they join the municipality's real work. I assist and support the journey — docs, machines, good practices — because that helps the team, strengthens the data and gives interns room to grow with responsibility. Two concrete examples and a decisive contribution to the INE Pipeline.",
   } as Bi,
   projects: [
     {
@@ -480,8 +483,8 @@ export const team = {
         en: "Municipality digital billboard",
       } as Bi,
       description: {
-        pt: "Painel dedicado a dados do concelho — trânsito, acessos, tempo — e redefinição do site institucional.",
-        en: "A display dedicated to municipality data — traffic, access points, weather — plus a redesign of the institutional website.",
+        pt: "Painel dedicado a dados do concelho — trânsito, acessos, tempo — e redefinição do site institucional, com participação activa dos estágios.",
+        en: "A display dedicated to municipality data — traffic, access points, weather — plus a redesign of the institutional website, with active internship participation.",
       } as Bi,
     },
     {
@@ -490,12 +493,21 @@ export const team = {
         en: "Data cleaning & harmonization",
       } as Bi,
       description: {
-        pt: "Projeto de data cleaning e harmonização entre fontes distintas, base para o trabalho que hoje corre no Data Paladin.",
-        en: "Data cleaning and harmonization across distinct sources — groundwork for what today runs in Data Paladin.",
+        pt: "Limpeza e harmonização entre fontes distintas — base para o trabalho que hoje corre no Data Paladin.",
+        en: "Cleaning and harmonization across distinct sources — groundwork for what today runs in Data Paladin.",
+      } as Bi,
+    },
+    {
+      name: {
+        pt: "Códigos INE → pipeline em produção",
+        en: "INE codes → production pipeline",
+      } as Bi,
+      description: {
+        pt: "A busca e organização de códigos INE, com apoio dos estágios que acompanho, acelerou a colocação do INE Pipeline em produção — séries oficiais a actualizar de forma repetível.",
+        en: "Finding and organising INE codes, with support from the internships I assist, accelerated putting the INE Pipeline into production — official series updating in a repeatable way.",
       } as Bi,
     },
   ],
-  statLabel: { pt: "estagiários orientados", en: "interns mentored" } as Bi,
 };
 
 export const stack = {
@@ -540,20 +552,20 @@ export const results = {
     { value: "~8", label: { pt: "meses do zero à produção", en: "months from zero to production" } as Bi },
     { value: "6+", label: { pt: "pipelines activos", en: "active pipelines" } as Bi },
     { value: "3", label: { pt: "normas ISO no SGM", en: "ISO standards in the MS" } as Bi },
-    { value: "4", label: { pt: "estágios orientados", en: "interns mentored" } as Bi },
+    { value: "2", label: { pt: "portais Huwise de dados", en: "Huwise data portals" } as Bi },
   ],
   highlights: {
     pt: [
       "Interoperabilidade como regra: fontes diversas → catálogo/DataTron → WELLS_API → Power BI e Huwise.",
       "Apoio ao Sistema de Gestão (ISO 9001, 14001, 37120) com amostragem para auditoria das UOs.",
       "Observabilidade própria (Overseer + Warden) sem interferir no código observado.",
-      "Portal de dados aberto em Huwise (dados.cm-maia.pt) em construção e alimentação contínua.",
+      "Dois portais Huwise — dados aberto (dados.cm-maia.pt) e portal interno do SGM — em alimentação contínua.",
     ],
     en: [
       "Interoperability as the rule: diverse sources → catalogue/DataTron → WELLS_API → Power BI and Huwise.",
       "Management System support (ISO 9001, 14001, 37120) with sampling for organisational-unit audits.",
       "Custom observability (Overseer + Warden) without interfering with watched code.",
-      "Open data portal on Huwise (dados.cm-maia.pt) under construction and continuous feeding.",
+      "Two Huwise portals — open data (dados.cm-maia.pt) and the internal MS portal — under continuous feeding.",
     ],
   },
 };

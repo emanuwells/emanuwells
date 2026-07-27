@@ -167,7 +167,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                 key={ch.id}
                 type="button"
                 onClick={() => goTo(ch.id)}
-                className={`${navBtnClass(ch.id)} text-xs whitespace-nowrap`}
+                className={`${navBtnClass(ch.id)} whitespace-nowrap`}
                 aria-current={active === ch.id ? "true" : undefined}
                 {...motionNavProps}
               >

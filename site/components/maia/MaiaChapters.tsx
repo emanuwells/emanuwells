@@ -11,6 +11,7 @@ import {
 } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
 import Link from "next/link";
+import { Database, Route, CloudSun, type LucideIcon } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PipelineStoryExplorer from "@/components/PipelineStoryExplorer";
 import Monitoring from "@/components/sections/Monitoring";
@@ -32,6 +33,12 @@ const BENTO_ACCENTS = [
   "var(--theme-bento-events)",
   "var(--theme-bento-motivation)",
 ];
+
+const LINKED_ICONS: Record<string, LucideIcon> = {
+  catalog: Database,
+  traffic: Route,
+  weather: CloudSun,
+};
 
 export default function MaiaChapters() {
   const { lang } = useLang();
@@ -72,19 +79,32 @@ export default function MaiaChapters() {
         id="linked"
         eyebrow={t(maiaLinked.eyebrow, lang)}
         title={t(maiaLinked.title, lang)}
+        className="!max-w-6xl"
       >
-        <p className="text-[var(--theme-text-muted)] max-w-2xl mb-8">
+        <p className="text-base sm:text-lg text-[var(--theme-text-muted)] max-w-2xl mb-10 leading-relaxed">
           {t(maiaLinked.intro, lang)}
         </p>
-        <BentoGrid>
-          {maiaLinked.items.map((item, i) => (
-            <BentoItem key={item.id} accent={BENTO_ACCENTS[i % BENTO_ACCENTS.length]}>
-              <h3 className="font-medium mb-2">{t(item.title, lang)}</h3>
-              <p className="text-sm text-[var(--theme-text-muted)]">
-                {t(item.description, lang)}
-              </p>
-            </BentoItem>
-          ))}
+        <BentoGrid className="!gap-5">
+          {maiaLinked.items.map((item, i) => {
+            const Icon = LINKED_ICONS[item.id] ?? Database;
+            return (
+              <BentoItem
+                key={item.id}
+                accent={BENTO_ACCENTS[i % BENTO_ACCENTS.length]}
+                className="!p-6 sm:!p-8"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--theme-glass-border)] bg-[var(--theme-surface)] text-[var(--theme-accent)]">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </div>
+                <h3 className="font-[family-name:var(--font-display)] text-xl sm:text-2xl font-semibold tracking-tight mb-3">
+                  {t(item.title, lang)}
+                </h3>
+                <p className="text-sm sm:text-base leading-relaxed text-[var(--theme-text-muted)]">
+                  {t(item.description, lang)}
+                </p>
+              </BentoItem>
+            );
+          })}
         </BentoGrid>
       </GlassChapter>
 
@@ -177,15 +197,10 @@ export default function MaiaChapters() {
       </section>
 
       <section className="px-4 sm:px-6 py-16 max-w-6xl mx-auto border-t border-[var(--line)]">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-12">
-          <p className="text-[var(--theme-text-muted)] max-w-md text-sm leading-relaxed">
-            {lang === "pt"
-              ? "Queres voltar ao portefólio e ver o resto do trabalho?"
-              : "Want to return to the portfolio and see the rest of the work?"}
-          </p>
+        <div className="flex justify-end mb-12">
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-[999px] border border-[var(--cyber-cyan)] px-5 py-2.5 text-sm font-semibold text-[var(--cyber-cyan-bright)] transition hover:bg-[rgba(77,216,232,0.08)]"
+            className="inline-flex items-center justify-center rounded-[999px] border border-[var(--cyber-cyan)] px-5 py-2.5 text-sm font-semibold text-[var(--cyber-cyan-bright)] transition hover:bg-[rgba(77,216,232,0.08)] shadow-[var(--cyber-glow-cyan)]"
           >
             ← {t(maiaBackLabel, lang)}
           </Link>

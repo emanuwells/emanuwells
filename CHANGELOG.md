@@ -6,6 +6,13 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
+- Logo Maia: «M» oficial (path do wordmark CM Maia, branco) no header; nav Maia `text-sm` alinhada ao portefólio.
+- «O que já está ligado» com hierarquia e ícones; Equipa reescrita (assisto/acompanho + cartão INE); Resultados com 2 portais Huwise.
+- WELLS_OS CTA no estilo do botão Maia; projetos/competências com mais presença; CTA fim Maia só botão.
+- README: typing, autodidacta enxuto, foco actual (interoperabilidade + escalagem WELLS).
+
+### Changed (anterior)
+
 - Header homogéneo portefólio/Maia: `emanuwells` → início, ícone GitHub, «M» Maia → dados.cm-maia.pt; label **Dados Município Maia** / **Maia Municipality Data**; sem disclaimer na UI.
 - Navegação seamless: FAB ↑/↓, CTA voltar no fim da Maia, footer GH/LI na Maia, page transition reforçada.
 - Fix TypingText ao trocar PT/EN; Sobre com idade dinâmica (Europe/Lisbon) e frase self-taught + link; Experiência sem % (chips Activo/Em curso, desde 2022).

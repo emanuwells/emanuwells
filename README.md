@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=780&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Apaixonei-me+pela+%C3%A1rea+dos+dados;Aprendo+a+construir+e+a+operar+sistemas)](https://emanuwells.vercel.app)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=780&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Aprendo+a+construir+e+a+operar+sistemas)](https://emanuwells.vercel.app)
 
 <br />
 
@@ -12,7 +12,7 @@ Construo e opero pipelines, APIs e observabilidade — com documentação e evid
 
 - **4+ anos** na área dos dados (desde 2022) · **6+** pipelines em produção · **2** sistemas open source (Overseer, Warden)
 - Formação em redes e sistemas (TGRSI) — base útil para operação e infraestrutura
-- Percurso autodidacta: estudar, construir, documentar; docs em português europeu e changelog
+- Percurso autodidacta: estudar, construir, documentar
 - Contexto actual na Câmara Municipal da Maia — detalhe em [Dados Município Maia](https://emanuwells.vercel.app/maia)
 - Baseado em Portugal · português europeu e inglês
 
@@ -52,7 +52,8 @@ Amostragem do que construo e opero:
 ## Foco actual
 
 - Pipelines, APIs e observabilidade estáveis e documentados
-- Weather API 4 Maia e interoperabilidade no contexto actual
+- Total interoperabilidade no contexto actual
+- Melhoramento e escalagem do ecossistema WELLS
 - Overseer + Warden (open source) no servidor principal
 
 <sub>A página Dados Município Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>

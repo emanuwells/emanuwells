@@ -28,10 +28,16 @@ function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () =
           {t(hero.ctaProjects, lang)}
         </Button>
         <MaiaCtaLink />
-        <a href="https://wells-os.vercel.app" target="_blank" rel="noreferrer">
-          <Button type="button" variant="tertiary" className="!inline-flex">
-            {lang === "pt" ? "Conhecer o WELLS_OS" : "Explore WELLS_OS"} ↗
-          </Button>
+        <a
+          href="https://wells-os.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 rounded-[999px] border border-[var(--cyber-cyan)] px-5 py-2.5 text-sm font-semibold text-[var(--cyber-cyan-bright)] bg-transparent hover:bg-[rgba(77,216,232,0.08)] shadow-[var(--cyber-glow-cyan)] transition-all hover:shadow-[0_0_16px_var(--cyber-cyan-glow)]"
+        >
+          {lang === "pt" ? "Conhecer o WELLS_OS" : "Explore WELLS_OS"}
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+            ↗
+          </span>
         </a>
       </div>
       <div>

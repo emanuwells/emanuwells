@@ -49,12 +49,12 @@ export const maiaPulse = {
 export const maiaLinked = {
   eyebrow: { pt: "O que já está ligado", en: "What is already linked" } as Bi,
   title: {
-    pt: "Três peças concretas — sem inventar o resto",
-    en: "Three concrete pieces — without inventing the rest",
+    pt: "Peças que já correm — e se vêem",
+    en: "Pieces that already run — and can be seen",
   } as Bi,
   intro: {
-    pt: "Há mais dados no município. O contributo técnico documentado aqui concentra-se no que já corre e é observável: catálogo, tráfego e meteorologia local.",
-    en: "There is more municipal data. The technical contribution documented here focuses on what already runs and is observable: catalogue, traffic and local weather.",
+    pt: "O município tem mais dados. Aqui ficam três ligações concretas, em produção e observáveis: o catálogo que dá linguagem comum, o tráfego em semi real-time e a meteorologia local a fluir no Overseer. A lista cresce.",
+    en: "The municipality has more data. Here are three concrete links, in production and observable: the catalogue that provides a shared language, near real-time traffic, and local weather flowing into Overseer. The list will grow.",
   } as Bi,
   items: [
     {

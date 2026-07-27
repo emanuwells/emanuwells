@@ -8,9 +8,19 @@ export function SceneLabel({ children }: { children: ReactNode }) {
   );
 }
 
-export function SceneTitle({ children, as: Tag = "h2" }: { children: ReactNode; as?: "h1" | "h2" | "h3" }) {
+export function SceneTitle({
+  children,
+  as: Tag = "h2",
+  className = "",
+}: {
+  children: ReactNode;
+  as?: "h1" | "h2" | "h3";
+  className?: string;
+}) {
   return (
-    <Tag className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-semibold text-balance leading-tight text-[var(--theme-text)]">
+    <Tag
+      className={`font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-semibold text-balance leading-tight text-[var(--theme-text)] ${className}`}
+    >
       {children}
     </Tag>
   );
