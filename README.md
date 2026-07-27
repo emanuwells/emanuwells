@@ -1,18 +1,19 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Produtos+WELLS+%C2%B7+forma+de+trabalhar)](https://emanuwells.vercel.app)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Apaixonei-me+pela+%C3%A1rea+dos+dados;Aprendo+a+construir+e+a+operar+sistemas)](https://emanuwells.vercel.app)
 
 <br />
 
-Engenharia de dados e sistemas em produção: pipelines, APIs, documentação e observabilidade. Produtos sob a marca **WELLS**, com changelog e evidência. Contexto profissional actual: Câmara Municipal da Maia ([case study](https://emanuwells.vercel.app/maia)).
+Construo e opero pipelines, APIs e observabilidade — com documentação e evidência. Apaixonei-me pela área dos dados; sou Técnico de Gestão de Redes e Sistemas Informáticos e aprendi engenharia de dados e software por conta própria. Contexto profissional actual: Câmara Municipal da Maia ([case study](https://emanuwells.vercel.app/maia)).
 
 [**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
 
 ## Sobre
 
-- Produtos **WELLS**: consola operacional, API de integração, Overseer e Warden
-- Forma de trabalhar: docs em português europeu, changelog, operação com evidência
-- Contexto actual na Câmara Municipal da Maia — pipelines, catálogo, APIs e apoio ao Sistema de Gestão (ISO 9001 / 14001 / 37120); detalhe no [case study](https://emanuwells.vercel.app/maia)
+- **4+ anos** na área dos dados (desde 2022) · **6+** pipelines em produção · **2** sistemas open source (Overseer, Warden)
+- Formação em redes e sistemas (TGRSI) — base útil para operação e infraestrutura
+- Percurso autodidacta: estudar, construir, documentar; docs em português europeu e changelog
+- Contexto actual na Câmara Municipal da Maia — detalhe no [case study](https://emanuwells.vercel.app/maia)
 - Baseado em Portugal · português europeu e inglês
 
 ## Stack
@@ -34,23 +35,25 @@ Engenharia de dados e sistemas em produção: pipelines, APIs, documentação e 
 
 ## Trabalho seleccionado
 
+Amostragem do que construo e opero:
+
 | Projecto | Tipo | O que faz | Acesso |
 | --- | --- | --- | --- |
-| [WELLS_OS](https://wells-os.vercel.app) | Pessoal / profissional | Consola operacional read-only: Warden, Overseer e registo de apps. | Produto activo; código privado |
+| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola operacional read-only: Warden, Overseer e registo de apps. | Produto activo; código privado |
 | WELLS_API | Profissional | API de integração — datasets, tráfego GeoJSON/NGSI-LD, snapshots Warden. | Em produção; código privado |
+| MAIATRON-HUB | Profissional | Portal central; inclui DataTron e Webapp-Medidata. | Interno; código privado |
 | [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Observabilidade de pipelines: runs, logs, heartbeats, Slack. | Código público |
-| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria do servidor principal e MariaDB; snapshots para WELLS_API. | Código público |
-| Weather API 4 Maia | Profissional | Meteorologia de pontos estratégicos da Maia — a fluir, observado no Overseer; repo em evolução. | Código privado / WIP |
+| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria de servidor e MariaDB; snapshots para WELLS_API. | Código público |
+| Weather API 4 Maia | Profissional | Meteorologia de pontos estratégicos — a fluir, observado no Overseer; repo em evolução. | Código privado / WIP |
 | Traffic Flow | Profissional | Contagens urbanas → observações interoperáveis (GeoJSON / NGSI-LD). | Código privado |
-| Webapp-Medidata / DataTron | Profissional | Vista Medidata das UOs + dados, metas e apoio ao SGM. | Interno; código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Contexto municipal: pipelines, SGM/ISO, Huwise e observabilidade. | Página pública |
+| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Pipelines, SGM/ISO, Huwise e observabilidade. | Página pública |
 | [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Grelha de férias → Google Calendar. | Código público |
 
 ## Foco actual
 
-- Produtos WELLS estáveis e documentados
-- Weather API 4 Maia e interoperabilidade no contexto Maia
-- Observabilidade (Overseer + Warden no servidor principal)
+- Pipelines, APIs e observabilidade estáveis e documentados
+- Weather API 4 Maia e interoperabilidade no contexto actual
+- Overseer + Warden (open source) no servidor principal
 
 <sub>O case study Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>
 

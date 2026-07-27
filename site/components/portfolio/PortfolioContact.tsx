@@ -13,16 +13,7 @@ export default function PortfolioContact() {
     <Section id="contact" bare className="pb-16">
       <Reveal>
         <Eyebrow>{t(contact.eyebrow, lang)}</Eyebrow>
-        <h2 className="font-[family-name:var(--font-mono)] text-3xl sm:text-4xl font-semibold text-balance mb-4 leading-tight">
-          {t(contact.title, lang)}
-        </h2>
-        <p className="text-[var(--color-text-muted)] leading-relaxed max-w-xl mb-10">
-          {t(contact.subtitle, lang)}
-        </p>
-      </Reveal>
-
-      <Reveal delay={0.06}>
-        <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-[var(--border-subtle)]">
+        <div className="mt-4 flex flex-wrap items-center gap-6">
           <a
             href={contact.github}
             target="_blank"
@@ -44,7 +35,7 @@ export default function PortfolioContact() {
             {t(contact.linkedinLabel, lang)}
           </a>
         </div>
-        <div className="mt-8 flex flex-col sm:flex-row sm:justify-between gap-2">
+        <div className="mt-10 flex flex-col sm:flex-row sm:justify-between gap-2 border-t border-[var(--border-subtle)] pt-8">
           <p className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-text-dim)]">
             {t(footer.text, lang)}
           </p>

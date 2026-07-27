@@ -6,8 +6,8 @@ export const siteMeta = {
     en: "Emanuel Ferreira — Portfolio",
   } as Bi,
   description: {
-    pt: "Engenharia de dados e sistemas em produção — produtos WELLS, APIs, observabilidade. Handle: emanuwells.",
-    en: "Data engineering and production systems — WELLS products, APIs, observability. Handle: emanuwells.",
+    pt: "Engenharia de dados e sistemas em produção — pipelines, APIs, observabilidade. Handle: emanuwells.",
+    en: "Data engineering and production systems — pipelines, APIs, observability. Handle: emanuwells.",
   } as Bi,
   maiaTitle: {
     pt: "Case study · Câmara Municipal da Maia",
@@ -36,18 +36,18 @@ export const hero = {
   typingPhrases: {
     pt: [
       "Olá — sou o Emanuel Ferreira.",
-      "Pipelines, APIs e observabilidade.",
-      "Produtos WELLS e forma de trabalhar.",
+      "Apaixonei-me pela área dos dados.",
+      "Aprendo a construir e a operar sistemas.",
     ],
     en: [
       "Hi — I'm Emanuel Ferreira.",
-      "Pipelines, APIs and observability.",
-      "WELLS products and how I work.",
+      "I fell in love with data work.",
+      "I learn by building and operating systems.",
     ],
   },
   subtitle: {
-    pt: "Construo e opero pipelines, APIs e consola de observação — com changelog, documentação e evidência. WELLS_OS, WELLS_API, Overseer e Warden são o núcleo do meu trabalho. Na Câmara Municipal da Maia, esse mesmo rigor aplica-se ao ecossistema municipal (contexto actual — case study dedicado).",
-    en: "I build and operate pipelines, APIs and an observation console — with changelog, docs and evidence. WELLS_OS, WELLS_API, Overseer and Warden are the core of my work. At Maia City Council, that same rigor applies to the municipal ecosystem (current context — dedicated case study).",
+    pt: "Construo e opero pipelines, APIs e observabilidade — com documentação, changelog e evidência do que corre. O meu contexto profissional actual é a Câmara Municipal da Maia; o case study conta essa história com mais detalhe.",
+    en: "I build and operate pipelines, APIs and observability — with documentation, changelog and evidence of what runs. My current professional context is Maia City Council; the case study tells that story in more detail.",
   } as Bi,
   ctaProjects: { pt: "Ver projetos", en: "View projects" } as Bi,
   ctaMaia: { pt: "Case study Maia", en: "Maia case study" } as Bi,
@@ -57,18 +57,18 @@ export const evidence = {
   eyebrow: { pt: "Em números", en: "At a glance" } as Bi,
   items: [
     {
+      value: "4+",
+      label: { pt: "anos na área dos dados", en: "years in data work" } as Bi,
+      confirmed: true,
+    },
+    {
       value: "6+",
       label: { pt: "pipelines em produção", en: "production pipelines" } as Bi,
       confirmed: true,
     },
     {
-      value: "3",
-      label: { pt: "normas ISO no SGM", en: "ISO standards in the MS" } as Bi,
-      confirmed: true,
-    },
-    {
-      value: "4",
-      label: { pt: "estágios orientados", en: "internships mentored" } as Bi,
+      value: "2",
+      label: { pt: "sistemas open source", en: "open-source systems" } as Bi,
       confirmed: true,
     },
   ],
@@ -94,8 +94,8 @@ export const projects = {
   eyebrow: { pt: "Projetos", en: "Projects" } as Bi,
   title: { pt: "Sistemas seleccionados", en: "Selected systems" } as Bi,
   intro: {
-    pt: "Sistemas meus (WELLS) e peças do contexto profissional actual. O link GitHub só aparece quando o código é público.",
-    en: "My own systems (WELLS) and pieces from the current professional context. The GitHub link only appears when the code is public.",
+    pt: "Uma amostragem do meu trabalho — o que construo, opero e documento. O link GitHub só aparece quando o código é público.",
+    en: "A sample of my work — what I build, operate and document. The GitHub link only appears when the code is public.",
   } as Bi,
   privateLabel: { pt: "Código privado", en: "Private source" } as Bi,
   kindLabels: {
@@ -107,8 +107,8 @@ export const projects = {
       id: "wells-os",
       name: { pt: "WELLS_OS", en: "WELLS_OS" } as Bi,
       description: {
-        pt: "Consola operacional read-only da equipa: métricas Warden, execuções Overseer e registo de aplicações num só painel. Observa servidores e pipelines sem alterar o runtime — o ponto onde a operação vê o estado primeiro.",
-        en: "The team's read-only operational console: Warden metrics, Overseer runs and an application registry in one panel. It watches servers and pipelines without changing runtime — the place operations see status first.",
+        pt: "Consola operacional read-only: métricas Warden, execuções Overseer e registo de aplicações num só painel. Observa servidores e pipelines sem alterar o runtime — o ponto onde a operação vê o estado primeiro.",
+        en: "Read-only operational console: Warden metrics, Overseer runs and an application registry in one panel. It watches servers and pipelines without changing runtime — the place operations see status first.",
       } as Bi,
       tags: ["Next.js", "React", "PHP API", "Postgres"],
       kind: "professional" as ProjectKind,
@@ -118,8 +118,8 @@ export const projects = {
       id: "wells-api",
       name: { pt: "WELLS_API", en: "WELLS_API" } as Bi,
       description: {
-        pt: "API municipal de integração: datasets do catálogo, tráfego em GeoJSON/NGSI-LD e snapshots do Warden. Único ponto por onde Power BI, dashboards e integrações externas consomem dados normalizados.",
-        en: "Municipal integration API: catalogue datasets, traffic in GeoJSON/NGSI-LD and Warden snapshots. The single point where Power BI, dashboards and external integrations consume normalized data.",
+        pt: "API de integração: datasets do catálogo, tráfego em GeoJSON/NGSI-LD e snapshots do Warden. Ponto único por onde Power BI, dashboards e integrações consomem dados normalizados.",
+        en: "Integration API: catalogue datasets, traffic in GeoJSON/NGSI-LD and Warden snapshots. A single point where Power BI, dashboards and integrations consume normalized data.",
       } as Bi,
       tags: ["PHP", "REST", "MariaDB", "NGSI-LD"],
       kind: "professional" as ProjectKind,
@@ -129,32 +129,10 @@ export const projects = {
       id: "maiatron-hub",
       name: { pt: "MAIATRON-HUB", en: "MAIATRON-HUB" } as Bi,
       description: {
-        pt: "Portal central municipal: autenticação, catálogo de aplicações e navegação unificada. Inclui o DataTron (dados, metas de indicadores e apoio ao Sistema de Gestão) e o Webapp-Medidata (vista clara dos dados Medidata das unidades orgânicas).",
-        en: "Central municipal portal: authentication, application catalogue and unified navigation. Includes DataTron (data, indicator targets and Management System support) and Webapp-Medidata (a clearer view of Medidata data for organisational units).",
+        pt: "Portal central: autenticação, catálogo de aplicações e navegação unificada. Inclui o DataTron (dados, metas de indicadores e apoio ao Sistema de Gestão) e o Webapp-Medidata (vista legível dos dados Medidata das unidades orgânicas).",
+        en: "Central portal: authentication, application catalogue and unified navigation. Includes DataTron (data, indicator targets and Management System support) and Webapp-Medidata (a readable view of Medidata data for organisational units).",
       } as Bi,
       tags: ["PHP", "JavaScript", "MariaDB"],
-      kind: "professional" as ProjectKind,
-      isPrivate: true,
-    },
-    {
-      id: "datatron",
-      name: { pt: "DataTron", en: "DataTron" } as Bi,
-      description: {
-        pt: "Módulo do MAIATRON-HUB para trabalhar dados, metas de indicadores e informação do Sistema de Gestão — com o objectivo de tornar séries de fontes diversas mais interoperáveis e utilizáveis pela equipa.",
-        en: "MAIATRON-HUB module for working with data, indicator targets and Management System information — aimed at making series from diverse sources more interoperable and usable by the team.",
-      } as Bi,
-      tags: ["PHP", "SGM", "Indicadores"],
-      kind: "professional" as ProjectKind,
-      isPrivate: true,
-    },
-    {
-      id: "webapp-medidata",
-      name: { pt: "Webapp-Medidata", en: "Webapp-Medidata" } as Bi,
-      description: {
-        pt: "Módulo que apresenta os dados Medidata das unidades orgânicas de forma mais legível. A integração na base de dados é feita pelo Medidata Pipeline. Desenvolvido por necessidade da equipa e da instituição para melhorar o trabalho diário com esses dados.",
-        en: "Module that presents Medidata data from organisational units in a more readable way. Database integration is handled by the Medidata Pipeline. Built out of team and institutional need to improve day-to-day work with that data.",
-      } as Bi,
-      tags: ["PHP", "JavaScript", "Medidata"],
       kind: "professional" as ProjectKind,
       isPrivate: true,
     },
@@ -186,8 +164,8 @@ export const projects = {
       id: "traffic-flow",
       name: { pt: "Traffic Flow", en: "Traffic Flow" } as Bi,
       description: {
-        pt: "Contagens e velocidades das câmaras urbanas passam a observações normalizadas (GeoJSON / NGSI-LD), prontas para mapas, BI e modelos de cidade inteligente — um exemplo concreto de interoperabilidade de dados urbanos.",
-        en: "Counts and speeds from urban cameras become normalized observations (GeoJSON / NGSI-LD), ready for maps, BI and smart-city models — a concrete example of urban data interoperability.",
+        pt: "Contagens e velocidades das câmaras urbanas passam a observações normalizadas (GeoJSON / NGSI-LD), prontas para mapas, BI e modelos de cidade inteligente.",
+        en: "Counts and speeds from urban cameras become normalized observations (GeoJSON / NGSI-LD), ready for maps, BI and smart-city models.",
       } as Bi,
       tags: ["Python", "NGSI-LD", "Smart Data Models"],
       kind: "professional" as ProjectKind,
@@ -197,8 +175,8 @@ export const projects = {
       id: "weather-api-4-maia",
       name: { pt: "Weather API 4 Maia", en: "Weather API 4 Maia" } as Bi,
       description: {
-        pt: "Pipeline de dados meteorológicos de pontos estratégicos da Maia — a fluir e observado no Overseer. Repositório profissional ainda em evolução.",
-        en: "Weather pipeline from strategic points across Maia — flowing and watched in Overseer. Professional repository still evolving.",
+        pt: "Pipeline de dados meteorológicos de pontos estratégicos — a fluir e observado no Overseer. Repositório ainda em evolução.",
+        en: "Weather pipeline from strategic points — flowing and watched in Overseer. Repository still evolving.",
       } as Bi,
       tags: ["Python", "API", "Overseer"],
       kind: "professional" as ProjectKind,
@@ -208,8 +186,8 @@ export const projects = {
       id: "vacation-mode",
       name: { pt: "Vacation Mode", en: "Vacation Mode" } as Bi,
       description: {
-        pt: "Google Apps Script que lê uma grelha anual de férias, conta dias e sincroniza com o Google Calendar. Hobby pessoal — não faz parte da stack municipal.",
-        en: "Google Apps Script that reads an annual vacation grid, counts days and syncs with Google Calendar. Personal hobby — not part of the municipal stack.",
+        pt: "Google Apps Script que lê uma grelha anual de férias, conta dias e sincroniza com o Google Calendar.",
+        en: "Google Apps Script that reads an annual vacation grid, counts days and syncs with Google Calendar.",
       } as Bi,
       tags: ["Google Apps Script", "JavaScript"],
       githubUrl: "https://github.com/emanuwells/Vacation_Mode",
@@ -246,8 +224,8 @@ export const experience = {
   eyebrow: { pt: "Experiência", en: "Experience" } as Bi,
   title: { pt: "Contexto actual · Câmara Municipal da Maia", en: "Current context · Maia City Council" } as Bi,
   intro: {
-    pt: "Emprego actual na área de dados e programação: pipelines, documentação, operação e apoio ao Sistema de Gestão. O case study Maia detalha o ecossistema; aqui o foco é o contributo e a forma de trabalhar.",
-    en: "Current role in data and programming: pipelines, documentation, operations and Management System support. The Maia case study details the ecosystem; here the focus is the contribution and how the work is done.",
+    pt: "Desde 2022 trabalho em dados e programação: pipelines, documentação, operação e apoio ao Sistema de Gestão. O case study Maia detalha o ecossistema; aqui fica o essencial do contributo.",
+    en: "Since 2022 I've worked in data and programming: pipelines, documentation, operations and Management System support. The Maia case study details the ecosystem; here is the essence of the contribution.",
   } as Bi,
   linkLabel: { pt: "Abrir case study", en: "Open case study" } as Bi,
   milestones: [
@@ -268,10 +246,10 @@ export const experience = {
       progress: 88,
     },
     {
-      title: { pt: "Operação e equipa", en: "Operations and team" } as Bi,
+      title: { pt: "Operação e documentação", en: "Operations and documentation" } as Bi,
       description: {
-        pt: "Observabilidade, documentação, máquinas e mentoria de estágios em projetos reais.",
-        en: "Observability, documentation, machines and mentoring interns on real projects.",
+        pt: "Observabilidade, documentação e operação das máquinas que fazem o sistema correr.",
+        en: "Observability, documentation and operating the machines that keep the system running.",
       } as Bi,
       progress: 85,
     },
@@ -281,19 +259,28 @@ export const experience = {
 export const about = {
   eyebrow: { pt: "Sobre", en: "About" } as Bi,
   title: { pt: "Emanuel Ferreira", en: "Emanuel Ferreira" } as Bi,
-  intro: {
-    pt: "Produtos pessoais sob a marca WELLS (consola, API, Overseer, Warden) e uma forma de trabalhar deliberada: docs em português europeu, changelog, operação com evidência e sistemas que a equipa consegue manter. Prefiro arquitecturas simples e contratos claros. Online: emanuwells.",
-    en: "Personal products under the WELLS brand (console, API, Overseer, Warden) and a deliberate way of working: docs in European Portuguese, changelog, evidence-backed operations and systems the team can maintain. I prefer simple architectures and clear contracts. Online: emanuwells.",
+  lead: {
+    pt: "Apaixonei-me pela área dos dados — e construo sistemas para os tornar utilizáveis.",
+    en: "I fell in love with data work — and I build systems to make data usable.",
   } as Bi,
+  paragraphs: [
+    {
+      pt: "Sou o Emanuel Ferreira. Trabalho em pipelines, APIs e observabilidade: ligar fontes, limpar o que entra, expor o que importa e vigiar o que corre. Prefiro arquitecturas simples, contratos claros e entregas com evidência.",
+      en: "I'm Emanuel Ferreira. I work on pipelines, APIs and observability: connecting sources, cleaning what comes in, exposing what matters and watching what runs. I prefer simple architectures, clear contracts and deliveries with evidence.",
+    } as Bi,
+    {
+      pt: "Sou Técnico de Gestão de Redes e Sistemas Informáticos. A formação não é em dados — mas dá-me base sólida em redes, sistemas e operação, e isso ajuda no dia-a-dia com infraestrutura, máquinas e o resto das valências que o trabalho pede.",
+      en: "I'm a Network and Computer Systems Management technician. The training isn't in data — but it gives me a solid base in networks, systems and operations, and that helps day-to-day with infrastructure, machines and the other skills the work asks for.",
+    } as Bi,
+    {
+      pt: "Quase tudo o que sei de engenharia de dados e software aprendi por conta própria: estudar, construir, falhar, melhorar. Procuro as melhores práticas e aplico-as com rigor — documentação em português europeu, changelog e sistemas que alguém consegue operar depois de mim. Online: emanuwells.",
+      en: "Almost everything I know about data engineering and software I taught myself: study, build, fail, improve. I look for best practices and apply them with care — documentation in European Portuguese, changelog and systems someone else can operate after me. Online: emanuwells.",
+    } as Bi,
+  ],
 };
 
 export const contact = {
   eyebrow: { pt: "Contacto", en: "Contact" } as Bi,
-  title: { pt: "Vamos falar do próximo sistema.", en: "Let's talk about the next system." } as Bi,
-  subtitle: {
-    pt: "Disponível para conversas sobre engenharia de dados, interoperabilidade, observabilidade e infraestrutura.",
-    en: "Open to conversations about data engineering, interoperability, observability and infrastructure.",
-  } as Bi,
   githubLabel: { pt: "GitHub", en: "GitHub" } as Bi,
   linkedinLabel: { pt: "LinkedIn", en: "LinkedIn" } as Bi,
   github: "https://github.com/emanuwells",
