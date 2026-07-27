@@ -2,10 +2,10 @@
 
 ## 2026-07-27 — M oficial + polish Maia/portefólio
 
-**Estado:** em curso (fecho)
+**Estado:** concluído  
 
 - [x] M oficial + nav + já ligado
 - [x] Equipa + Resultados
 - [x] CTAs / projetos / skills
 - [x] README
-- [ ] Validar, commit/push main, deploy, smoke
+- [x] Validar, commit/push main, deploy, smoke

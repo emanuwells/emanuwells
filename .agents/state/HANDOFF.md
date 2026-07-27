@@ -1,12 +1,11 @@
 # HANDOFF
 
-- **Última atualização:** 2026-07-27T01:40:00+00:00
-- **Estado:** concluído — squash na `main`, branch apagada, deploy prod
-- **Branch:** `main` (`549aba9`)
-- **PR:** `#3` fechado; branch `cursor/maia-polish-portfolio-2456` apagada
+- **Última atualização:** 2026-07-27T02:00:00+00:00
+- **Estado:** concluído — M oficial + polish Maia/portefólio
+- **Branch:** `main`
 - **URL produção:** `https://emanuwells.vercel.app`
 
-## Estado útil
+## Notas
 
-- Header homogéneo (emanuwells + GitHub + M Maia); FAB ↑↓; Dados Município Maia; Sobre com idade; Experiência sem %; TypingText fix
-- **Próximo passo:** opcional — substituir `maia-m.svg` por crop exacto do PNG oficial se quiseres pixel-perfect; Git Integration Vercel
+- «M» extraído do path oficial `cm_maia_logo.svg` (CM Maia), fill branco.
+- Equipa sem número 4; Resultados com 2 portais Huwise.
