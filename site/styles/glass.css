@@ -53,6 +53,23 @@
   -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
 }
 
+/* Menu mobile: fundo sempre opaco (não herda header transparente do portefólio) */
+.mobile-nav-panel {
+  background: color-mix(in srgb, var(--theme-bg) 97%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+
+@media (max-width: 640px) {
+  .wells-brand--header .wells-brand-title {
+    font-size: 1rem;
+  }
+
+  .mobile-nav-panel {
+    background: var(--theme-bg);
+  }
+}
+
 @keyframes logoGlow {
   0%,
   100% {

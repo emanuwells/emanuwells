@@ -5,7 +5,7 @@
 
 .maia-chapter {
   min-height: min(100vh, 900px);
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .maia-editorial-badge {
@@ -24,7 +24,12 @@
 }
 
 @media (max-width: 640px) {
+  .maia-page {
+    background-attachment: scroll;
+  }
+
   .maia-chapter {
     min-height: auto;
+    scroll-margin-top: 6.25rem;
   }
 }

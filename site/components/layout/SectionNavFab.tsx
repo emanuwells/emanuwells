@@ -61,7 +61,7 @@ export default function SectionNavFab({ sectionIds }: { sectionIds: string[] }) 
 
   return (
     <div
-      className={`fixed bottom-5 right-4 z-40 flex flex-col gap-2 sm:bottom-8 sm:right-6 transition-opacity duration-300 ${
+      className={`section-nav-fab fixed z-40 flex flex-col gap-2 transition-opacity duration-300 ${
         visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
       role="navigation"

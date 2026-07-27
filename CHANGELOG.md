@@ -4,6 +4,10 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ## [Unreleased]
 
+### Fixed
+
+- Mobile: menu com fundo opaco e bloqueio de scroll do body; header Maia compacto («← Portefólio»); Bento em 1 coluna no telemóvel; `overflow-x: clip`; FAB com safe-area; fundo Maia sem `background-attachment: fixed` em viewports estreitos.
+
 ### Changed
 
 - Logo Maia: «M» oficial (path do wordmark CM Maia, branco) no header; nav Maia `text-sm` alinhada ao portefólio.

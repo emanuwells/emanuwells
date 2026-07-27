@@ -7,11 +7,11 @@ import { EASE_OUT_EXPRESSIVE, hoverLift, scaleIn, staggerContainer, useMotionSaf
 export function BentoGrid({ children, className = "" }: { children: ReactNode; className?: string }) {
   const motionSafe = useMotionSafe();
   if (!motionSafe) {
-    return <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 ${className}`}>{children}</div>;
+    return <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ${className}`}>{children}</div>;
   }
   return (
     <motion.div
-      className={`grid grid-cols-2 md:grid-cols-3 gap-4 ${className}`}
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT_ONCE}

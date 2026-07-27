@@ -1,5 +1,11 @@
 # Aprendizagens reutilizáveis
 
+## 2026-07-27 — Menu mobile precisa de fundo próprio (não herdar glass)
+
+**Contexto:** menu aberto no portefólio (header `bg-transparent` / glass 88%) deixava o texto ilegível sobre o conteúdo.  
+**Aprendizagem:** painéis de nav mobile devem ter classe própria com fundo ≥95% opaco (`var(--theme-bg)`); forçar header sólido + `body { overflow: hidden }` enquanto o menu está aberto.  
+**Aplicação futura:** nunca confiar no blur do header para legibilidade de menus overlay em viewports estreitos.
+
 ## 2026-07-27 — Remount com `key` evita typing acelerado
 
 **Contexto:** trocar PT/EN no boot sequence acelerava/bugava as letras.  

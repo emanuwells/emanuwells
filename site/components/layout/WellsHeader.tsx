@@ -86,13 +86,21 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
   const goTo = (id: string) => {
     setOpen(false);
     scrollToSection(id);
   };
 
   const headerClass = `fixed top-0 inset-x-0 z-50 transition-all border-b border-[var(--theme-glass-border)] ${
-    scrolled || variant === "maia" ? "glass-header shadow-sm" : "bg-transparent"
+    scrolled || variant === "maia" || open ? "glass-header shadow-sm" : "bg-transparent"
   }`;
 
   const navBtnClass = (id: string) =>
@@ -117,21 +125,24 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         aria-hidden
       />
 
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <div className="flex items-center gap-2 min-w-0">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6">
+        <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
           {variant === "maia" && (
             <motion.div {...motionNavProps} className="shrink-0">
               <Link
                 href="/"
-                className="text-sm text-[var(--theme-accent)] border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)] transition-colors whitespace-nowrap"
+                className="text-xs sm:text-sm text-[var(--theme-accent)] border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)] transition-colors whitespace-nowrap"
               >
-                ← {t(maiaBackLabel, lang)}
+                <span className="sm:hidden">← Portefólio</span>
+                <span className="hidden sm:inline">← {t(maiaBackLabel, lang)}</span>
               </Link>
             </motion.div>
           )}
-          <PersonalMark variant="header" href="/" />
-          <GithubMarkLink />
-          {variant === "maia" && <MaiaMark />}
+          <div className="min-w-0 truncate">
+            <PersonalMark variant="header" href="/" />
+          </div>
+          <GithubMarkLink className="h-7 w-7 sm:h-8 sm:w-8" />
+          {variant === "maia" && <MaiaMark className="h-7 w-7 sm:h-8 sm:w-8" />}
         </div>
 
         {variant === "portfolio" && (
@@ -178,7 +189,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
           </nav>
         )}
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <motion.button
             type="button"
             onClick={toggle}
@@ -196,7 +207,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
           </motion.button>
           <motion.button
             type="button"
-            className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} px-2.5 py-1.5 text-sm border border-[var(--theme-glass-border)] rounded-md text-[var(--theme-text)]`}
+            className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} px-2 py-1.5 text-sm border border-[var(--theme-glass-border)] rounded-md text-[var(--theme-text)] sm:px-2.5`}
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
@@ -213,7 +224,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
             id={menuId}
             key="mobile-nav"
             aria-label={variant === "maia" ? "Capítulos" : "Principal"}
-            className={`${variant === "portfolio" ? "lg:hidden" : "md:hidden"} overflow-hidden border-t border-[var(--theme-glass-border)]`}
+            className={`mobile-nav-panel ${variant === "portfolio" ? "lg:hidden" : "md:hidden"} overflow-hidden border-t border-[var(--theme-glass-border)]`}
             initial="hidden"
             animate="visible"
             exit="exit"
