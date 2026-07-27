@@ -1,5 +1,11 @@
 # Aprendizagens reutilizáveis
 
+## 2026-07-27 — Remount com `key` evita typing acelerado
+
+**Contexto:** trocar PT/EN no boot sequence acelerava/bugava as letras.  
+**Aprendizagem:** timers do `TypingText` acumulavam estado com frases novas; reset via `key={lang}` no parent remonta o componente limpo sem `setState` num effect (lint React Compiler).  
+**Aplicação futura:** animações com timers ligados a i18n devem remountar por `key` ou cancelar todos os timers na mudança de idioma.
+
 ## 2026-07-27 — Tema `terminal` não é `dark` para CSS de ícones
 
 **Contexto:** logos simple-icons pretos ficavam invisíveis no fundo escuro do portefólio/Maia.  
