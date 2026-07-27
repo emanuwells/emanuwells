@@ -42,19 +42,22 @@ export default function TypingText({
       }
 
       setDeleting(false);
-      setPhraseIndex((value) => (value + 1) % phrases.length);
+      setPhraseIndex((value) => (value + 1) % Math.max(phrases.length, 1));
     }, delay);
 
     return () => window.clearTimeout(timer);
-  }, [charIndex, currentPhrase.length, deleting, phrases.length, reduce]);
+  }, [charIndex, currentPhrase, deleting, phrases.length, reduce]);
 
-  const visibleText = reduce ? phrases[0] : currentPhrase.slice(0, charIndex);
+  const visibleText = reduce ? phrases[0] ?? "" : currentPhrase.slice(0, charIndex);
 
   return (
     <span className={className} aria-live="polite">
       {visibleText}
       {!reduce && (
-        <span className="inline-block w-[2px] h-[0.9em] ml-1 align-[-0.1em] bg-[var(--theme-accent)] animate-pulse" aria-hidden />
+        <span
+          className="inline-block w-[2px] h-[0.9em] ml-1 align-[-0.1em] bg-[var(--theme-accent)] animate-pulse"
+          aria-hidden
+        />
       )}
     </span>
   );

@@ -46,5 +46,4 @@ export const PIPELINE_ICONS: Record<string, string> = {
   medidata: "mysql",
   forms: "microsoftsharepoint",
   traffic: "fiware",
-  risk: "php",
 };

@@ -1,5 +1,11 @@
 # Aprendizagens reutilizáveis
 
+## 2026-07-27 — Tema `terminal` não é `dark` para CSS de ícones
+
+**Contexto:** logos simple-icons pretos ficavam invisíveis no fundo escuro do portefólio/Maia.  
+**Aprendizagem:** o site usa `data-theme="terminal"`. Um selector `:root:not([data-theme="dark"])` anulava o `filter: invert(1)` dos `.tech-icon`. Em temas custom, o invert deve ser o default escuro e só desligar em `[data-theme="light"]`.  
+**Aplicação futura:** ao adicionar filtros CSS por tema, alinhar aos valores reais de `data-theme` (`terminal`, não assumir `dark`).
+
 ## 2026-07-26 — WELLS 0.5.0 concentra IA em `.agents/`
 
 **Contexto:** migrar `emanuwells` do template legado (`AGENTS.md` na raiz, `docs/ai/`, `tasks/`, `tools/ai-adapters/`) para WELLS Agent Runtime 0.5.0.  

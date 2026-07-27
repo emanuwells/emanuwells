@@ -17,7 +17,7 @@ function HeroContent({ lang, onProjects }: { lang: "pt" | "en"; onProjects: () =
       <TerminalPanel title="emanuwells@portfolio ~">
         <p className="text-[var(--theme-accent)] mb-2 text-sm sm:text-base">&gt; boot sequence</p>
         <h1 className="text-xl sm:text-2xl lg:text-3xl text-[var(--theme-text)] leading-snug mb-4">
-          <TypingText phrases={hero.typingPhrases[lang]} />
+          <TypingText key={lang} phrases={hero.typingPhrases[lang]} />
         </h1>
         <p className="text-sm sm:text-base text-[var(--theme-text-muted)] max-w-2xl leading-relaxed">
           {t(hero.subtitle, lang)}

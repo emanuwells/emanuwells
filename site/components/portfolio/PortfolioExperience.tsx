@@ -7,7 +7,6 @@ import Section, { Eyebrow, SectionTitle } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import NeonCard from "@/components/ui/NeonCard";
 import Badge from "@/components/ui/Badge";
-import ProgressBar from "@/components/ui/ProgressBar";
 
 export default function PortfolioExperience() {
   const { lang } = useLang();
@@ -17,7 +16,9 @@ export default function PortfolioExperience() {
       <Reveal>
         <Eyebrow>{t(experience.eyebrow, lang)}</Eyebrow>
         <SectionTitle>{t(experience.title, lang)}</SectionTitle>
-        <p className="text-[var(--color-text-muted)] leading-relaxed max-w-2xl mb-8">{t(experience.intro, lang)}</p>
+        <p className="text-[var(--color-text-muted)] leading-relaxed max-w-2xl mb-8">
+          {t(experience.intro, lang)}
+        </p>
         <Link
           href="/maia"
           className="inline-flex items-center gap-2 text-sm text-[var(--cyber-cyan-bright)] hover:underline mb-10"
@@ -38,11 +39,9 @@ export default function PortfolioExperience() {
               </h3>
               <div className="flex flex-wrap gap-2 mt-2">
                 <Badge variant="lime">{lang === "pt" ? "Câmara Municipal" : "City Council"}</Badge>
-                <Badge variant="neutral">2020 — {lang === "pt" ? "presente" : "present"}</Badge>
+                <Badge variant="neutral">2022 — {lang === "pt" ? "presente" : "present"}</Badge>
+                <Badge variant="cyan">{t(experience.statusActive, lang)}</Badge>
               </div>
-            </div>
-            <div className="w-full sm:w-40">
-              <ProgressBar value={90} color="lime" label="Overall progress" />
             </div>
           </div>
 
@@ -66,12 +65,11 @@ export default function PortfolioExperience() {
                       {t(milestone.description, lang)}
                     </p>
                   </div>
-                  <div className="w-full sm:w-32 shrink-0">
-                    <ProgressBar value={milestone.progress} color={i % 2 === 0 ? "cyan" : "lime"} />
-                    <p className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--cyber-text-muted)] mt-1 text-right">
-                      {milestone.progress}%
-                    </p>
-                  </div>
+                  <Badge variant={milestone.status === "active" ? "lime" : "cyan"}>
+                    {milestone.status === "active"
+                      ? t(experience.statusActive, lang)
+                      : t(experience.statusOngoing, lang)}
+                  </Badge>
                 </div>
               </div>
             ))}

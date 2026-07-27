@@ -6,6 +6,29 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
+- Header homogéneo portefólio/Maia: `emanuwells` → início, ícone GitHub, «M» Maia → dados.cm-maia.pt; label **Dados Município Maia** / **Maia Municipality Data**; sem disclaimer na UI.
+- Navegação seamless: FAB ↑/↓, CTA voltar no fim da Maia, footer GH/LI na Maia, page transition reforçada.
+- Fix TypingText ao trocar PT/EN; Sobre com idade dinâmica (Europe/Lisbon) e frase self-taught + link; Experiência sem % (chips Activo/Em curso, desde 2022).
+- README alinhado (sem idade).
+
+### Changed (anterior)
+
+- Portefólio com voz pessoal: hero e Em números (4+ anos / 6+ pipelines / 2 open source); Sobre com layout reforçado (paixão por dados, TGRSI, self-taught); contacto só links; projetos como amostragem (sem cartões DataTron/Webapp; Vacation Mode limpo); experiência sem mentoria de estágios.
+- README alinhado à mesma narrativa (self-taught, TGRSI, números, tabela enxuta).
+
+### Changed (anterior)
+
+- Case study Maia enxuto: intro com hierarquia forte; bloco «O que já está ligado» (catálogo, Traffic Flow, Weather API 4 Maia); remoção de Pulso/Visível da UI; Observar sem carrossel; Warden = servidor principal.
+- Portefólio e README recentrados na pessoa (produtos WELLS + forma de trabalhar); Maia como contexto profissional + case study; Weather API 4 Maia na grelha; contacto só GitHub e LinkedIn.
+- Tech icons (simple-icons) legíveis em tema `terminal`/`dark` via `filter: invert` (já não anulados pelo selector `:not([data-theme=dark])`).
+
+### Removed
+
+- Risk Improve do case study (conteúdo, pipeline explorer e ícone).
+- Secções UI Pulso da cidade e «O que a cidade mostra» (API `/api/maia/pulse` mantém-se no código).
+
+### Changed (anterior)
+
 - Storytelling do portefólio e case study Maia: tom de equipa (contributo técnico realista), ISO 9001/14001/37120, DataTron, Webapp-Medidata, Huwise, open data e Power BI.
 - README de perfil sem métricas GitHub; diagrama de interoperabilidade e badges ISO.
 - Home sem secção GitHub Signals; capítulo Maia **SGM** (`#governance`).

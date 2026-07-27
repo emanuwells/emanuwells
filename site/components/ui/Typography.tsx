@@ -16,9 +16,17 @@ export function SceneTitle({ children, as: Tag = "h2" }: { children: ReactNode; 
   );
 }
 
-export function HeroTitle({ children }: { children: ReactNode }) {
+export function HeroTitle({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.08] text-balance text-[var(--theme-text)]">
+    <h1
+      className={`font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.08] text-balance text-[var(--theme-text)] ${className}`}
+    >
       {children}
     </h1>
   );

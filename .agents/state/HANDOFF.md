@@ -1,15 +1,15 @@
 # HANDOFF
 
-- **Última atualização:** 2026-07-26T23:55:00+00:00
-- **Estado:** concluído — storytelling + polish + deploy produção
-- **Branch:** `main` (`ac1ef77`)
+- **Última atualização:** 2026-07-27T01:10:00+00:00
+- **Estado:** concluído — voz pessoal portefólio + README
+- **Branch:** `cursor/maia-polish-portfolio-2456` (`fa353d6`)
+- **PR:** https://github.com/emanuwells/emanuwells/pull/3
 - **URL produção:** `https://emanuwells.vercel.app`
 
 ## Estado útil
 
-- **Concluído:** conteúdo equipa/ISO/Huwise/DataTron; README sem stats; home sem GitHub Signals; capítulo SGM; Vercel login + `vercel deploy --prod` OK (alias produção)
+- **Concluído:** hero/números, projetos enxutos, experiência, Sobre B, contacto mínimo, README; deploy prod + smoke `/` 200
 - **Em curso:** N/A
-- **Bloqueios/riscos:** `site/.env.local` gerado pelo `vercel link` — manter fora do Git; Git Integration continua recomendada para pushes futuros
-- **Ficheiros relevantes:** `site/lib/content/*`, `README.md`, `docs/architecture/deployment.md`
-- **Validações:** lint, typecheck, build, validate-project, smoke prod `/` `/maia` `/api/maia/pulse` 200
-- **Próximo passo exato:** opcional — activar Git Integration no dashboard Vercel e `PROFILE_METRICS_PAT`
+- **Bloqueios/riscos:** `main` alinha após merge do PR
+- **Validações:** lint, typecheck, build, validate-project, smoke prod
+- **Próximo passo exacto:** merge PR `#3`
