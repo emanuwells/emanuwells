@@ -6,8 +6,8 @@ export const siteMeta = {
     en: "Emanuel Ferreira — Portfolio",
   } as Bi,
   description: {
-    pt: "Engenharia de dados e sistemas em produção — interoperabilidade, APIs, observabilidade e Sistema de Gestão. Handle: emanuwells.",
-    en: "Data engineering and production systems — interoperability, APIs, observability and management systems. Handle: emanuwells.",
+    pt: "Engenharia de dados e sistemas em produção — produtos WELLS, APIs, observabilidade. Handle: emanuwells.",
+    en: "Data engineering and production systems — WELLS products, APIs, observability. Handle: emanuwells.",
   } as Bi,
   maiaTitle: {
     pt: "Case study · Câmara Municipal da Maia",
@@ -30,24 +30,24 @@ export const portfolioNavItems: { id: string; label: Bi }[] = [
 
 export const hero = {
   title: {
-    pt: "Dados interoperáveis. Sistemas que a equipa consegue operar.",
-    en: "Interoperable data. Systems the team can operate.",
+    pt: "Sistemas de dados que consigo operar — e documentar.",
+    en: "Data systems I can operate — and document.",
   } as Bi,
   typingPhrases: {
     pt: [
       "Olá — sou o Emanuel Ferreira.",
       "Pipelines, APIs e observabilidade.",
-      "Interoperabilidade entre fontes reais.",
+      "Produtos WELLS e forma de trabalhar.",
     ],
     en: [
       "Hi — I'm Emanuel Ferreira.",
       "Pipelines, APIs and observability.",
-      "Interoperability across real sources.",
+      "WELLS products and how I work.",
     ],
   },
   subtitle: {
-    pt: "Na Câmara Municipal da Maia, o trabalho da equipa de dados e programação liga fontes diversas a um contrato comum: catálogo, WELLS_API, Power BI e portais Huwise. O contributo técnico concentra-se em pipelines, documentação, operações e observabilidade — para os dados servirem o Sistema de Gestão e quem decide.",
-    en: "At Maia City Council, the data and programming team's work connects diverse sources into a shared contract: catalogue, WELLS_API, Power BI and Huwise portals. The technical focus is pipelines, documentation, operations and observability — so data serves the Management System and whoever decides.",
+    pt: "Construo e opero pipelines, APIs e consola de observação — com changelog, documentação e evidência. WELLS_OS, WELLS_API, Overseer e Warden são o núcleo do meu trabalho. Na Câmara Municipal da Maia, esse mesmo rigor aplica-se ao ecossistema municipal (contexto actual — case study dedicado).",
+    en: "I build and operate pipelines, APIs and an observation console — with changelog, docs and evidence. WELLS_OS, WELLS_API, Overseer and Warden are the core of my work. At Maia City Council, that same rigor applies to the municipal ecosystem (current context — dedicated case study).",
   } as Bi,
   ctaProjects: { pt: "Ver projetos", en: "View projects" } as Bi,
   ctaMaia: { pt: "Case study Maia", en: "Maia case study" } as Bi,
@@ -94,8 +94,8 @@ export const projects = {
   eyebrow: { pt: "Projetos", en: "Projects" } as Bi,
   title: { pt: "Sistemas seleccionados", en: "Selected systems" } as Bi,
   intro: {
-    pt: "Cada peça serve interoperabilidade: recolher, normalizar, expor e vigiar. O link GitHub só aparece quando o código é público.",
-    en: "Each piece serves interoperability: collect, normalize, expose and watch. The GitHub link only appears when the code is public.",
+    pt: "Sistemas meus (WELLS) e peças do contexto profissional actual. O link GitHub só aparece quando o código é público.",
+    en: "My own systems (WELLS) and pieces from the current professional context. The GitHub link only appears when the code is public.",
   } as Bi,
   privateLabel: { pt: "Código privado", en: "Private source" } as Bi,
   kindLabels: {
@@ -194,6 +194,17 @@ export const projects = {
       isPrivate: true,
     },
     {
+      id: "weather-api-4-maia",
+      name: { pt: "Weather API 4 Maia", en: "Weather API 4 Maia" } as Bi,
+      description: {
+        pt: "Pipeline de dados meteorológicos de pontos estratégicos da Maia — a fluir e observado no Overseer. Repositório profissional ainda em evolução.",
+        en: "Weather pipeline from strategic points across Maia — flowing and watched in Overseer. Professional repository still evolving.",
+      } as Bi,
+      tags: ["Python", "API", "Overseer"],
+      kind: "professional" as ProjectKind,
+      isPrivate: true,
+    },
+    {
       id: "vacation-mode",
       name: { pt: "Vacation Mode", en: "Vacation Mode" } as Bi,
       description: {
@@ -233,18 +244,18 @@ export const skills = {
 
 export const experience = {
   eyebrow: { pt: "Experiência", en: "Experience" } as Bi,
-  title: { pt: "Câmara Municipal da Maia · Dados e Programação", en: "Maia City Council · Data and Programming" } as Bi,
+  title: { pt: "Contexto actual · Câmara Municipal da Maia", en: "Current context · Maia City Council" } as Bi,
   intro: {
-    pt: "Trabalho em equipa na área de dados e programação: pipelines em produção, documentação, operação de máquinas, orientação de estágios e apoio ao Sistema de Gestão. O contributo técnico cobre grande parte da malha de interoperabilidade — do catálogo ao Power BI e aos portais Huwise.",
-    en: "Team work in data and programming: production pipelines, documentation, machine operations, internship mentoring and Management System support. The technical contribution covers much of the interoperability mesh — from catalogue to Power BI and Huwise portals.",
+    pt: "Emprego actual na área de dados e programação: pipelines, documentação, operação e apoio ao Sistema de Gestão. O case study Maia detalha o ecossistema; aqui o foco é o contributo e a forma de trabalhar.",
+    en: "Current role in data and programming: pipelines, documentation, operations and Management System support. The Maia case study details the ecosystem; here the focus is the contribution and how the work is done.",
   } as Bi,
   linkLabel: { pt: "Abrir case study", en: "Open case study" } as Bi,
   milestones: [
     {
       title: { pt: "Interoperabilidade e APIs", en: "Interoperability and APIs" } as Bi,
       description: {
-        pt: "WELLS_API, catálogo, Traffic Flow e exposição a BI e portais.",
-        en: "WELLS_API, catalogue, Traffic Flow and exposure to BI and portals.",
+        pt: "WELLS_API, catálogo, Traffic Flow, Weather API 4 Maia e exposição a BI e portais.",
+        en: "WELLS_API, catalogue, Traffic Flow, Weather API 4 Maia and exposure to BI and portals.",
       } as Bi,
       progress: 92,
     },
@@ -271,8 +282,8 @@ export const about = {
   eyebrow: { pt: "Sobre", en: "About" } as Bi,
   title: { pt: "Emanuel Ferreira", en: "Emanuel Ferreira" } as Bi,
   intro: {
-    pt: "Preferência por arquitecturas simples e contratos claros: cada sistema faz uma coisa, a observabilidade não toca no que observa, e um dado só conta se for rastreável. Trabalho em equipa, em português europeu e inglês; as entregas levam evidência e changelog. Online: emanuwells.",
-    en: "A preference for simple architectures and clear contracts: each system does one thing, observability does not touch what it watches, and data only counts if it is traceable. Team work, in European Portuguese and English; deliveries ship with evidence and a changelog. Online: emanuwells.",
+    pt: "Produtos pessoais sob a marca WELLS (consola, API, Overseer, Warden) e uma forma de trabalhar deliberada: docs em português europeu, changelog, operação com evidência e sistemas que a equipa consegue manter. Prefiro arquitecturas simples e contratos claros. Online: emanuwells.",
+    en: "Personal products under the WELLS brand (console, API, Overseer, Warden) and a deliberate way of working: docs in European Portuguese, changelog, evidence-backed operations and systems the team can maintain. I prefer simple architectures and clear contracts. Online: emanuwells.",
   } as Bi,
 };
 

@@ -155,12 +155,12 @@
 
 .tech-icon {
   display: inline-block;
-  opacity: 0.88;
+  opacity: 0.9;
+  /* simple-icons SVGs are black fills — invert for dark/terminal surfaces */
   filter: brightness(0) invert(1);
 }
 
-[data-theme="light"] .tech-icon,
-:root:not([data-theme="dark"]) .tech-icon {
+[data-theme="light"] .tech-icon {
   filter: none;
   opacity: 0.92;
 }

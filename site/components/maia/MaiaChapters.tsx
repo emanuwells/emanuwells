@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import {
   maiaIntro,
-  maiaVisible,
+  maiaLinked,
   maiaInvisible,
   maiaObserve,
   maiaPeople,
@@ -17,7 +16,6 @@ import Monitoring from "@/components/sections/Monitoring";
 import Infrastructure from "@/components/sections/Infrastructure";
 import Team from "@/components/sections/Team";
 import Results from "@/components/sections/Results";
-import PulsePanel from "@/components/maia/PulsePanel";
 import GlassChapter from "@/components/maia/GlassChapter";
 import ArchitectureDiagram from "@/components/maia/ArchitectureDiagram";
 import { BentoGrid, BentoItem } from "@/components/maia/BentoGrid";
@@ -38,34 +36,54 @@ export default function MaiaChapters() {
 
   return (
     <>
-      <section id="intro" className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center justify-center">
-        <div className="max-w-4xl mx-auto w-full py-16 sm:py-24 relative z-10 flex justify-center">
+      <section
+        id="intro"
+        className="maia-hero-bg maia-chapter px-4 sm:px-6 flex items-center justify-center"
+      >
+        <div className="max-w-5xl mx-auto w-full py-20 sm:py-28 relative z-10">
           <Reveal soft>
-            <div className="glass-card-maia">
+            <div className="text-center sm:text-left">
               <SceneLabel>{t(maiaIntro.eyebrow, lang)}</SceneLabel>
-              <HeroTitle>{t(maiaIntro.title, lang)}</HeroTitle>
-              <p className="text-base sm:text-lg text-[var(--cyber-text-muted)] max-w-2xl mt-4 mb-3 mx-auto">
+              <HeroTitle className="!text-[clamp(2.35rem,6.5vw,4.35rem)] !leading-[1.05] !tracking-[-0.04em] mt-4">
+                {t(maiaIntro.title, lang)}
+              </HeroTitle>
+              <p className="text-base sm:text-xl text-[var(--cyber-text-muted)] max-w-2xl mt-6 mb-3 leading-relaxed">
                 {t(maiaIntro.subtitle, lang)}
               </p>
-              <p className="text-sm text-[var(--cyber-cyan-bright)] max-w-2xl mb-4 mx-auto">{t(maiaIntro.tagline, lang)}</p>
-              <p className="maia-editorial-badge inline-block text-xs">{t(maiaDisclaimer, lang)}</p>
+              <p className="text-sm sm:text-base text-[var(--cyber-cyan-bright)] max-w-2xl mb-6">
+                {t(maiaIntro.tagline, lang)}
+              </p>
+              <div className="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
+                <a
+                  href="#linked"
+                  className="inline-flex items-center justify-center rounded-[999px] border border-[var(--cyber-lime)] bg-[var(--cyber-lime)] px-5 py-2.5 text-sm font-semibold text-[#0a0e17] transition hover:-translate-y-px hover:shadow-[0_0_16px_var(--cyber-lime-glow)]"
+                >
+                  {lang === "pt" ? "Ver o que já está ligado" : "See what is already linked"}
+                </a>
+                <p className="maia-editorial-badge inline-block text-xs">
+                  {t(maiaDisclaimer, lang)}
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <PulsePanel />
-
-      <GlassChapter id="visible" eyebrow={t(maiaVisible.eyebrow, lang)} title={t(maiaVisible.title, lang)}>
-        <p className="maia-editorial-badge inline-block mb-8">{t(maiaVisible.editorialNote, lang)}</p>
+      <GlassChapter
+        id="linked"
+        eyebrow={t(maiaLinked.eyebrow, lang)}
+        title={t(maiaLinked.title, lang)}
+      >
+        <p className="text-[var(--theme-text-muted)] max-w-2xl mb-8">
+          {t(maiaLinked.intro, lang)}
+        </p>
         <BentoGrid>
-          {maiaVisible.items.map((item, i) => (
+          {maiaLinked.items.map((item, i) => (
             <BentoItem key={item.id} accent={BENTO_ACCENTS[i % BENTO_ACCENTS.length]}>
-              <div className="relative h-16 mb-3 maia-layer-optional">
-                <Image src={item.asset} alt="" fill className="object-contain opacity-90" loading="lazy" sizes="100px" />
-              </div>
               <h3 className="font-medium mb-2">{t(item.title, lang)}</h3>
-              <p className="text-sm text-[var(--theme-text-muted)]">{t(item.description, lang)}</p>
+              <p className="text-sm text-[var(--theme-text-muted)]">
+                {t(item.description, lang)}
+              </p>
             </BentoItem>
           ))}
         </BentoGrid>
@@ -75,14 +93,16 @@ export default function MaiaChapters() {
         <GlassPanel className="p-6 sm:p-10 mb-8">
           <SceneLabel>{t(maiaInvisible.eyebrow, lang)}</SceneLabel>
           <SceneTitle>{t(maiaInvisible.title, lang)}</SceneTitle>
-          <p className="text-[var(--theme-text-muted)] max-w-2xl mt-4 mb-8">{t(maiaInvisible.intro, lang)}</p>
+          <p className="text-[var(--theme-text-muted)] max-w-2xl mt-4 mb-8">
+            {t(maiaInvisible.intro, lang)}
+          </p>
           <ArchitectureDiagram />
         </GlassPanel>
         <PipelineStoryExplorer />
       </section>
 
       <section id="observe" className="maia-chapter px-4 sm:px-6 py-12 max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <SceneLabel>{t(maiaObserve.eyebrow, lang)}</SceneLabel>
           <SceneTitle>{t(maiaObserve.title, lang)}</SceneTitle>
         </div>
@@ -92,13 +112,21 @@ export default function MaiaChapters() {
         </div>
       </section>
 
-      <GlassChapter id="governance" eyebrow={t(maiaGovernance.eyebrow, lang)} title={t(maiaGovernance.title, lang)}>
-        <p className="text-[var(--theme-text-muted)] max-w-2xl mb-8">{t(maiaGovernance.intro, lang)}</p>
+      <GlassChapter
+        id="governance"
+        eyebrow={t(maiaGovernance.eyebrow, lang)}
+        title={t(maiaGovernance.title, lang)}
+      >
+        <p className="text-[var(--theme-text-muted)] max-w-2xl mb-8">
+          {t(maiaGovernance.intro, lang)}
+        </p>
         <BentoGrid>
           {maiaGovernance.items.map((item, i) => (
             <BentoItem key={item.id} accent={BENTO_ACCENTS[i % BENTO_ACCENTS.length]}>
               <h3 className="font-medium mb-2">{t(item.title, lang)}</h3>
-              <p className="text-sm text-[var(--theme-text-muted)]">{t(item.description, lang)}</p>
+              <p className="text-sm text-[var(--theme-text-muted)]">
+                {t(item.description, lang)}
+              </p>
             </BentoItem>
           ))}
         </BentoGrid>

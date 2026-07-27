@@ -1,20 +1,18 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Interoperabilidade+de+dados+em+produ%C3%A7%C3%A3o)](https://emanuwells.vercel.app)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Pipelines+%C2%B7+APIs+%C2%B7+observabilidade;Produtos+WELLS+%C2%B7+forma+de+trabalhar)](https://emanuwells.vercel.app)
 
 <br />
 
-Trabalho em equipa na engenharia de dados e sistemas em produção: pipelines, APIs, documentação e observabilidade. O fio condutor é **interoperabilidade** — tornar dados de fontes diversas utilizáveis para o Sistema de Gestão, Power BI e portais.
+Engenharia de dados e sistemas em produção: pipelines, APIs, documentação e observabilidade. Produtos sob a marca **WELLS**, com changelog e evidência. Contexto profissional actual: Câmara Municipal da Maia ([case study](https://emanuwells.vercel.app/maia)).
 
-[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**Open data Maia**](https://dados.cm-maia.pt) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
+[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
 
-## Sobre o trabalho
+## Sobre
 
-- Equipa de dados e programação na Câmara Municipal da Maia — pipelines, catálogo, APIs e operação
-- Apoio ao Sistema de Gestão: **ISO 9001**, **ISO 14001**, **ISO 37120** (indicadores, evidência, amostragem para auditoria das UOs)
-- Power BI: preparação de amostras/factos e datasets; documentação dos workflows em curso
-- Portais Huwise: dados aberto ([dados.cm-maia.pt](https://dados.cm-maia.pt), ainda não completamente aprovado) e portal interno do SGM
-- Orientação de estágios, documentação e operação de máquinas no dia-a-dia
+- Produtos **WELLS**: consola operacional, API de integração, Overseer e Warden
+- Forma de trabalhar: docs em português europeu, changelog, operação com evidência
+- Contexto actual na Câmara Municipal da Maia — pipelines, catálogo, APIs e apoio ao Sistema de Gestão (ISO 9001 / 14001 / 37120); detalhe no [case study](https://emanuwells.vercel.app/maia)
 - Baseado em Portugal · português europeu e inglês
 
 ## Stack
@@ -34,51 +32,25 @@ Trabalho em equipa na engenharia de dados e sistemas em produção: pipelines, A
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/ISO_9001-Qualidade-1e293b?style=flat-square" alt="ISO 9001" />
-  <img src="https://img.shields.io/badge/ISO_14001-Ambiente-1e293b?style=flat-square" alt="ISO 14001" />
-  <img src="https://img.shields.io/badge/ISO_37120-Indicadores_urbanos-1e293b?style=flat-square" alt="ISO 37120" />
-</p>
-
-## Interoperabilidade — o fio condutor
-
-```text
-fontes diversas          contrato comum              consumo
-───────────────          ──────────────              ───────
-INE · Forms · Medidata   Catálogo · DataTron    →    Power BI
-Câmaras · SGM            WELLS_API              →    Huwise (aberto + interno)
-                         NGSI-LD / GeoJSON      →    dashboards · integrações
-                                ▲
-              Overseer · Warden ┘   observabilidade sem tocar no runtime
-                                │
-                           WELLS_OS   consola read-only da operação
-```
-
-- **WELLS_API** — espinha dorsal: datasets, tráfego e telemetria para BI e integrações
-- **WELLS_OS** — sala de controlo: métricas Warden + execuções Overseer num painel read-only
-- **MAIATRON-HUB / DataTron** — portal e módulo para dados, metas de indicadores e SGM
-- **Webapp-Medidata + Medidata Pipeline** — vista legível dos dados das UOs + integração na DB
-
 ## Trabalho seleccionado
 
 | Projecto | Tipo | O que faz | Acesso |
 | --- | --- | --- | --- |
-| [WELLS_OS](https://wells-os.vercel.app) | Profissional | Consola operacional read-only: Warden, Overseer e registo de apps. | Produto activo; código privado |
-| WELLS_API | Profissional | API municipal — datasets, tráfego GeoJSON/NGSI-LD, snapshots Warden. | Em produção; código privado |
-| MAIATRON-HUB / DataTron | Profissional | Portal central + dados, metas e apoio ao Sistema de Gestão. | Interno; código privado |
-| Webapp-Medidata | Profissional | Vista clara dos dados Medidata das unidades orgânicas. | Interno; código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Pipelines, SGM/ISO, portais Huwise e observabilidade — narrativa da equipa. | Página pública |
+| [WELLS_OS](https://wells-os.vercel.app) | Pessoal / profissional | Consola operacional read-only: Warden, Overseer e registo de apps. | Produto activo; código privado |
+| WELLS_API | Profissional | API de integração — datasets, tráfego GeoJSON/NGSI-LD, snapshots Warden. | Em produção; código privado |
 | [Overseer](https://github.com/emanuwells/Overseer) | Profissional | Observabilidade de pipelines: runs, logs, heartbeats, Slack. | Código público |
-| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria de servidores e MariaDB; snapshots para WELLS_API. | Código público |
+| [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria do servidor principal e MariaDB; snapshots para WELLS_API. | Código público |
+| Weather API 4 Maia | Profissional | Meteorologia de pontos estratégicos da Maia — a fluir, observado no Overseer; repo em evolução. | Código privado / WIP |
 | Traffic Flow | Profissional | Contagens urbanas → observações interoperáveis (GeoJSON / NGSI-LD). | Código privado |
+| Webapp-Medidata / DataTron | Profissional | Vista Medidata das UOs + dados, metas e apoio ao SGM. | Interno; código privado |
+| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Contexto municipal: pipelines, SGM/ISO, Huwise e observabilidade. | Página pública |
 | [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Grelha de férias → Google Calendar. | Código público |
 
 ## Foco actual
 
-- Interoperabilidade entre fontes reais e consumo (BI, Huwise, APIs)
-- Documentação dos workflows de amostragem em Power BI
-- Portal de dados aberto Maia (Huwise) — criação e alimentação contínua
-- Observabilidade e operação estáveis para a equipa
+- Produtos WELLS estáveis e documentados
+- Weather API 4 Maia e interoperabilidade no contexto Maia
+- Observabilidade (Overseer + Warden no servidor principal)
 
 <sub>O case study Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>
 

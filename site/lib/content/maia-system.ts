@@ -184,7 +184,7 @@ export const overview = {
 
 export const pipelines = {
   eyebrow: { pt: "Produção de Dados", en: "Data Production" } as Bi,
-  title: { pt: "Seis problemas, seis percursos de dados", en: "Six problems, six data journeys" } as Bi,
+  title: { pt: "Cinco problemas, cinco percursos de dados", en: "Five problems, five data journeys" } as Bi,
   intro: {
     pt: "Escolha um caso. Em vez de listar tecnologia, mostramos a fricção que existia, um exemplo do que entra no sistema e o que muda depois de o pipeline correr.",
     en: "Choose a case. Instead of listing technology, we show the original friction, an example of what enters the system, and what changes after the pipeline runs.",
@@ -370,114 +370,97 @@ export const pipelines = {
         { pt: "GeoJSON, keyValues e NGSI-LD com URN estável", en: "GeoJSON, keyValues and NGSI-LD with stable URN" },
       ] as Bi[],
     },
-    {
-      id: "risk",
-      name: "Risk Improve",
-      role: { pt: "Acompanhar risco até à ação", en: "Track risk through to action" } as Bi,
-      status: { pt: "Em extração controlada", en: "Controlled extraction" } as Bi,
-      problem: {
-        pt: "Riscos, ações de melhoria e indicadores estavam presos a uma aplicação do portal central. Evoluir esse domínio exigia tocar no monólito e aumentar o impacto de cada mudança.",
-        en: "Risks, improvement actions, and indicators were tied to an application in the central portal. Evolving that domain meant touching the monolith and increasing the impact of each change.",
-      } as Bi,
-      example: {
-        label: { pt: "Fluxo operacional", en: "Operational flow" } as Bi,
-        before: "Excel → comparação manual",
-        after: "importar → diff → ativar",
-        note: {
-          pt: "A importação mostra diferenças antes de tornar uma versão ativa; a migração destrutiva continua bloqueada por backup e confirmação.",
-          en: "Import shows differences before making a version active; destructive migration remains gated by backup and confirmation.",
-        } as Bi,
-      },
-      steps: [
-        { pt: "Importa a versão Excel para um pipeline canónico", en: "Imports the Excel version into a canonical pipeline" },
-        { pt: "Calcula diferenças e aplica presets", en: "Calculates differences and applies presets" },
-        { pt: "Liga riscos a ações e indicadores", en: "Connects risks to actions and indicators" },
-        { pt: "Expõe o domínio como serviço independente", en: "Exposes the domain as an independent service" },
-      ] as Bi[],
-      outcome: {
-        pt: "A gestão de risco ganha um ciclo próprio de entrega e uma fronteira clara, sem perder as salvaguardas de migração.",
-        en: "Risk management gains its own delivery cycle and a clear boundary without losing migration safeguards.",
-      } as Bi,
-      tags: ["PHP", "JavaScript", "MySQL"],
-      schedule: { pt: "Extração controlada", en: "Controlled extraction" } as Bi,
-      apiEndpoint: null,
-      highlights: [
-        { pt: "Diff antes de ativar versão importada", en: "Diff before activating imported version" },
-        { pt: "Domínio independente do monólito do portal", en: "Domain independent from portal monolith" },
-      ] as Bi[],
-    },
   ],
 };
 
 export const monitoring = {
   eyebrow: { pt: "Observabilidade", en: "Observability" } as Bi,
-  title: { pt: "Ver tudo sem tocar em nada", en: "See everything, touch nothing" } as Bi,
+  title: {
+    pt: "Duas perguntas, dois sistemas",
+    en: "Two questions, two systems",
+  } as Bi,
   intro: {
-    pt: "Dois sistemas complementares respondem à mesma pergunta — «está tudo bem?» — de ângulos diferentes. O Overseer observa os pipelines; o Warden observa as máquinas. Nenhum executa código de produção: só vigiam. Essa distância é o que os torna fiáveis para a equipa.",
-    en: "Two complementary systems answer the same question — \"is everything ok?\" — from different angles. Overseer watches the pipelines; Warden watches the machines. Neither executes production code: they only watch. That distance is what makes them reliable for the team.",
+    pt: "O Overseer responde «os pipelines correram?» — runs, logs e heartbeats de processos externos. O Warden responde «o servidor principal está saudável?» — CPU, RAM, disco e MariaDB. Nenhum executa código de produção: só observam. Hoje o Warden corre no servidor principal; a expansão a mais hosts está em curso.",
+    en: "Overseer answers \"did the pipelines run?\" — runs, logs and heartbeats from external processes. Warden answers \"is the main server healthy?\" — CPU, RAM, disk and MariaDB. Neither executes production code: they only observe. Today Warden runs on the main server; expansion to more hosts is underway.",
   } as Bi,
   cards: [
     {
       name: "Overseer",
       tagline: {
-        pt: "Observabilidade de pipelines e DAGs",
-        en: "Pipeline and DAG observability",
+        pt: "O que cada pipeline fez — e o que falhou",
+        en: "What each pipeline did — and what failed",
       } as Bi,
       description: {
-        pt: "Recebe catálogo e telemetria por API — runs, logs, heartbeats — e expõe um dashboard só de leitura com o estado de cada pipeline. Se um pipeline devia ter corrido há mais de 24h e não correu, aparece assinalado automaticamente.",
-        en: "Receives catalog and telemetry via API — runs, logs, heartbeats — and exposes a read-only dashboard with each pipeline's status. If a pipeline should have run in the last 24h and didn't, it's automatically flagged.",
+        pt: "Serviço Docker-first de observabilidade: pipelines externos reportam catálogo, runs, módulos e logs por API. O dashboard é só de leitura. Se um job deveria ter corrido e não correu, fica assinalado. Weather API 4 Maia e outros pipelines já reportam aqui.",
+        en: "Docker-first observability service: external pipelines report catalogue, runs, modules and logs via API. The dashboard is read-only. If a job should have run and didn't, it is flagged. Weather API 4 Maia and other pipelines already report here.",
       } as Bi,
       points: {
-        pt: ["Catálogo de pipelines, nodes e edges", "Runs, logs e heartbeats em tempo real", "Deteção automática de pipelines parados"],
-        en: ["Catalog of pipelines, nodes and edges", "Real-time runs, logs and heartbeats", "Automatic detection of stalled pipelines"],
+        pt: [
+          "Catálogo, runs, módulos e heartbeats por API",
+          "Dashboard read-only + alertas Slack",
+          "Não executa o código dos pipelines — só observa",
+        ],
+        en: [
+          "Catalogue, runs, modules and heartbeats via API",
+          "Read-only dashboard + Slack alerts",
+          "Does not run pipeline code — only watches",
+        ],
       },
     },
     {
       name: "Warden",
       tagline: {
-        pt: "Monitorização de servidor e base de dados",
-        en: "Server and database monitoring",
+        pt: "Saúde do servidor principal",
+        en: "Main server health",
       } as Bi,
       description: {
-        pt: "Recolhe CPU, RAM, disco, rede e crescimento da base de dados a cada intervalo definido, e envia alertas para Slack — imediatos em incidentes críticos, com resumo diário para o resto.",
-        en: "Collects CPU, RAM, disk, network and database growth at set intervals, sending Slack alerts — immediate for critical incidents, with a daily digest for the rest.",
+        pt: "Collector Python no servidor principal de produção: CPU, RAM, disco, rede e crescimento MariaDB. Exporta snapshots consumidos pelo WELLS_API e alerta no Slack. A meta é cobrir mais hosts; por agora a telemetria Warden está neste servidor.",
+        en: "Python collector on the main production server: CPU, RAM, disk, network and MariaDB growth. Exports snapshots consumed by WELLS_API and alerts on Slack. The goal is more hosts; for now Warden telemetry is on this server.",
       } as Bi,
       points: {
-        pt: ["Métricas de sistema e de MariaDB", "Alertas Slack imediatos + digest diário", "Limpeza automática de dados antigos"],
-        en: ["System and MariaDB metrics", "Immediate Slack alerts + daily digest", "Automatic cleanup of old data"],
+        pt: [
+          "Métricas de sistema e MariaDB no servidor principal",
+          "Alertas Slack + digest diário",
+          "Expansão a mais hosts em curso",
+        ],
+        en: [
+          "System and MariaDB metrics on the main server",
+          "Slack alerts + daily digest",
+          "Expansion to more hosts underway",
+        ],
       },
     },
   ],
-  exampleLabel: { pt: "Exemplos reais de endpoints expostos", en: "Real exposed endpoint examples" } as Bi,
+  exampleLabel: { pt: "Endpoints de leitura (exemplos)", en: "Read endpoints (examples)" } as Bi,
 };
 
 export const infrastructure = {
   eyebrow: { pt: "Infraestrutura", en: "Infrastructure" } as Bi,
-  title: { pt: "Um servidor, cinco postos de trabalho", en: "One server, five workstations" } as Bi,
+  title: { pt: "Um servidor principal, postos de operação", en: "One main server, operations workstations" } as Bi,
   intro: {
-    pt: "A infraestrutura é deliberadamente simples: um servidor Linux de produção corre a stack Docker-first (Nginx, PHP-FPM, MariaDB), e cinco postos de trabalho Windows municipais servem como pontos de recolha — um deles corre pipelines agendados via Task Scheduler, todos vigiados pelo Warden.",
-    en: "The infrastructure is deliberately simple: one Linux production server runs a Docker-first stack (Nginx, PHP-FPM, MariaDB), and five municipal Windows workstations act as collection points — one of them runs scheduled pipelines via Task Scheduler, all watched by Warden.",
+    pt: "A infraestrutura é deliberadamente simples: um servidor Linux de produção corre a stack Docker-first (Nginx, PHP-FPM, MariaDB) e é onde o Warden recolhe telemetria hoje. Cinco postos Windows municipais servem como pontos de recolha e operação — um deles agenda pipelines via Task Scheduler — sem afirmar cobertura Warden em todos.",
+    en: "The infrastructure is deliberately simple: one Linux production server runs a Docker-first stack (Nginx, PHP-FPM, MariaDB) and is where Warden collects telemetry today. Five municipal Windows workstations act as collection and operations points — one schedules pipelines via Task Scheduler — without claiming Warden coverage on all of them.",
   } as Bi,
   points: [
     {
       title: { pt: "Servidor de produção", en: "Production server" } as Bi,
       description: {
-        pt: "Linux, Docker-first, Nginx + PHP-FPM na frente, MariaDB por trás. Todas as apps do ecossistema partilham a mesma raiz de deploy.",
-        en: "Linux, Docker-first, Nginx + PHP-FPM up front, MariaDB behind it. All ecosystem apps share the same deploy root.",
+        pt: "Linux, Docker-first, Nginx + PHP-FPM, MariaDB. Runtime partilhado das apps do ecossistema — e alvo actual do Warden.",
+        en: "Linux, Docker-first, Nginx + PHP-FPM, MariaDB. Shared runtime for ecosystem apps — and the current Warden target.",
       } as Bi,
     },
     {
       title: { pt: "Postos de trabalho Windows", en: "Windows workstations" } as Bi,
       description: {
-        pt: "Cinco máquinas municipais, cada uma com o seu papel operacional; uma delas corre pipelines agendados automaticamente e reporta saúde ao Warden.",
-        en: "Five municipal machines, each with its own operational role; one of them runs scheduled pipelines automatically and reports health to Warden.",
+        pt: "Máquinas municipais para operação e recolha; pipelines agendados num dos postos. Telemetria Warden nestes hosts ainda não é o estado actual.",
+        en: "Municipal machines for operations and collection; scheduled pipelines on one workstation. Warden telemetry on these hosts is not the current state.",
       } as Bi,
     },
     {
       title: { pt: "Deploy controlado", en: "Controlled deploy" } as Bi,
       description: {
-        pt: "Scripts de publicação com backup automático antes de qualquer alteração em produção, e validação pós-deploy dos endpoints críticos.",
-        en: "Publishing scripts with automatic backup before any production change, and post-deploy validation of critical endpoints.",
+        pt: "Scripts de publicação com backup antes de alterações em produção e validação pós-deploy dos endpoints críticos.",
+        en: "Publishing scripts with backup before production changes and post-deploy validation of critical endpoints.",
       } as Bi,
     },
   ],

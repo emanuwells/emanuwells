@@ -2,8 +2,7 @@ import type { Bi } from "./types";
 
 export const maiaNavItems: { id: string; label: Bi }[] = [
   { id: "intro", label: { pt: "Entrada", en: "Opening" } },
-  { id: "pulse", label: { pt: "Pulso", en: "Pulse" } },
-  { id: "visible", label: { pt: "Visível", en: "Visible" } },
+  { id: "linked", label: { pt: "Ligados", en: "Linked" } },
   { id: "invisible", label: { pt: "Invisível", en: "Invisible" } },
   { id: "observe", label: { pt: "Observar", en: "Observe" } },
   { id: "governance", label: { pt: "SGM", en: "MS" } },
@@ -16,21 +15,22 @@ export const maiaDisclaimer = {
 } as Bi;
 
 export const maiaIntro = {
-  eyebrow: { pt: "Câmara Municipal da Maia", en: "Maia City Council" } as Bi,
+  eyebrow: { pt: "Case study · Maia", en: "Case study · Maia" } as Bi,
   title: {
-    pt: "Dados de muitas fontes, um contrato comum",
-    en: "Data from many sources, one shared contract",
+    pt: "Quando os dados vivem em sítios diferentes, alguém tem de os tornar faláveis.",
+    en: "When data lives in different places, someone has to make it speakable.",
   } as Bi,
   subtitle: {
-    pt: "Os dados municipais chegam de câmaras de trânsito, formulários, estatística oficial e sistemas internos. O trabalho da equipa de dados e programação liga essas origens a catálogo, APIs, Power BI e portais — com apoio concreto ao Sistema de Gestão (ISO 9001, ISO 14001, ISO 37120).",
-    en: "Municipal data arrives from traffic cameras, forms, official statistics and internal systems. The data and programming team's work connects those sources to catalogue, APIs, Power BI and portals — with concrete support for the Management System (ISO 9001, ISO 14001, ISO 37120).",
+    pt: "Este case study mostra como fontes dispersas — trânsito, meteorologia, catálogo, formulários, estatística — passam a um contrato comum: limpar, documentar, expor e vigiar. Interoperabilidade não é um slogan; é o trabalho diário para o Sistema de Gestão, o Power BI e quem decide poder usar o mesmo dado.",
+    en: "This case study shows how dispersed sources — traffic, weather, catalogue, forms, statistics — become a shared contract: clean, document, expose and watch. Interoperability is not a slogan; it is the daily work so the Management System, Power BI and decision-makers can use the same data.",
   } as Bi,
   tagline: {
-    pt: "Foco: interoperabilidade. Narrativa com dados reais quando a fonte o permite.",
-    en: "Focus: interoperability. Narrative with real data when the source allows.",
+    pt: "Contributo técnico em pipelines, APIs e observabilidade — em equipa, com evidência.",
+    en: "Technical contribution on pipelines, APIs and observability — as a team, with evidence.",
   } as Bi,
 };
 
+/** Kept for PulsePanel / API consumers if re-enabled later; not shown in the case study UI. */
 export const maiaPulse = {
   eyebrow: { pt: "Pulso da cidade", en: "City pulse" } as Bi,
   title: { pt: "Tempo e trânsito — sinais públicos", en: "Weather and traffic — public signals" } as Bi,
@@ -46,58 +46,40 @@ export const maiaPulse = {
   loading: { pt: "A carregar…", en: "Loading…" } as Bi,
 };
 
-export const maiaVisible = {
-  eyebrow: { pt: "Experiências visíveis", en: "Visible experiences" } as Bi,
-  title: { pt: "O que a cidade mostra", en: "What the city shows" } as Bi,
-  editorialNote: {
-    pt: "Conteúdo editorial — sem fonte pública estável em tempo real, excepto o pulso IPMA/Traffic Flow.",
-    en: "Editorial content — no stable real-time public source, except the IPMA/Traffic Flow pulse.",
+export const maiaLinked = {
+  eyebrow: { pt: "O que já está ligado", en: "What is already linked" } as Bi,
+  title: {
+    pt: "Três peças concretas — sem inventar o resto",
+    en: "Three concrete pieces — without inventing the rest",
+  } as Bi,
+  intro: {
+    pt: "Há mais dados no município. O contributo técnico documentado aqui concentra-se no que já corre e é observável: catálogo, tráfego e meteorologia local.",
+    en: "There is more municipal data. The technical contribution documented here focuses on what already runs and is observable: catalogue, traffic and local weather.",
   } as Bi,
   items: [
     {
+      id: "catalog",
+      title: { pt: "Catálogo de datasets", en: "Dataset catalogue" } as Bi,
+      description: {
+        pt: "Séries e metadados com linguagem comum — a base para Power BI, DataTron e consumo controlado.",
+        en: "Series and metadata with a shared language — the base for Power BI, DataTron and controlled consumption.",
+      } as Bi,
+    },
+    {
+      id: "traffic",
+      title: { pt: "Traffic Flow", en: "Traffic Flow" } as Bi,
+      description: {
+        pt: "Contagens das câmaras urbanas em observações normalizadas (GeoJSON / NGSI-LD), semi real-time, expostas via WELLS_API.",
+        en: "Urban camera counts as normalized observations (GeoJSON / NGSI-LD), near real-time, exposed via WELLS_API.",
+      } as Bi,
+    },
+    {
       id: "weather",
-      title: { pt: "Meteorologia", en: "Weather" } as Bi,
+      title: { pt: "Weather API 4 Maia", en: "Weather API 4 Maia" } as Bi,
       description: {
-        pt: "Previsão e condições no portal municipal — o painel Pulso usa IPMA em tempo real.",
-        en: "Forecast and conditions in the municipal portal — the Pulse panel uses live IPMA data.",
+        pt: "Pipeline de dados meteorológicos de pontos estratégicos da Maia — a fluir e observado no Overseer; o repositório continua a evoluir.",
+        en: "Weather pipeline from strategic points across Maia — flowing and watched in Overseer; the repository is still evolving.",
       } as Bi,
-      asset: "/maia/illustrations/tend.svg",
-    },
-    {
-      id: "services",
-      title: { pt: "Serviços", en: "Services" } as Bi,
-      description: {
-        pt: "Catálogo de serviços municipais com localização e contexto.",
-        en: "Municipal services catalogue with location and context.",
-      } as Bi,
-      asset: "/maia/category/viver.svg",
-    },
-    {
-      id: "tourism",
-      title: { pt: "Turismo", en: "Tourism" } as Bi,
-      description: {
-        pt: "Percursos, pontos de interesse e narrativa territorial.",
-        en: "Routes, points of interest and territorial narrative.",
-      } as Bi,
-      asset: "/maia/category/visit.svg",
-    },
-    {
-      id: "mobility",
-      title: { pt: "Mobilidade", en: "Mobility" } as Bi,
-      description: {
-        pt: "Fluxos de tráfego via Traffic Flow — das câmaras para mapas e BI, expostos pelo WELLS_API.",
-        en: "Traffic flows via Traffic Flow — from cameras to maps and BI, exposed through WELLS_API.",
-      } as Bi,
-      asset: "/maia/illustrations/persons_inbench.svg",
-    },
-    {
-      id: "events",
-      title: { pt: "Eventos", en: "Events" } as Bi,
-      description: {
-        pt: "Agenda cultural e institucional com contexto local.",
-        en: "Cultural and institutional agenda with local context.",
-      } as Bi,
-      asset: "/maia/illustrations/girl_relaxing.svg",
     },
   ],
 };
@@ -113,7 +95,10 @@ export const maiaInvisible = {
 
 export const maiaObserve = {
   eyebrow: { pt: "Observabilidade", en: "Observability" } as Bi,
-  title: { pt: "Overseer, Warden e infraestrutura", en: "Overseer, Warden and infrastructure" } as Bi,
+  title: {
+    pt: "Ver pipelines e o servidor — sem tocar no que corre",
+    en: "Watch pipelines and the server — without touching what runs",
+  } as Bi,
 };
 
 export const maiaPeople = {
