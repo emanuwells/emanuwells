@@ -73,11 +73,12 @@ export const scaleIn: Variants = {
 };
 
 export const pageEnter: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: EASE_OUT_EXPRESSIVE },
+    filter: "blur(0px)",
+    transition: { duration: 0.55, ease: EASE_OUT_EXPRESSIVE },
   },
 };
 

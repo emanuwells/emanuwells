@@ -9,18 +9,16 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { portfolioNavItems } from "@/lib/content/portfolio";
-import { maiaNavItems, maiaBackLabel, maiaDisclaimer } from "@/lib/content/maia";
+import { portfolioNavItems, maiaPageLabel } from "@/lib/content/portfolio";
+import { maiaNavItems, maiaBackLabel } from "@/lib/content/maia";
 import { useLang, t } from "@/lib/i18n";
 import { menuPanel, tapPress } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scroll";
 import PersonalMark from "@/components/brand/PersonalMark";
+import GithubMarkLink from "@/components/brand/GithubMarkLink";
+import MaiaMark from "@/components/brand/MaiaMark";
 
 export type HeaderVariant = "portfolio" | "maia";
-
-const EXTRA_NAV = [
-  { id: "maia-link", href: "/maia", label: { pt: "Maia", en: "Maia" } },
-] as const;
 
 function NavUnderline({ layoutId }: { layoutId: string }) {
   return (
@@ -120,19 +118,20 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
       />
 
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <div className="flex items-center gap-3 min-w-0">
-          {variant === "maia" ? (
-            <motion.div {...motionNavProps}>
+        <div className="flex items-center gap-2 min-w-0">
+          {variant === "maia" && (
+            <motion.div {...motionNavProps} className="shrink-0">
               <Link
                 href="/"
-                className="text-sm text-[var(--theme-accent)] shrink-0 border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)] transition-colors"
+                className="text-sm text-[var(--theme-accent)] border-b border-transparent pb-0.5 hover:border-[var(--theme-accent)] transition-colors whitespace-nowrap"
               >
                 ← {t(maiaBackLabel, lang)}
               </Link>
             </motion.div>
-          ) : (
-            <PersonalMark variant="header" href="/" />
           )}
+          <PersonalMark variant="header" href="/" />
+          <GithubMarkLink />
+          {variant === "maia" && <MaiaMark />}
         </div>
 
         {variant === "portfolio" && (
@@ -150,16 +149,14 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                 {active === item.id && !reduce && <NavUnderline layoutId={underlineId} />}
               </motion.button>
             ))}
-            {EXTRA_NAV.map((item) => (
-              <motion.div key={item.id} {...motionNavProps}>
-                <Link
-                  href={item.href}
-                  className="relative px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)] transition-colors"
-                >
-                  {t(item.label, lang)}
-                </Link>
-              </motion.div>
-            ))}
+            <motion.div {...motionNavProps}>
+              <Link
+                href="/maia"
+                className="relative px-2.5 py-1.5 text-sm text-[var(--theme-text-muted)] hover:text-[var(--theme-accent)] transition-colors"
+              >
+                {t(maiaPageLabel, lang)}
+              </Link>
+            </motion.div>
           </nav>
         )}
 
@@ -210,12 +207,6 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
         </div>
       </div>
 
-      {variant === "maia" && (
-        <p className="text-center text-[10px] font-[family-name:var(--font-mono)] text-[var(--color-warn)] pb-2 px-4">
-          {t(maiaDisclaimer, lang)}
-        </p>
-      )}
-
       <AnimatePresence initial={false}>
         {open && (
           <motion.nav
@@ -250,7 +241,7 @@ export default function WellsHeader({ variant = "portfolio" }: { variant?: Heade
                   className="py-2.5 text-sm text-[var(--theme-text)] hover:text-[var(--theme-accent)]"
                   onClick={() => setOpen(false)}
                 >
-                  Maia
+                  {t(maiaPageLabel, lang)}
                 </Link>
               )}
               {variant === "maia" &&

@@ -15,14 +15,14 @@ export const maiaDisclaimer = {
 } as Bi;
 
 export const maiaIntro = {
-  eyebrow: { pt: "Case study · Maia", en: "Case study · Maia" } as Bi,
+  eyebrow: { pt: "Dados Município Maia", en: "Maia Municipality Data" } as Bi,
   title: {
     pt: "Quando os dados vivem em sítios diferentes, alguém tem de os tornar faláveis.",
     en: "When data lives in different places, someone has to make it speakable.",
   } as Bi,
   subtitle: {
-    pt: "Este case study mostra como fontes dispersas — trânsito, meteorologia, catálogo, formulários, estatística — passam a um contrato comum: limpar, documentar, expor e vigiar. Interoperabilidade não é um slogan; é o trabalho diário para o Sistema de Gestão, o Power BI e quem decide poder usar o mesmo dado.",
-    en: "This case study shows how dispersed sources — traffic, weather, catalogue, forms, statistics — become a shared contract: clean, document, expose and watch. Interoperability is not a slogan; it is the daily work so the Management System, Power BI and decision-makers can use the same data.",
+    pt: "Esta página mostra como fontes dispersas — trânsito, meteorologia, catálogo, formulários, estatística — passam a um contrato comum: limpar, documentar, expor e vigiar. Interoperabilidade não é um slogan; é o trabalho diário para o Sistema de Gestão, o Power BI e quem decide poder usar o mesmo dado.",
+    en: "This page shows how dispersed sources — traffic, weather, catalogue, forms, statistics — become a shared contract: clean, document, expose and watch. Interoperability is not a slogan; it is the daily work so the Management System, Power BI and decision-makers can use the same data.",
   } as Bi,
   tagline: {
     pt: "Contributo técnico em pipelines, APIs e observabilidade — em equipa, com evidência.",

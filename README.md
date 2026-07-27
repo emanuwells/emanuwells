@@ -1,19 +1,19 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=760&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Apaixonei-me+pela+%C3%A1rea+dos+dados;Aprendo+a+construir+e+a+operar+sistemas)](https://emanuwells.vercel.app)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&pause=1000&color=67E8F9&center=true&vCenter=true&width=780&height=60&lines=Ol%C3%A1!+Sou+o+Emanuel+Ferreira;Apaixonei-me+pela+%C3%A1rea+dos+dados;Aprendo+a+construir+e+a+operar+sistemas)](https://emanuwells.vercel.app)
 
 <br />
 
-Construo e opero pipelines, APIs e observabilidade — com documentação e evidência. Apaixonei-me pela área dos dados; sou Técnico de Gestão de Redes e Sistemas Informáticos e aprendi engenharia de dados e software por conta própria. Contexto profissional actual: Câmara Municipal da Maia ([case study](https://emanuwells.vercel.app/maia)).
+Construo e opero pipelines, APIs e observabilidade — com documentação e evidência. Apaixonei-me pela área dos dados; sou Técnico de Gestão de Redes e Sistemas Informáticos e aprendi engenharia de dados e software por conta própria: estudar, construir, falhar, melhorar — e procuro sempre as melhores práticas. Contexto profissional actual: Câmara Municipal da Maia ([Dados Município Maia](https://emanuwells.vercel.app/maia)).
 
-[**Portefólio**](https://emanuwells.vercel.app) · [**Case study Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
+[**Portefólio**](https://emanuwells.vercel.app) · [**Dados Município Maia**](https://emanuwells.vercel.app/maia) · [**WELLS_OS**](https://wells-os.vercel.app) · [**GitHub**](https://github.com/emanuwells) · [**LinkedIn**](https://www.linkedin.com/in/emanuel-ferreira91)
 
 ## Sobre
 
 - **4+ anos** na área dos dados (desde 2022) · **6+** pipelines em produção · **2** sistemas open source (Overseer, Warden)
 - Formação em redes e sistemas (TGRSI) — base útil para operação e infraestrutura
 - Percurso autodidacta: estudar, construir, documentar; docs em português europeu e changelog
-- Contexto actual na Câmara Municipal da Maia — detalhe no [case study](https://emanuwells.vercel.app/maia)
+- Contexto actual na Câmara Municipal da Maia — detalhe em [Dados Município Maia](https://emanuwells.vercel.app/maia)
 - Baseado em Portugal · português europeu e inglês
 
 ## Stack
@@ -46,7 +46,7 @@ Amostragem do que construo e opero:
 | [Warden](https://github.com/emanuwells/Warden) | Profissional | Telemetria de servidor e MariaDB; snapshots para WELLS_API. | Código público |
 | Weather API 4 Maia | Profissional | Meteorologia de pontos estratégicos — a fluir, observado no Overseer; repo em evolução. | Código privado / WIP |
 | Traffic Flow | Profissional | Contagens urbanas → observações interoperáveis (GeoJSON / NGSI-LD). | Código privado |
-| [Case study Maia](https://emanuwells.vercel.app/maia) | Case study | Pipelines, SGM/ISO, Huwise e observabilidade. | Página pública |
+| [Dados Município Maia](https://emanuwells.vercel.app/maia) | Página | Pipelines, SGM/ISO, Huwise e observabilidade. | Página pública |
 | [Vacation Mode](https://github.com/emanuwells/Vacation_Mode) | Hobby | Grelha de férias → Google Calendar. | Código público |
 
 ## Foco actual
@@ -55,7 +55,7 @@ Amostragem do que construo e opero:
 - Weather API 4 Maia e interoperabilidade no contexto actual
 - Overseer + Warden (open source) no servidor principal
 
-<sub>O case study Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>
+<sub>A página Dados Município Maia é um relato técnico pessoal e não constitui uma publicação oficial da Câmara Municipal da Maia.</sub>
 
 ---
 

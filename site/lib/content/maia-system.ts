@@ -52,8 +52,8 @@ export const hero = {
     en: "View projects",
   } as Bi,
   ctaSecondary: {
-    pt: "Case study Maia",
-    en: "Maia case study",
+    pt: "Dados Município Maia",
+    en: "Maia Municipality Data",
   } as Bi,
   statLabel1: { pt: "anos em dados", en: "years in data" } as Bi,
   statLabel2: { pt: "projetos activos", en: "active projects" } as Bi,
@@ -124,8 +124,8 @@ export const projects = {
 
 export const maiaCaseStudy = {
   eyebrow: {
-    pt: "Case study · Câmara Municipal da Maia",
-    en: "Case study · Maia City Council",
+    pt: "Dados Município Maia",
+    en: "Maia Municipality Data",
   } as Bi,
   title: {
     pt: "Os dados da Maia não começam numa dashboard",

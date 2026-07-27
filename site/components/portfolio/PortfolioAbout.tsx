@@ -1,12 +1,15 @@
 "use client";
 
-import { about } from "@/lib/content";
+import { about, contact } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
+import { ageFromBirthdate, EMANUEL_BIRTHDATE } from "@/lib/age";
 import Section, { Eyebrow } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 
 export default function PortfolioAbout() {
   const { lang } = useLang();
+  const age = ageFromBirthdate(EMANUEL_BIRTHDATE);
+  const intro = t(about.introTemplate, lang).replace("{age}", String(age));
 
   return (
     <Section id="about">
@@ -19,14 +22,24 @@ export default function PortfolioAbout() {
           {t(about.lead, lang)}
         </p>
         <div className="mt-8 max-w-2xl space-y-5">
-          {about.paragraphs.map((paragraph) => (
-            <p
-              key={paragraph.pt}
-              className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-text-muted)]"
+          <p className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-text-muted)]">
+            {intro}
+          </p>
+          <p className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-text-muted)]">
+            {t(about.networks, lang)}
+          </p>
+          <p className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-text-muted)]">
+            {t(about.selfTaughtBefore, lang)}
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[var(--cyber-cyan-bright)] hover:underline"
             >
-              {t(paragraph, lang)}
-            </p>
-          ))}
+              emanuwells
+            </a>
+            .
+          </p>
         </div>
       </Reveal>
     </Section>

@@ -6,6 +6,13 @@ Todas as alterações relevantes deste projeto serão documentadas neste ficheir
 
 ### Changed
 
+- Header homogéneo portefólio/Maia: `emanuwells` → início, ícone GitHub, «M» Maia → dados.cm-maia.pt; label **Dados Município Maia** / **Maia Municipality Data**; sem disclaimer na UI.
+- Navegação seamless: FAB ↑/↓, CTA voltar no fim da Maia, footer GH/LI na Maia, page transition reforçada.
+- Fix TypingText ao trocar PT/EN; Sobre com idade dinâmica (Europe/Lisbon) e frase self-taught + link; Experiência sem % (chips Activo/Em curso, desde 2022).
+- README alinhado (sem idade).
+
+### Changed (anterior)
+
 - Portefólio com voz pessoal: hero e Em números (4+ anos / 6+ pipelines / 2 open source); Sobre com layout reforçado (paixão por dados, TGRSI, self-taught); contacto só links; projetos como amostragem (sem cartões DataTron/Webapp; Vacation Mode limpo); experiência sem mentoria de estágios.
 - README alinhado à mesma narrativa (self-taught, TGRSI, números, tabela enxuta).
 

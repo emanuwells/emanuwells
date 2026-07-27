@@ -6,10 +6,11 @@ import {
   maiaInvisible,
   maiaObserve,
   maiaPeople,
-  maiaDisclaimer,
   maiaGovernance,
+  maiaBackLabel,
 } from "@/lib/content";
 import { useLang, t } from "@/lib/i18n";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import PipelineStoryExplorer from "@/components/PipelineStoryExplorer";
 import Monitoring from "@/components/sections/Monitoring";
@@ -21,6 +22,7 @@ import ArchitectureDiagram from "@/components/maia/ArchitectureDiagram";
 import { BentoGrid, BentoItem } from "@/components/maia/BentoGrid";
 import GlassPanel from "@/components/ui/GlassPanel";
 import { SceneLabel, SceneTitle, HeroTitle } from "@/components/ui/Typography";
+import SiteFooterLinks from "@/components/layout/SiteFooterLinks";
 
 const BENTO_ACCENTS = [
   "var(--theme-bento-meteo)",
@@ -60,9 +62,6 @@ export default function MaiaChapters() {
                 >
                   {lang === "pt" ? "Ver o que já está ligado" : "See what is already linked"}
                 </a>
-                <p className="maia-editorial-badge inline-block text-xs">
-                  {t(maiaDisclaimer, lang)}
-                </p>
               </div>
             </div>
           </Reveal>
@@ -175,6 +174,23 @@ export default function MaiaChapters() {
             </BentoItem>
           ))}
         </BentoGrid>
+      </section>
+
+      <section className="px-4 sm:px-6 py-16 max-w-6xl mx-auto border-t border-[var(--line)]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-12">
+          <p className="text-[var(--theme-text-muted)] max-w-md text-sm leading-relaxed">
+            {lang === "pt"
+              ? "Queres voltar ao portefólio e ver o resto do trabalho?"
+              : "Want to return to the portfolio and see the rest of the work?"}
+          </p>
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-[999px] border border-[var(--cyber-cyan)] px-5 py-2.5 text-sm font-semibold text-[var(--cyber-cyan-bright)] transition hover:bg-[rgba(77,216,232,0.08)]"
+          >
+            ← {t(maiaBackLabel, lang)}
+          </Link>
+        </div>
+        <SiteFooterLinks />
       </section>
     </>
   );

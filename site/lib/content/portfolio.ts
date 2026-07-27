@@ -10,14 +10,20 @@ export const siteMeta = {
     en: "Data engineering and production systems — pipelines, APIs, observability. Handle: emanuwells.",
   } as Bi,
   maiaTitle: {
-    pt: "Case study · Câmara Municipal da Maia",
-    en: "Case study · Maia City Council",
+    pt: "Dados Município Maia",
+    en: "Maia Municipality Data",
   } as Bi,
   maiaDescription: {
     pt: "Como a equipa de dados e programação liga fontes diversas a catálogo, APIs, Power BI e portais — com apoio ao Sistema de Gestão (ISO 9001, 14001, 37120).",
     en: "How the data and programming team connects diverse sources to catalogue, APIs, Power BI and portals — supporting the Management System (ISO 9001, 14001, 37120).",
   } as Bi,
 };
+
+/** Nav / CTA label for the Maia page (portfolio ↔ Maia). */
+export const maiaPageLabel = {
+  pt: "Dados Município Maia",
+  en: "Maia Municipality Data",
+} as Bi;
 
 export const portfolioNavItems: { id: string; label: Bi }[] = [
   { id: "hero", label: { pt: "Início", en: "Home" } },
@@ -46,11 +52,11 @@ export const hero = {
     ],
   },
   subtitle: {
-    pt: "Construo e opero pipelines, APIs e observabilidade — com documentação, changelog e evidência do que corre. O meu contexto profissional actual é a Câmara Municipal da Maia; o case study conta essa história com mais detalhe.",
-    en: "I build and operate pipelines, APIs and observability — with documentation, changelog and evidence of what runs. My current professional context is Maia City Council; the case study tells that story in more detail.",
+    pt: "Construo e opero pipelines, APIs e observabilidade — com documentação, changelog e evidência do que corre. O meu contexto profissional actual é a Câmara Municipal da Maia; a página Dados Município Maia conta essa história com mais detalhe.",
+    en: "I build and operate pipelines, APIs and observability — with documentation, changelog and evidence of what runs. My current professional context is Maia City Council; the Maia Municipality Data page tells that story in more detail.",
   } as Bi,
   ctaProjects: { pt: "Ver projetos", en: "View projects" } as Bi,
-  ctaMaia: { pt: "Case study Maia", en: "Maia case study" } as Bi,
+  ctaMaia: { pt: "Dados Município Maia", en: "Maia Municipality Data" } as Bi,
 };
 
 export const evidence = {
@@ -224,10 +230,12 @@ export const experience = {
   eyebrow: { pt: "Experiência", en: "Experience" } as Bi,
   title: { pt: "Contexto actual · Câmara Municipal da Maia", en: "Current context · Maia City Council" } as Bi,
   intro: {
-    pt: "Desde 2022 trabalho em dados e programação: pipelines, documentação, operação e apoio ao Sistema de Gestão. O case study Maia detalha o ecossistema; aqui fica o essencial do contributo.",
-    en: "Since 2022 I've worked in data and programming: pipelines, documentation, operations and Management System support. The Maia case study details the ecosystem; here is the essence of the contribution.",
+    pt: "Desde 2022 trabalho em dados e programação: pipelines, documentação, operação e apoio ao Sistema de Gestão. A página Dados Município Maia detalha o ecossistema; aqui fica o essencial do contributo.",
+    en: "Since 2022 I've worked in data and programming: pipelines, documentation, operations and Management System support. The Maia Municipality Data page details the ecosystem; here is the essence of the contribution.",
   } as Bi,
-  linkLabel: { pt: "Abrir case study", en: "Open case study" } as Bi,
+  linkLabel: { pt: "Abrir Dados Município Maia", en: "Open Maia Municipality Data" } as Bi,
+  statusActive: { pt: "Activo", en: "Active" } as Bi,
+  statusOngoing: { pt: "Em curso", en: "Ongoing" } as Bi,
   milestones: [
     {
       title: { pt: "Interoperabilidade e APIs", en: "Interoperability and APIs" } as Bi,
@@ -235,7 +243,7 @@ export const experience = {
         pt: "WELLS_API, catálogo, Traffic Flow, Weather API 4 Maia e exposição a BI e portais.",
         en: "WELLS_API, catalogue, Traffic Flow, Weather API 4 Maia and exposure to BI and portals.",
       } as Bi,
-      progress: 92,
+      status: "active" as const,
     },
     {
       title: { pt: "Sistema de Gestão e ISO", en: "Management System and ISO" } as Bi,
@@ -243,7 +251,7 @@ export const experience = {
         pt: "Apoio a ISO 9001, 14001 e 37120 — indicadores, evidência e amostragem para auditoria das UOs.",
         en: "Support for ISO 9001, 14001 and 37120 — indicators, evidence and sampling for organisational-unit audits.",
       } as Bi,
-      progress: 88,
+      status: "ongoing" as const,
     },
     {
       title: { pt: "Operação e documentação", en: "Operations and documentation" } as Bi,
@@ -251,7 +259,7 @@ export const experience = {
         pt: "Observabilidade, documentação e operação das máquinas que fazem o sistema correr.",
         en: "Observability, documentation and operating the machines that keep the system running.",
       } as Bi,
-      progress: 85,
+      status: "active" as const,
     },
   ],
 };
@@ -263,20 +271,19 @@ export const about = {
     pt: "Apaixonei-me pela área dos dados — e construo sistemas para os tornar utilizáveis.",
     en: "I fell in love with data work — and I build systems to make data usable.",
   } as Bi,
-  paragraphs: [
-    {
-      pt: "Sou o Emanuel Ferreira. Trabalho em pipelines, APIs e observabilidade: ligar fontes, limpar o que entra, expor o que importa e vigiar o que corre. Prefiro arquitecturas simples, contratos claros e entregas com evidência.",
-      en: "I'm Emanuel Ferreira. I work on pipelines, APIs and observability: connecting sources, cleaning what comes in, exposing what matters and watching what runs. I prefer simple architectures, clear contracts and deliveries with evidence.",
-    } as Bi,
-    {
-      pt: "Sou Técnico de Gestão de Redes e Sistemas Informáticos. A formação não é em dados — mas dá-me base sólida em redes, sistemas e operação, e isso ajuda no dia-a-dia com infraestrutura, máquinas e o resto das valências que o trabalho pede.",
-      en: "I'm a Network and Computer Systems Management technician. The training isn't in data — but it gives me a solid base in networks, systems and operations, and that helps day-to-day with infrastructure, machines and the other skills the work asks for.",
-    } as Bi,
-    {
-      pt: "Quase tudo o que sei de engenharia de dados e software aprendi por conta própria: estudar, construir, falhar, melhorar. Procuro as melhores práticas e aplico-as com rigor — documentação em português europeu, changelog e sistemas que alguém consegue operar depois de mim. Online: emanuwells.",
-      en: "Almost everything I know about data engineering and software I taught myself: study, build, fail, improve. I look for best practices and apply them with care — documentation in European Portuguese, changelog and systems someone else can operate after me. Online: emanuwells.",
-    } as Bi,
-  ],
+  /** First paragraph uses `{age}` replaced at render time. */
+  introTemplate: {
+    pt: "Sou o Emanuel Ferreira, {age} anos. Trabalho em pipelines, APIs e observabilidade: ligar fontes, limpar o que entra, expor o que importa e vigiar o que corre. Prefiro arquitecturas simples, contratos claros e entregas com evidência.",
+    en: "I'm Emanuel Ferreira, {age} years old. I work on pipelines, APIs and observability: connecting sources, cleaning what comes in, exposing what matters and watching what runs. I prefer simple architectures, clear contracts and deliveries with evidence.",
+  } as Bi,
+  networks: {
+    pt: "Sou Técnico de Gestão de Redes e Sistemas Informáticos. A formação não é em dados — mas dá-me base sólida em redes, sistemas e operação, e isso ajuda no dia-a-dia com infraestrutura, máquinas e o resto das valências que o trabalho pede.",
+    en: "I'm a Network and Computer Systems Management technician. The training isn't in data — but it gives me a solid base in networks, systems and operations, and that helps day-to-day with infrastructure, machines and the other skills the work asks for.",
+  } as Bi,
+  selfTaughtBefore: {
+    pt: "Quase tudo o que sei de engenharia de dados e software aprendi por conta própria: estudar, construir, falhar, melhorar e procuro sempre as melhores práticas e aplicá-las com rigor. Online: ",
+    en: "Almost everything I know about data engineering and software I taught myself: study, build, fail, improve — and I always look for best practices and apply them with care. Online: ",
+  } as Bi,
 };
 
 export const contact = {
